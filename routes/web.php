@@ -6,6 +6,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\LayananKesehatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PanduanGiziController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,9 +62,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/layananKesehatan', [LayananKesehatanController::class, 'index']);
 
-    Route::get('/panduanGizi', function () {
-        return view('layouts.informasi-kesehatan.PanduanGizi');
-    });
+    // Route::get('/panduanGizi', function () {
+    //     return view('layouts.informasi-kesehatan.PanduanGizi');
+    // });
+    
+    Route::get('/panduanGizi', [PanduanGiziController::class, 'index']);
+
     Route::get('/kebijakanProgram', function () {
         return view('layouts.informasi-kesehatan.KebijakanProgram');
     });
@@ -90,4 +94,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/about/auth', [AboutController::class, 'auth']);
     Route::get('/berita/auth', [BeritaController::class, 'auth']);
     Route::get('/layananKesehatan/auth', [LayananKesehatanController::class, 'auth']);
+    Route::get('/panduanGizi/auth', [PanduanGiziController::class, 'auth']);
 });

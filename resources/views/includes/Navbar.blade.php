@@ -89,7 +89,7 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/panduanGizi">Panduan Gizi</a></li>
+                        <li><a class="dropdown-item" href="/panduanGizi/auth">Panduan Gizi</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
