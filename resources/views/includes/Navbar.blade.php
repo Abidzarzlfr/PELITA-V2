@@ -112,7 +112,7 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kampanyeAcara">Kampanye & Acara</a>
+                            <a class="dropdown-item" href="/kampanyeAcara/auth">Kampanye & Acara</a>
                         </li>
                     </ul>
                 </li>
@@ -130,6 +130,7 @@
             <a class="btn btn-dark me-2" href="/login">Login</a>
             <a class="btn btn-primary" href="/register">Register</a>
             @else <!-- Jika pengguna sudah login -->
+            <a class="btn btn-primary me-2" disabled>{{ Auth::user()->name }}</a>
             <a href="/logout" class="btn btn-danger me-2">Logout</a>
             <!-- </form> -->
             <a href="">
