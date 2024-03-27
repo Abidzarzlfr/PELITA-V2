@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KalkulatorStuntingController;
 use App\Http\Controllers\KebijakanProgramController;
 use App\Http\Controllers\LayananKesehatanController;
 use App\Http\Controllers\LoginController;
@@ -82,9 +83,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/statistik', [StatistikController::class, 'index']);
 
-    Route::get('/kalkulatorStunting', function () {
-        return view('layouts.informasi-kesehatan.KalkulatorStunting');
-    });
+    // Route::get('/kalkulatorStunting', function () {
+    //     return view('layouts.informasi-kesehatan.KalkulatorStunting');
+    // });
+
+    Route::get('/kalkulatorStunting', [KalkulatorStuntingController::class, 'index']);
+
     Route::get('/kampanyeAcara', function () {
         return view('layouts.informasi-kesehatan.KampanyeAcara');
     });
@@ -105,4 +109,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/panduanGizi/auth', [PanduanGiziController::class, 'auth']);
     Route::get('/kebijakanProgram/auth', [KebijakanProgramController::class, 'auth']);
     Route::get('/statistik/auth', [StatistikController::class, 'auth']);
+    Route::get('/kalkulatorStunting/auth', [KalkulatorStuntingController::class, 'auth']);
 });

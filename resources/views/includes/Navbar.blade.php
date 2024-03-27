@@ -106,7 +106,7 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kalkulatorStunting">Kalkulator Stunting</a>
+                            <a class="dropdown-item" href="/kalkulatorStunting/auth">Kalkulator Stunting</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
