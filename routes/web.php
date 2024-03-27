@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -21,9 +22,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', function () {
-        return view('Beranda');
-    });
+    // Route::get('/', function () {
+    //     return view('Beranda');
+    // });
+    Route::get('/', [BerandaController::class, 'index']);
 
     // Route::get('/login', function () {
     //     return view('auth.Login');
@@ -64,10 +66,16 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/kampanyeAcara', function () {
         return view('layouts.informasi-kesehatan.KampanyeAcara');
     });
+});
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/logout', [LogoutController::class,'logout']);
+
     Route::get('/forumKomunitas', function () {
         return view('layouts.ForumKomunitas');
     });
+
+    Route::get('/beranda/auth', [BerandaController::class, 'auth']);
+
 });
-
-Route::get('/logout', [LogoutController::class,'logout']);
-
