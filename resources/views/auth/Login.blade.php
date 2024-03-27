@@ -21,7 +21,7 @@
         @endforeach
       </div>
       @endif
-      <form action="" method="POST">
+      <form action="/login" method="POST">
         @csrf
         <div class="input-group mb-3 mt-5">
           <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
@@ -37,7 +37,7 @@
         <a href=""> Lupa password! </a>
       </div>
       <div class="card-text">
-        <a href=""> Belum punya akun? </a>
+        <a href="/register"> Belum punya akun? </a>
       </div>
     </div>
   </div>
