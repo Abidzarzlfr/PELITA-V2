@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary-subtle sticky-top">
     <div class="container">
-        
+
         <!-- Logo -->
         @guest <!-- Jika pengguna belum login -->
         <a class="navbar-brand text-primary fw-bolder fs-3" href="/">PELITA</a>
@@ -12,7 +12,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        @endguest 
+        @endguest
 
         <!-- Navbar Feature -->
         <div class="fitur-navbar collapse navbar-collapse" id="navbarSupportedContent">
@@ -94,7 +94,7 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kebijakanProgram">Kebijakan & Program</a>
+                            <a class="dropdown-item" href="/kebijakanProgram/auth">Kebijakan & Program</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />

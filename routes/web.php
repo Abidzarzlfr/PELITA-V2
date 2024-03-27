@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KebijakanProgramController;
 use App\Http\Controllers\LayananKesehatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -68,9 +69,12 @@ Route::group(['middleware' => 'guest'], function () {
     
     Route::get('/panduanGizi', [PanduanGiziController::class, 'index']);
 
-    Route::get('/kebijakanProgram', function () {
-        return view('layouts.informasi-kesehatan.KebijakanProgram');
-    });
+    // Route::get('/kebijakanProgram', function () {
+    //     return view('layouts.informasi-kesehatan.KebijakanProgram');
+    // });
+
+    Route::get('/kebijakanProgram', [KebijakanProgramController::class, 'index']);
+
     Route::get('/statistik', function () {
         return view('layouts.informasi-kesehatan.Statistik');
     });
@@ -95,4 +99,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/berita/auth', [BeritaController::class, 'auth']);
     Route::get('/layananKesehatan/auth', [LayananKesehatanController::class, 'auth']);
     Route::get('/panduanGizi/auth', [PanduanGiziController::class, 'auth']);
+    Route::get('/kebijakanProgram/auth', [KebijakanProgramController::class, 'auth']);
 });
