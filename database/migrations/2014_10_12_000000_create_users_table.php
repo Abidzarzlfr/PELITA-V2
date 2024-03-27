@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['user', 'dokter', 'admin'])->default('user');
+            $table->enum('dokter_request_status', ['requested', 'not requested', 'approved'])->default('not requested');
+            $table->string('foto')->nullable();
+            $table->string('dokter_nik')->nullable();
+            $table->string('dokter_nip')->nullable();
+            $table->string('dokter_detail')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

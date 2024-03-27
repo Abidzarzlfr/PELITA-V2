@@ -21,6 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'dokter_request_status',
+        'foto',
+        'dokter_nik',
+        'dokter_nip',
+        'dokter_detail',
     ];
 
     /**
