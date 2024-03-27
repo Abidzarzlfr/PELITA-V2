@@ -75,7 +75,7 @@
                     <a class="nav-link active fw-semibold" aria-current="page" href="/beranda/auth">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/about">About</a>
+                    <a class="nav-link fw-semibold" href="/about/auth">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fw-semibold" href="/berita">Berita</a>

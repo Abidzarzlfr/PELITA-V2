@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -17,9 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('beranda');
-// });
 
 Route::group(['middleware' => 'guest'], function () {
     // Route::get('/', function () {
@@ -42,9 +40,13 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [RegisterController::class, 'register']);
 
     // layouts
-    Route::get('/about', function () {
-        return view('layouts.About');
-    });
+
+    // Route::get('/about', function () {
+    //     return view('layouts.About');
+    // });
+    
+    Route::get('/about', [AboutController::class, 'index']);
+
     Route::get('/berita', function () {
         return view('layouts.Berita');
     });
@@ -77,5 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('/beranda/auth', [BerandaController::class, 'auth']);
+    Route::get('/about/auth', [AboutController::class, 'auth']);
 
 });
