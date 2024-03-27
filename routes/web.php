@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +23,12 @@ Route::group(['middleware' => 'guest'], function () {
         return view('Beranda');
     });
 
-    Route::get('/login', function () {
-        return view('auth.Login');
-    });
+    // Route::get('/login', function () {
+    //     return view('auth.Login');
+    // });
 
-    // Route::get('/login', [LoginController::class, 'index']);
-    // Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/login', [LoginController::class, 'index']);
+    Route::post('/login', [LoginController::class, 'login']);
 
     Route::get('/register', function () {
         return view('auth.Register');
