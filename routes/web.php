@@ -57,7 +57,7 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::get('/berita', function () {
     //     return view('layouts.Berita');
     // });
-    
+
     Route::get('/berita', [BeritaController::class, 'index']);
 
     // Route::get('/layananKesehatan', function () {
@@ -69,7 +69,7 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::get('/panduanGizi', function () {
     //     return view('layouts.informasi-kesehatan.PanduanGizi');
     // });
-    
+
     Route::get('/panduanGizi', [PanduanGiziController::class, 'index']);
 
     // Route::get('/kebijakanProgram', function () {
@@ -93,14 +93,16 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::get('/kampanyeAcara', function () {
     //     return view('layouts.informasi-kesehatan.KampanyeAcara');
     // });
-    
+
     Route::get('/kampanyeAcara', [KampanyeAcaraController::class, 'index']);
 });
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profile', function () {
+        return view('layouts.Profile');
+    });
     Route::get('/logout', [LogoutController::class, 'logout']);
-
     Route::get('/forumKomunitas', function () {
         return view('layouts.ForumKomunitas');
     });

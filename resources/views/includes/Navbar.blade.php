@@ -133,7 +133,7 @@
             <a class="btn btn-primary me-2" disabled>{{ Auth::user()->name }}</a>
             <a href="/logout" class="btn btn-danger me-2">Logout</a>
             <!-- </form> -->
-            <a href="">
+            <a href="/profile">
                 <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
             </a>
             @endguest
