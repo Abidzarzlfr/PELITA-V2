@@ -28,9 +28,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            echo "sukses";
-            exit();
-            // return view('beranda');
+            // echo "sukses";
+            // exit();
+            return view('beranda');
         } else {
             return redirect('/login')->withErrors('Username dan password yang dimasukkan salah')->withInput();
         }

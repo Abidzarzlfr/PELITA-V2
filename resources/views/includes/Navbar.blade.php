@@ -67,10 +67,10 @@
             <a class="btn btn-dark ms-2" href="/login">Login</a>
             <a class="btn btn-primary" href="/register">Register</a>
             @else <!-- Jika pengguna sudah login -->
-            <form action="/logout" method="post" style="display: inline;">
-                @csrf
-                <button type="submit" class="btn btn-danger ms-2">Logout</button>
-            </form>
+            <!-- <form action="/logout" method="post" style="display: inline;">
+                @csrf -->
+            <a href="/logout" class="btn btn-danger ms-2">Logout</a>
+            <!-- </form> -->
             <a href="">
                 <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
             </a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,4 +64,6 @@ Route::group(['middleware' => 'guest'], function () {
         return view('layouts.ForumKomunitas');
     });
 });
+
+Route::get('/logout', [LogoutController::class,'logout']);
 
