@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PanduanGiziController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StatistikController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,9 +76,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('/kebijakanProgram', [KebijakanProgramController::class, 'index']);
 
-    Route::get('/statistik', function () {
-        return view('layouts.informasi-kesehatan.Statistik');
-    });
+    // Route::get('/statistik', function () {
+    //     return view('layouts.informasi-kesehatan.Statistik');
+    // });
+
+    Route::get('/statistik', [StatistikController::class, 'index']);
+
     Route::get('/kalkulatorStunting', function () {
         return view('layouts.informasi-kesehatan.KalkulatorStunting');
     });
@@ -100,4 +104,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/layananKesehatan/auth', [LayananKesehatanController::class, 'auth']);
     Route::get('/panduanGizi/auth', [PanduanGiziController::class, 'auth']);
     Route::get('/kebijakanProgram/auth', [KebijakanProgramController::class, 'auth']);
+    Route::get('/statistik/auth', [StatistikController::class, 'auth']);
 });

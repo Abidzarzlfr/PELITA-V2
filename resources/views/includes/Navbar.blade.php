@@ -49,7 +49,7 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/statistik">Statistik Stunting</a>
+                            <a class="dropdown-item" href="/statistik">Statistik</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -100,7 +100,7 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/statistik">Statistik Stunting</a>
+                            <a class="dropdown-item" href="/statistik/auth">Statistik</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
