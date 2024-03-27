@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -44,12 +45,15 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::get('/about', function () {
     //     return view('layouts.About');
     // });
-    
+
     Route::get('/about', [AboutController::class, 'index']);
 
-    Route::get('/berita', function () {
-        return view('layouts.Berita');
-    });
+    // Route::get('/berita', function () {
+    //     return view('layouts.Berita');
+    // });
+    
+    Route::get('/berita', [BeritaController::class, 'index']);
+
     Route::get('/layananKesehatan', function () {
         return view('layouts.informasi-kesehatan.LayananKesehatan');
     });
@@ -72,7 +76,7 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/logout', [LogoutController::class,'logout']);
+    Route::get('/logout', [LogoutController::class, 'logout']);
 
     Route::get('/forumKomunitas', function () {
         return view('layouts.ForumKomunitas');
@@ -80,5 +84,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/beranda/auth', [BerandaController::class, 'auth']);
     Route::get('/about/auth', [AboutController::class, 'auth']);
-
+    Route::get('/berita/auth', [BeritaController::class, 'auth']);
 });
