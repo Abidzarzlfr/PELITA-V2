@@ -5,7 +5,7 @@
     <div class="card-header bg-primary-subtle fw-bold">Profile</div>
     <div class="card-body">
         <a href="">
-            <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="Profile" class="profile-img rounded-circle mt-3" style="width: 100px; height: 100px" />
+            <img src="{{ Auth::user()->foto }}" alt="Profile" class="profile-img rounded-circle mt-3" style="width: 100px; height: 100px" />
         </a>
         <!-- <h5 class="card-title mt-3">Special title treatment</h5>
           <p class="card-text">
@@ -14,19 +14,19 @@
           </p> -->
         <div class="input-group mb-3 mt-3">
             <span class="input-group-text" id="basic-addon1">Username</span>
-            <input type="text" class="form-control" placeholder="abidzarzlfr" aria-label="Username" aria-describedby="basic-addon1" />
+            <input type="text" class="form-control" placeholder="{{ Auth::user()->name }}" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Email</span>
-            <input type="email" class="form-control" placeholder="abidzarbijehgmail.com" aria-label="Email" aria-describedby="basic-addon1" />
+            <input type="email" class="form-control" placeholder="{{ Auth::user()->email }}" aria-label="Email" aria-describedby="basic-addon1" />
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Status</span>
-            <input type="text" class="form-control" placeholder="User" aria-disabled="true" disabled />
+            <input type="text" class="form-control" placeholder="{{ Auth::user()->role }}" aria-disabled="true" disabled />
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Password</span>
-            <input type="password" class="form-control" placeholder="********" aria-label="Password" aria-describedby="basic-addon1" />
+            <input type="password" class="form-control" placeholder="{{ Auth::user()->password }}" aria-label="Password" aria-describedby="basic-addon1" />
         </div>
         <div class="input-group mb-5">
             <input type="file" class="form-control" id="inputGroupFile02" />
