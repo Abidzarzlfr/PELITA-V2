@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ForumKomunitasController;
+use App\Http\Controllers\InformasiDokterController;
 use App\Http\Controllers\KalkulatorStuntingController;
 use App\Http\Controllers\KampanyeAcaraController;
 use App\Http\Controllers\KebijakanProgramController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\LayananKesehatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PanduanGiziController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatistikController;
 use Illuminate\Support\Facades\Route;
@@ -48,16 +51,11 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/profile', function () {
-        return view('layouts.Profile');
-    });
+    Route::get('/profile', [ProfileController::class, 'index']);
     Route::get('/logout', [LogoutController::class, 'logout']);
-    Route::get('/forumKomunitas', function () {
-        return view('layouts.ForumKomunitas');
-    });
-    Route::get('/informasiDokter', function () {
-        return view('layouts.informasiDokter');
-    });
+    Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
+    Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
+    
 
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
     Route::get('/about/auth', [AboutController::class, 'auth']);
