@@ -27,73 +27,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'guest'], function () {
-    // Route::get('/', function () {
-    //     return view('Beranda');
-    // });
     Route::get('/', [BerandaController::class, 'index']);
-
-    // Route::get('/login', function () {
-    //     return view('auth.Login');
-    // });
-
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
-
-    // Route::get('/register', function () {
-    //     return view('auth.Register');
-    // });
-
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
 
     // layouts
 
-    // Route::get('/about', function () {
-    //     return view('layouts.About');
-    // });
-
     Route::get('/about', [AboutController::class, 'index']);
-
-    // Route::get('/berita', function () {
-    //     return view('layouts.Berita');
-    // });
-
     Route::get('/berita', [BeritaController::class, 'index']);
-
-    // Route::get('/layananKesehatan', function () {
-    //     return view('layouts.informasi-kesehatan.LayananKesehatan');
-    // });
-
     Route::get('/layananKesehatan', [LayananKesehatanController::class, 'index']);
-
-    // Route::get('/panduanGizi', function () {
-    //     return view('layouts.informasi-kesehatan.PanduanGizi');
-    // });
-
     Route::get('/panduanGizi', [PanduanGiziController::class, 'index']);
-
-    // Route::get('/kebijakanProgram', function () {
-    //     return view('layouts.informasi-kesehatan.KebijakanProgram');
-    // });
-
     Route::get('/kebijakanProgram', [KebijakanProgramController::class, 'index']);
-
-    // Route::get('/statistik', function () {
-    //     return view('layouts.informasi-kesehatan.Statistik');
-    // });
-
     Route::get('/statistik', [StatistikController::class, 'index']);
-
-    // Route::get('/kalkulatorStunting', function () {
-    //     return view('layouts.informasi-kesehatan.KalkulatorStunting');
-    // });
-
     Route::get('/kalkulatorStunting', [KalkulatorStuntingController::class, 'index']);
-
-    // Route::get('/kampanyeAcara', function () {
-    //     return view('layouts.informasi-kesehatan.KampanyeAcara');
-    // });
-
     Route::get('/kampanyeAcara', [KampanyeAcaraController::class, 'index']);
 });
 
@@ -110,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('layouts.informasiDokter');
     });
 
-    Route::get('/beranda/auth', [BerandaController::class, 'auth']);
+    Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
     Route::get('/about/auth', [AboutController::class, 'auth']);
     Route::get('/berita/auth', [BeritaController::class, 'auth']);
     Route::get('/layananKesehatan/auth', [LayananKesehatanController::class, 'auth']);
@@ -119,4 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/statistik/auth', [StatistikController::class, 'auth']);
     Route::get('/kalkulatorStunting/auth', [KalkulatorStuntingController::class, 'auth']);
     Route::get('/kampanyeAcara/auth', [KampanyeAcaraController::class, 'auth']);
+
+    // Example Admin Routes
+
+    Route::get('/adminView', function () {
+        return view('layouts.Admin.Admin');
+    });
 });

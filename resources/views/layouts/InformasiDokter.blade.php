@@ -13,7 +13,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
     <div class="card" style="width: 18rem">
@@ -23,7 +23,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
     <div class="card" style="width: 18rem">
@@ -33,7 +33,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
 </div>
