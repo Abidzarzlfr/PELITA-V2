@@ -71,7 +71,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Dokter Routes
 
-    // here //
+    Route::get('/dokter', function () {
+        return view('layouts.Dokter.Dokter');
+    });
+    
 
     // Admin Routes
 

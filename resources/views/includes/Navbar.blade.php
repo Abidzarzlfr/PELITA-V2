@@ -8,10 +8,17 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         @else <!-- Jika pengguna sudah login -->
-        <a class="navbar-brand text-primary fw-bolder fs-3" href="/beranda/auth">PELITA</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            @if (Auth::user()->role == 'user')
+            <a class="navbar-brand text-primary fw-bolder fs-3" href="/beranda/auth">PELITA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @elseif (Auth::user()->role == 'dokter')
+            <a class="navbar-brand text-primary fw-bolder fs-3" href="">PELITA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>    
+            @endif
         @endguest
 
         <!-- Navbar Feature -->
@@ -70,59 +77,73 @@
                 </li> -->
             </ul>
             @else <!-- Jika pengguna sudah login -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-                <li class="nav-item">
-                    <a class="nav-link active fw-semibold" aria-current="page" href="/beranda/auth">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/about/auth">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/berita/auth">Berita</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Informasi Kesehatan
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/layananKesehatan/auth">Layanan Kesehatan</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="/panduanGizi/auth">Panduan Gizi</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/kebijakanProgram/auth">Kebijakan & Program</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/statistik/auth">Statistik</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/kalkulatorStunting/auth">Kalkulator Stunting</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/kampanyeAcara/auth">Kampanye & Acara</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/forumKomunitas">Forum & Komunitas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/informasiDokter">Informasi Dokter</a>
-                </li>
-            </ul>
+                @if (Auth::user()->role == 'user')
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" aria-current="page" href="/beranda/auth">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/about/auth">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/berita/auth">Berita</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Informasi Kesehatan
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/layananKesehatan/auth">Layanan Kesehatan</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="/panduanGizi/auth">Panduan Gizi</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/kebijakanProgram/auth">Kebijakan & Program</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/statistik/auth">Statistik</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/kalkulatorStunting/auth">Kalkulator Stunting</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/kampanyeAcara/auth">Kampanye & Acara</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/forumKomunitas">Forum & Komunitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/informasiDokter">Informasi Dokter</a>
+                    </li>
+                </ul>
+                @elseif (Auth::user()->role == 'dokter')
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" aria-current="page" href="/dokter">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/dokter">Forum & Komunitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/dokter">Informasi Dokter</a>
+                    </li>
+                </ul>
+                @endif
             @endguest
 
             <!-- Navbar Right Side -->
