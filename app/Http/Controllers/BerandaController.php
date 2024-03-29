@@ -13,6 +13,10 @@ class BerandaController extends Controller
 
     public function auth()
     {
-        return view('Beranda');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('Beranda');
+        }
     }
 }

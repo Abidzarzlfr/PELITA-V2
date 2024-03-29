@@ -13,6 +13,10 @@ class BeritaController extends Controller
 
     public function auth()
     {
-        return view('layouts.Berita');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('layouts.Berita');
+        }
     }
 }

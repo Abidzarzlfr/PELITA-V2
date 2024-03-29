@@ -13,6 +13,10 @@ class KampanyeAcaraController extends Controller
 
     public function auth()
     {
-        return view('layouts.informasi-kesehatan.KampanyeAcara');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('layouts.informasi-kesehatan.KampanyeAcara');
+        }
     }
 }

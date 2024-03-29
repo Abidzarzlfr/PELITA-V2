@@ -51,11 +51,13 @@ Route::group(['middleware' => 'guest'], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
+
+    // User Routes
+
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::get('/logout', [LogoutController::class, 'logout']);
     Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
     Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
-    
 
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
     Route::get('/about/auth', [AboutController::class, 'auth']);
@@ -67,7 +69,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/kalkulatorStunting/auth', [KalkulatorStuntingController::class, 'auth']);
     Route::get('/kampanyeAcara/auth', [KampanyeAcaraController::class, 'auth']);
 
-    // Example Admin Routes
+    // Dokter Routes
+
+    // here //
+
+    // Admin Routes
 
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
 });

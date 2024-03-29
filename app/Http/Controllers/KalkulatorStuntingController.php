@@ -13,6 +13,10 @@ class KalkulatorStuntingController extends Controller
 
     public function auth()
     {
-        return view('layouts.informasi-kesehatan.KalkulatorStunting');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('layouts.informasi-kesehatan.KalkulatorStunting');
+        }
     }
 }

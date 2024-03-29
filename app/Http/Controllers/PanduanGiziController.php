@@ -13,6 +13,10 @@ class PanduanGiziController extends Controller
 
     public function auth()
     {
-        return view('layouts.informasi-kesehatan.PanduanGizi');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('layouts.informasi-kesehatan.PanduanGizi');
+        }
     }
 }

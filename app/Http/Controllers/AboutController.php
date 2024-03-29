@@ -13,6 +13,10 @@ class AboutController extends Controller
 
     public function auth()
     {
-        return view('layouts.About');
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('adminView');
+        } else {
+            return view('layouts.About');
+        }
     }
 }
