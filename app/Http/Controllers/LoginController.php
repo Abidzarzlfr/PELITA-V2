@@ -9,6 +9,17 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if (auth()->check()) {
+            // Pengguna sudah terautentikasi
+            $user = auth()->user();
+            if ($user->role == 'user' || $user->role == 'dokter') {
+                return redirect()->route('berandaAuth');
+            } elseif ($user->role == 'admin') {
+                return redirect()->route('adminView');
+            }
+        }
+
+        // Pengguna belum terautentikasi atau rolenya tidak terdefinisi
         return view('auth.Login');
     }
 
