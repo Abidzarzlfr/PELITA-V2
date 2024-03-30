@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
     // User Routes
 
     Route::get('/profile', [ProfileController::class, 'index']);
+    Route::put('/profile', [ProfileController::class, 'edit']);
     Route::get('/logout', [LogoutController::class, 'logout']);
     Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
     Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);

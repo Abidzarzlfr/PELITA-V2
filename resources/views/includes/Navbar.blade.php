@@ -155,7 +155,7 @@
             <a href="/logout" class="btn btn-danger me-2">Logout</a>
             <!-- </form> -->
             <a href="/profile">
-                <img src="{{ Auth::user()->foto }}" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
+                <img src="{{ asset(Auth::user()->foto) }}" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
             </a>
             @endguest
         </div>
