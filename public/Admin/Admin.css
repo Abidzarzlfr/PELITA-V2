@@ -44,6 +44,12 @@
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
+
+    position: sticky;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+
   }
   
   #sidebar-wrapper .sidebar-heading {
