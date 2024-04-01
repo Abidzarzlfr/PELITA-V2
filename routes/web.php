@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DaftarDokterController;
 use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\InformasiDokterController;
 use App\Http\Controllers\KalkulatorStuntingController;
@@ -31,13 +32,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'guest'], function () {
+    // Auth Routes
+
     Route::get('/', [BerandaController::class, 'index']);
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
 
-    // layouts
+    // Before Auth Routes
 
     Route::get('/about', [AboutController::class, 'index']);
     Route::get('/berita', [BeritaController::class, 'index']);
@@ -56,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::put('/profile', [ProfileController::class, 'edit']);
+    Route::put('/daftarDokter', [DaftarDokterController::class, 'daftar']);
     Route::get('/logout', [LogoutController::class, 'logout']);
     Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
     Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
