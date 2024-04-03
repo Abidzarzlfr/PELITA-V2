@@ -4,12 +4,21 @@
 <!-- Widget -->
 <div class="row g-3 my-2">
     <div class="col-md-3">
-        <div class="p-3 bg-primary shadow-sm d-flex justify-content-around align-items-center rounded">
+        <div class="p-3 bg-success shadow-sm d-flex justify-content-around align-items-center rounded">
             <div>
-                <h3 class="fs-2 text-white">{{ \App\Models\User::where('dokter_request_status', 'requested')->count() }}</h3>
-                <p class="fs-5 text-white">Daftar Dokter</p>
+                <h3 class="fs-2 text-white">{{ \App\Models\User::where('role', 'dokter')->count() }}</h3>
+                <p class="fs-5 text-white">Dokter</p>
             </div>
-            <i class="fas fa-chart-line fs-1 text-white border rounded-full secondary-bg p-3"></i>
+            <i class="fas fa-hand-holding-usd fs-1 text-white border rounded-full secondary-bg p-3"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="p-3 bg-warning shadow-sm d-flex justify-content-around align-items-center rounded">
+            <div>
+                <h3 class="fs-2">{{ \App\Models\User::where('dokter_request_status', 'requested')->count() }}</h3>
+                <p class="fs-5">Daftar Dokter</p>
+            </div>
+            <i class="fas fa-chart-line fs-1 border rounded-full secondary-bg p-3"></i>
         </div>
     </div>
 </div>
@@ -48,7 +57,10 @@
                     <td>{{ $user->dokter_nip }}</td>
                     <td>{{ $user->dokter_detail }}</td>
                     <td>
-                        <button type="button" class="btn btn-success mt-1"><i class="fas fa-check"></i></i></button>
+                        <form method="POST" action="{{ route('adminDokterRequest', ['id' => $user->id]) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-success mt-1"><i class="fas fa-check"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endif
@@ -57,7 +69,7 @@
         </table>
     </div>
 
-    <!-- Dokter Request Table -->
+    <!-- Dokter Approved Table -->
     <h3 class="fs-4 mb-3 text-primary mt-2">Dokter Approved Table</h3>
     <div class="col">
         <table class="table table-bordered rounded shadow-sm table-hover">

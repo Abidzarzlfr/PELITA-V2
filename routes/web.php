@@ -80,10 +80,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dokter', function () {
         return view('layouts.Dokter.Dokter');
     });
-    
+
 
     // Admin Routes
 
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
+    Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
 });
