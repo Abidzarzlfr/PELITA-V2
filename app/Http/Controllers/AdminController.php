@@ -9,16 +9,12 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $users = User::all();
+        
         if (auth()->user()->role == 'user' || auth()->user()->role == 'dokter') {
             return redirect()->route('berandaAuth');
         } else {
-            return view('layouts.Admin.Admin');
+            return view('layouts.Admin.Admin', compact('users'));
         }
-    }
-
-    public function showUsers()
-    {
-        $users = User::all();
-        return view('layouts.Admin.Admin', compact('users'));
     }
 }

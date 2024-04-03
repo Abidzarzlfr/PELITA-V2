@@ -84,5 +84,4 @@ Route::group(['middleware' => 'auth'], function () {
     // Admin Routes
 
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
-    Route::get('/adminView', [AdminController::class, 'showUsers']);
 });
