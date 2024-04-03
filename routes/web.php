@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminDokterRequestController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
@@ -84,4 +85,5 @@ Route::group(['middleware' => 'auth'], function () {
     // Admin Routes
 
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
+    Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
 });

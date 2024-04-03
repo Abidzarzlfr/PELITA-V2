@@ -48,9 +48,9 @@
     <!-- Users Table -->
     <h3 class="fs-4 mb-3 text-primary">Users Table</h3>
     <div class="col">
-        <table class="table bg-white rounded shadow-sm table-hover">
+        <table class="table table-striped table-bordered bg-white rounded shadow-sm table-hover">
             <thead>
-                <tr>
+                <tr class="table-primary">
                     <th scope="col" width="50">No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>

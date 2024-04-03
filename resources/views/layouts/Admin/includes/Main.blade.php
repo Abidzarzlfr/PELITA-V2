@@ -27,6 +27,9 @@
                 <!-- Dashboard Admin -->
                 @yield('dashboard')
 
+                <!-- Dokter Request -->
+                @yield('dokterRequest')
+
             </div>
         </div>
     </div>
