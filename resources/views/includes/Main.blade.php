@@ -20,6 +20,25 @@
     <!-- Navbar -->
     @include('includes.Navbar')
     
+        <!-- Modal Confirmation Logout -->
+        <div class="modal fade" id="confirmationLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary-subtle">
+                        <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Confirmation Message</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure want to logout?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                        <a type="button" class="btn btn-danger" href="/logout">Yes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <div class="container">
         <!-- Beranda -->
         @yield('beranda')

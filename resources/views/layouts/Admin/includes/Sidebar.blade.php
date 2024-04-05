@@ -11,6 +11,5 @@
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Stunting</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Forum Komunitas</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Kampanye & Acara Kesehatan Balita</a>
-        <a href="/logout" class="list-group-item list-group-item-action bg-white text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
     </div>
 </div>
