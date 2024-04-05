@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminDokterRequestController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\InformasiDokterController;
 use App\Http\Controllers\KalkulatorStuntingController;
@@ -76,10 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/kampanyeAcara/auth', [KampanyeAcaraController::class, 'auth']);
 
     // Dokter Routes
-
-    Route::get('/dokter', function () {
-        return view('layouts.Dokter.Dokter');
-    });
+    Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
 
 
     // Admin Routes

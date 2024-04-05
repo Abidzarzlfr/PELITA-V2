@@ -15,6 +15,8 @@ class LayananKesehatanController extends Controller
     {
         if (auth()->user()->role == 'admin') {
             return redirect()->route('adminView');
+        } elseif (auth()->user()->role == 'dokter') {
+            return redirect()->route('dokter');
         } else {
             return view('layouts.informasi-kesehatan.LayananKesehatan');
         }
