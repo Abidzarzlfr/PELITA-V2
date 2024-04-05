@@ -57,10 +57,36 @@
                     <td>{{ $user->dokter_nip }}</td>
                     <td>{{ $user->dokter_detail }}</td>
                     <td>
-                        <form method="POST" action="{{ route('adminDokterRequest', ['id' => $user->id]) }}">
+                        <!-- Button Confirmation Dokter Requested -->
+                        <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#confirmationDokterRequested"><i class="fas fa-check"></i></button>
+
+                        <!-- Modal Confirmation Dokter Requested -->
+                        <div class="modal fade" id="confirmationDokterRequested" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-primary-subtle">
+                                        <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Confirmation Message</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want approve this user to be a dokter?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                                        <form method="POST" action="{{ route('adminDokterRequest', ['id' => $user->id]) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Yes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <form method="POST" action="{{ route('adminDokterRequest', ['id' => $user->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-success mt-1"><i class="fas fa-check"></i></button>
-                        </form>
+                        </form> -->
+
                     </td>
                 </tr>
                 @endif

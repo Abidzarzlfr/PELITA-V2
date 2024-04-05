@@ -23,6 +23,13 @@
             @include('layouts.Admin.includes.Navbar')
 
             <div class="container-fluid px-4">
+
+                <!-- Dashboard Admin -->
+                @yield('dashboard')
+
+                <!-- Dokter Request -->
+                @yield('dokterRequest')
+
                 <!-- Modal Confirmation Logout -->
                 <div class="modal fade" id="confirmationLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -41,12 +48,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Dashboard Admin -->
-                @yield('dashboard')
-
-                <!-- Dokter Request -->
-                @yield('dokterRequest')
 
             </div>
         </div>
