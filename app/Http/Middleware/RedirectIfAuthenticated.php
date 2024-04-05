@@ -33,7 +33,9 @@ class RedirectIfAuthenticated
                 if ($user->role == 'admin') {
                     return redirect(RouteServiceProvider::HOME[0]); // Admin redirect ke /home
                 } elseif ($user->role == 'user') {
-                    return redirect(RouteServiceProvider::HOME[1]); // Dokter redirect ke /dashboard
+                    return redirect(RouteServiceProvider::HOME[1]); // User redirect ke /dashboard
+                } elseif ($user->role == 'dokter') {
+                    return redirect(RouteServiceProvider::HOME[2]); // User redirect ke /dashboard
                 } else {
                     // Jika tidak ada peran yang sesuai, lanjutkan dengan eksekusi berikutnya
                     return $next($request);
