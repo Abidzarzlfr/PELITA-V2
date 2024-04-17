@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
 use App\Http\Controllers\BerandaController;
@@ -85,4 +86,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
     Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
+    Route::get('/adminBerita', [AdminBeritaController::class, 'index']);
 });
