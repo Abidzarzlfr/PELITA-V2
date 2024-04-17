@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
+use App\Http\Controllers\AdminKebijakanProgramController;
 use App\Http\Controllers\AdminLayananKesehatanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
@@ -89,4 +90,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
     Route::get('/adminBerita', [AdminBeritaController::class, 'index']);
     Route::get('/adminLayananKesehatan', [AdminLayananKesehatanController::class, 'index']);
+    Route::get('/adminKebijakanProgram', [AdminKebijakanProgramController::class, 'index']);
 });

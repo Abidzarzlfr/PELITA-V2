@@ -6,7 +6,7 @@
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Informasi Dokter</a>
         <a href="/adminBerita" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-paperclip me-2 text-dark"></i>Berita Kesehatan</a>
         <a href="/adminLayananKesehatan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-shopping-cart me-2 text-dark"></i>Layanan Kesehatan</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-gift me-2 text-dark"></i>Kebijakan & Program Kesehatan</a>
+        <a href="/adminKebijakanProgram" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-gift me-2 text-dark"></i>Kebijakan & Program Kesehatan</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-comment-dots me-2 text-dark"></i>Statistik</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Stunting</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Forum Komunitas</a>
