@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
 use App\Http\Controllers\AdminForumKomunitasController;
+use App\Http\Controllers\AdminKampanyeAcaraController;
 use App\Http\Controllers\AdminKebijakanProgramController;
 use App\Http\Controllers\AdminLayananKesehatanController;
 use App\Http\Controllers\BerandaController;
@@ -93,4 +94,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/adminLayananKesehatan', [AdminLayananKesehatanController::class, 'index']);
     Route::get('/adminKebijakanProgram', [AdminKebijakanProgramController::class, 'index']);
     Route::get('/adminForumKomunitas', [AdminForumKomunitasController::class, 'index']);
+    Route::get('/adminKampanyeAcara', [AdminKampanyeAcaraController::class, 'index']);
 });

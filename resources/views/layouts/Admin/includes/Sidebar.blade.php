@@ -10,6 +10,6 @@
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-comment-dots me-2 text-dark"></i>Statistik</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Stunting</a>
         <a href="/adminForumKomunitas" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Forum Komunitas</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Kampanye & Acara Kesehatan Balita</a>
+        <a href="/adminKampanyeAcara" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Kampanye & Acara Kesehatan Balita</a>
     </div>
 </div>
