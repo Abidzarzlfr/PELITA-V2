@@ -39,6 +39,9 @@
                 <!-- Kebijakan & Program -->
                 @yield('kebijakanProgram')
 
+                <!-- Forum & Komunitas -->
+                @yield('forumKomunitas')
+
                 <!-- Modal Confirmation Logout -->
                 <div class="modal fade" id="confirmationLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
