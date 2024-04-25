@@ -1,9 +1,3 @@
-<?php
-
-use Carbon\Carbon;
-
-?>
-
 @extends('includes.Main')
 
 @section('berita')
@@ -15,7 +9,8 @@ use Carbon\Carbon;
     @foreach($beritas as $berita)
     <div class="col-md-4 mt-5 mb-5">
         <div class="card mb-3">
-            <img src="{{ $berita->foto }}" class="card-img-top" alt="..." style="height: 200px;" />
+            <!-- <img src="{{ $berita->foto }}" class="card-img-top" alt="" style="height: 200px;" /> -->
+            <img src="{{ asset($berita->foto) }}" class="card-img-top" alt="" style="height: 200px;" />
             <div class="card-body">
                 <h5 class="fw-bold">{{ $berita->name }}</h5>
                 <p class="card-text">
@@ -25,16 +20,15 @@ use Carbon\Carbon;
                     <button type="button" class="btn btn-dark" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         {{ $berita->kategori }}
                     </button>
-                    @if($berita->tanggal instanceof \Carbon\Carbon)
+                    <!-- @if($berita->tanggal instanceof \Carbon\Carbon)
                     <button type="button" class="btn btn-outline-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         {{ $berita->tanggal->format('d/m/Y') }}
                     </button>
-                    @else
+                    @else -->
                     <button type="button" class="btn btn-outline-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        <!-- {{ $berita->tanggal }} -->
                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $berita->tanggal)->format('d/m/Y') }}
                     </button>
-                    @endif
+                    <!-- @endif -->
                 </div>
             </div>
             <a href="#" class="btn btn-info">View More</a>

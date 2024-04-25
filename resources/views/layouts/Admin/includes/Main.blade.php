@@ -78,7 +78,8 @@
             el.classList.toggle("toggled");
         };
 
-        document.getElementById('file').addEventListener('change', function(event) {
+        // Image logic views
+        document.getElementById('foto').addEventListener('change', function(event) {
             var file = event.target.files[0]; // Mengambil file yang dipilih
             var reader = new FileReader(); // Membuat objek FileReader
 

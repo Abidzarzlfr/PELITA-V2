@@ -91,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
     Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
     Route::get('/adminBerita', [AdminBeritaController::class, 'index']);
+    Route::post('/adminUploadBerita', [AdminBeritaController::class, 'store'])->name('adminUploadBerita');
     Route::get('/adminLayananKesehatan', [AdminLayananKesehatanController::class, 'index']);
     Route::get('/adminKebijakanProgram', [AdminKebijakanProgramController::class, 'index']);
     Route::get('/adminForumKomunitas', [AdminForumKomunitasController::class, 'index']);
