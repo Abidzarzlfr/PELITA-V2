@@ -28,11 +28,9 @@ class AdminBeritaController extends Controller
             'kategori' => 'required',
             'detail' => 'required',
             'tanggal' => 'required|date_format:Y-m-d',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
-
-        // $fotoPath = $request->file('foto')->store('images/berita/');
-        // $fotoName = basename($fotoPath);
 
         $fotoName = null;
 
@@ -53,33 +51,4 @@ class AdminBeritaController extends Controller
 
         return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
     }
-
-
-    // public function store(Request $request) {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'kategori' => 'required',
-    //         'detail' => 'required',
-    //         'tanggal' => 'required|date_format:Y-m-d',
-    //         'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    //     ]);
-
-    //     $berita = new Berita();
-    //     $berita->name = $request->name;
-    //     $berita->kategori = $request->kategori;
-    //     $berita->detail = $request->detail;
-    //     $berita->tanggal = $request->tanggal;
-
-    //     if ($request->hasFile('foto')) {
-    //         $destinationPath = 'images/berita/';
-    //         $image = $request->file('foto');
-    //         $fotoName = "images/berita/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //         $image->storeAs($destinationPath, $fotoName);
-    //         $berita->foto = $fotoName;
-    //     }
-
-    //     $berita->save();
-
-    //     return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
-    // }
 }
