@@ -20,7 +20,7 @@
 
 <body>
   <div class="login">
-    <div class="card position-absolute top-50 start-50 translate-middle bg-white" style="width: 450px">
+    <div class="card shadow position-absolute top-50 start-50 translate-middle bg-white" style="width: 450px">
       <!-- Card Login -->
       <div class="card-body">
         <!-- Header Login -->

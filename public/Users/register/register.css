@@ -1,9 +1,8 @@
 
 
 .register {
-    /* background-image: url('{{ asset("Users/assets/login-regis/login-regis.png") }}'); */
-    /* background-image: url(/public/Users/assets/login-regis/login-regis.png); */
-    background-image: url('{{ asset("Users/assets/login-regis.png") }}');
+    background-image: url('/Users/assets/login-regis/login-regis.png');
+    width: 100%;
     height: 100vh;
     background-size: cover;
 }
