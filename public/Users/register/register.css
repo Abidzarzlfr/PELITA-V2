@@ -1,0 +1,64 @@
+
+
+.register {
+    /* background-image: url('{{ asset("Users/assets/login-regis/login-regis.png") }}'); */
+    /* background-image: url(/public/Users/assets/login-regis/login-regis.png); */
+    background-image: url('{{ asset("Users/assets/login-regis.png") }}');
+    height: 100vh;
+    background-size: cover;
+}
+
+.card {
+    border-radius: 29px;
+}
+
+.card-body {
+    padding: 42px 24px;
+}
+
+.input-group input{
+    height: 50px;
+    font-size: 18px;
+    color: #6C757D;
+    background-color: #F8F9FA;
+}
+
+.fa-envelope, .fa-key, .fa-user {
+    color: #8E0025;
+}
+
+.btn {
+    background-color: #F8F9FA;
+    border-color: #CED4DA;
+    /* border-left: none; */
+}
+
+.forgot-password a{
+    font-size: 14px;
+    color: black;
+}
+
+.header-register, p {
+    font-size: 14px;
+}
+
+.card-title {
+    color: #9D8262;
+}
+
+.button-daftar {
+    height: 50px;
+}
+
+.masuk a {
+    color: #FFB3C6;
+}
+
+.btn-daftar {
+    background-color: #FFB3C6;
+    font-size: 18px;
+}
+
+.btn-daftar:hover {
+    background-color: #FFA4BC;
+}
