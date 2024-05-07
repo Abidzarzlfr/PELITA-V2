@@ -49,6 +49,9 @@
         <!-- Berita Terkini -->
         @yield('berita')
 
+        <!-- Detail Berita Terkini -->
+        @yield('detailBerita')
+
         <!-- Informasi Layanan Kesehatan -->
         @yield('layananKesehatan')
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminLayananKesehatanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
+use App\Http\Controllers\DetailBeritaController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\InformasiDokterController;
@@ -50,7 +51,10 @@ Route::group(['middleware' => 'guest'], function () {
     // Before Auth Routes
 
     Route::get('/about', [AboutController::class, 'index']);
+
     Route::get('/berita', [BeritaController::class, 'index']);
+    Route::get('/detailBerita/{id}', [DetailBeritaController::class, 'index']);
+
     Route::get('/layananKesehatan', [LayananKesehatanController::class, 'index']);
     Route::get('/panduanGizi', [PanduanGiziController::class, 'index']);
     Route::get('/kebijakanProgram', [KebijakanProgramController::class, 'index']);
@@ -70,10 +74,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
     Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
     Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
-
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
     Route::get('/about/auth', [AboutController::class, 'auth']);
+
     Route::get('/berita/auth', [BeritaController::class, 'auth']);
+    Route::get('/detailBerita/auth/{id}', [DetailBeritaController::class, 'auth']);
+
     Route::get('/layananKesehatan/auth', [LayananKesehatanController::class, 'auth']);
     Route::get('/panduanGizi/auth', [PanduanGiziController::class, 'auth']);
     Route::get('/kebijakanProgram/auth', [KebijakanProgramController::class, 'auth']);

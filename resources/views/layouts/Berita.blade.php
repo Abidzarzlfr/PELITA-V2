@@ -31,7 +31,14 @@
                     <!-- @endif -->
                 </div>
             </div>
-            <a href="#" class="btn btn-info">View More</a>
+            <!-- <a href="/detailBerita/{{ $berita->id }}" class="btn btn-info">View More</a> -->
+            @guest
+            <a href="/detailBerita/{{ $berita->id }}" class="btn btn-info">View More</a>
+            @else
+            @if (Auth::user()->role == 'user')
+            <a href="/detailBerita/auth/{{ $berita->id }}" class="btn btn-info">View More</a>
+            @endif
+            @endguest
         </div>
     </div>
     @endforeach
