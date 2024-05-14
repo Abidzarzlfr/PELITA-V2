@@ -53,9 +53,10 @@
         </div>
     </div>
 
+    <!-- Beranda -->
+    @yield('beranda')
+    
     <div class="container">
-        <!-- Beranda -->
-        @yield('beranda')
 
         <!-- About -->
         @yield('about')
@@ -93,7 +94,7 @@
         <!-- Profile -->
         @yield('profile')
 
-        <!-- dokter -->
+        <!-- Dokter Views (ON PROGRESS!) -->
         @yield('dokter')
     </div>
 </body>

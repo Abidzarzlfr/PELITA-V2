@@ -32,7 +32,7 @@ nav .active{
 }
 
 .top-feature {
-    background-image: url('/Users/abidzar/INFORMATION SYSTEM/TA/CODE EX/PELITA/Pelita V2/beranda/img/bg-top-feature.png');
+    background-image: url('/Main/assets/beranda/bg-top-feature.png');
     background-color: var(--bgPink);
     background-repeat: no-repeat;
     background-size: cover;
@@ -121,7 +121,7 @@ nav .active{
 }
 
 .info {
-    background-image: url('/Users/abidzar/INFORMATION SYSTEM/TA/CODE EX/PELITA/Pelita V2/beranda/img/bg-info.png');
+    background-image: url('/Main/assets/beranda/bg-info.png');
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
