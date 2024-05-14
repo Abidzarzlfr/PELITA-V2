@@ -1,0 +1,167 @@
+:root{
+    --primary: #FFB3C6;
+    --secondary: #D4B8A8;
+    --success: #198754;
+    --danger: #DC3545;
+    --warning: #FFC107;
+    --info: #0DCAF0;
+    --light: #F8F9FA;
+    --dark: #0D0708;
+    --border: #DEE2E6;
+    --bg: #FDFCFC;
+    --bgPink: #FFF6F9;
+    --accent: #C2A886;
+
+    --textColor: #0A0708;
+
+    /* --gradient: #198754; */
+    --accent1: #A4D1E5;
+    --accent2: #F8DDC4;
+}
+
+
+body{
+    background-color: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: var(--textColor);
+}
+
+nav .active{
+    font-weight: bold;
+}
+
+.top-feature {
+    background-image: url('/Users/abidzar/INFORMATION SYSTEM/TA/CODE EX/PELITA/Pelita V2/beranda/img/bg-top-feature.png');
+    background-color: var(--bgPink);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 200px;
+}
+
+
+.card-artikel{
+    background-color: var(--secondary);
+    font-size: 11px;
+}
+
+.card-artikel:nth-child(1) {
+    border-radius: 12px 0 0 0;
+}
+.card-artikel:nth-child(2) {
+    border-radius: 0 12px 0 0;
+}
+.card-artikel:nth-last-child(2) {
+    border-radius: 0 0 0 12px;
+}
+
+.card-artikel h5{
+    font-size: 22px;
+}
+
+.card {
+    border-color: var(--border);
+}
+
+.card-icon{
+    height: 160px;
+}
+
+.icon-circle{
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+}
+
+.circle-image {
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.sosmed-circle {
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.top-feature .icon-circle img {
+    margin-top: 15px;
+}
+
+.card-solusi .btn:hover {
+    background-color: var(--primary);
+    border: none;
+}
+.card-solusi a {
+    font-size: 12px;
+}
+
+.layanan-pelita .btn:hover {
+    background-color: var(--primary);
+    border: none;
+}
+.layanan-pelita a {
+    font-size: 14px;
+}
+
+.news-category .active,
+.news-category .btn:hover {
+    background-color: var(--primary);
+    border: none;
+}
+
+.info {
+    background-image: url('/Users/abidzar/INFORMATION SYSTEM/TA/CODE EX/PELITA/Pelita V2/beranda/img/bg-info.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.btn {
+    border: none;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.bg-bg {
+    background-color: var(--bgPink) !important;
+}
+.bg-accent1 {
+    background-color: var(--accent1) !important;
+}
+.bg-accent2 {
+    background-color: var(--accent2) !important;
+}
+.text-black {
+    color: var(--textColor);
+}
+
+.btn-primary{
+    background-color: var(--primary);
+    color: var(--textColor);
+}
+
+.btn-primary:hover{
+    background-color: var(--secondary);
+    color: var(--bg);
+}
+
+footer hr {
+    border-color: var(--primary);
+    border-width: 2px;
+}
