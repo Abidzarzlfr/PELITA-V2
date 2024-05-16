@@ -31,6 +31,9 @@
                     <a class="nav-link active" aria-current="page" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/informasiTerkini">Informasi Terkini</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
@@ -83,6 +86,9 @@
                     <a class="nav-link active" aria-current="page" href="/beranda/auth">Beranda</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/informasiTerkini/auth">Informasi Terkini</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/about/auth">About</a>
                 </li>
                 <li class="nav-item">
@@ -122,13 +128,19 @@
                         <li>
                             <a class="dropdown-item" href="/kampanyeAcara/auth">Kampanye & Acara</a>
                         </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/forumKomunitas">Forum & Komunitas</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/informasiDokter">Informasi Dokter</a>
+                        </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/forumKomunitas">Forum & Komunitas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/informasiDokter">Informasi Dokter</a>
                 </li>
                 <li class="nav-item">
                     <!-- Username -->

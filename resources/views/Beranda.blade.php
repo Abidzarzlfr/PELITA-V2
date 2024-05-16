@@ -18,7 +18,7 @@
             <a class="btn card card-icon" href="#">
               <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
                 <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/beranda/ic-ahli.svg') }}" class="" width="75px" height="75px" alt="" />
+                  <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="75px" height="75px" alt="" />
                 </div>
                 <strong>Informasi Ahli Gizi</strong>
               </div>
@@ -29,7 +29,7 @@
             <a class="btn card card-icon" href="#">
               <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
                 <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/beranda/ic-faskes.svg') }}" class="" width="60px" alt="" />
+                  <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="60px" alt="" />
                 </div>
                 <strong>Lokasi Pelayanan Kesehatan</strong>
               </div>
@@ -40,7 +40,7 @@
             <a class="btn card card-icon" href="#">
               <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
                 <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/beranda/ic-komunitas.svg') }}" class="" width="60px" alt="" />
+                  <img src="{{ asset('Main/assets/main/ic-komunitas.svg') }}" class="" width="60px" alt="" />
                 </div>
                 <strong>Forum Komunitas Orang Tua</strong>
               </div>
@@ -51,7 +51,7 @@
             <a class="btn card card-icon" href="">
               <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
                 <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/beranda/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
+                  <img src="{{ asset('Main/assets/main/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
                 </div>
                 <strong>Grafik Gizi Indonesia</strong>
               </div>
@@ -70,42 +70,42 @@
       <!-- Berita Kesehatan Terkini -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-berita.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-berita.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Berita Kesehatan Terkini</p>
       </a>
       <!-- Menu Sehat Balita -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-menu-kesehatan.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-menu-kesehatan.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Menu Sehat Balita</p>
       </a>
       <!-- Artikel Pendidikan Kesehatan -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-artikel.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-artikel.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Artikel Pendidikan Kesehatan</p>
       </a>
       <!-- Lokasi Pelayanan Kesehatan -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-faskes.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Lokasi Pelayanan Kesehatan</p>
       </a>
       <!-- Program dan Kebijakan -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-program.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-program.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Program dan Kebijakan</p>
       </a>
       <!-- Grafik Gizi Indonesia -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Grafik Gizi Indonesia</p>
       </a>
@@ -114,28 +114,28 @@
       <!-- Informasi Ahli Gizi -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-ahli.svg') }}" class="" width="60px" height="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="60px" height="60px" alt="" />
         </div>
         <p class="fw-bold">Informasi Ahli Gizi</p>
       </a>
       <!-- Kalkulator Gizi -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-kalkulator.svg') }}" class="" width="60px" height="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-kalkulator.svg') }}" class="" width="60px" height="60px" alt="" />
         </div>
         <p class="fw-bold">Kalkulator Gizi</p>
       </a>
       <!-- Forum Komunitas Orang Tua -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-komunitas.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-komunitas.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Forum Komunitas Orang Tua</p>
       </a>
       <!-- Acara Kesehatan Balita -->
       <a class="btn col-2 circle-image" href="#">
         <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/beranda/ic-acara.svg') }}" class="" width="60px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-acara.svg') }}" class="" width="60px" alt="" />
         </div>
         <p class="fw-bold">Acara Kesehatan Balita</p>
       </a>
@@ -157,7 +157,7 @@
     <div class="row">
       <div class="col-4">
         <div class="card">
-          <img src="{{ asset('Main/assets/beranda/berita-1.png') }}" class="card-img-top" alt="" />
+          <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">
               Warna Feses Bayi: Tanda Penting bagi Orang Tua
@@ -176,7 +176,7 @@
       </div>
       <div class="col-4">
         <div class="card">
-          <img src="{{ asset('Main/assets/beranda/berita-2.png') }}" class="card-img-top" alt="" />
+          <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">
               6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!
@@ -192,7 +192,7 @@
       </div>
       <div class="col-4">
         <div class="card">
-          <img src="{{ asset('Main/assets/beranda/berita-3.png') }}" class="card-img-top" alt="" />
+          <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">
               Balita Terlalu Kurus, Awas Malabsorpsi Kronis
@@ -217,27 +217,27 @@
     </h5>
     <div class="row mt-4">
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/promil.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/promil.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Program Kehamilan</p>
       </div>
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/fase-hamil.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/fase-hamil.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Fase Kehamilan</p>
       </div>
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/batita.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/batita.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Fase Batita</p>
       </div>
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/balita.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/balita.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Fase Balita</p>
       </div>
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/resep.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/resep.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Resep</p>
       </div>
       <div class="col-2 circle-image">
-        <img src="{{ asset('Main/assets/beranda/produk.png') }}" class="rounded-circle" alt="" width=100px">
+        <img src="{{ asset('Main/assets/main/produk.png') }}" class="rounded-circle" alt="" width=100px">
         <p class="fw-bold">Rekomendasi Produk</p>
       </div>
     </div>
@@ -264,7 +264,7 @@
     <hr />
     <div class="row">
       <div class="col-2">
-        <img src="{{ asset('Main/assets/beranda/Logo.svg') }}" alt="" />
+        <img src="{{ asset('Main/assets/main/Logo.svg') }}" alt="" />
       </div>
       <div class="col-7 d-flex justify-content-around align-items-center">
         <a href="" class="text-black text-decoration-none">Tentang</a>
@@ -275,16 +275,16 @@
       </div>
       <div class="col-3 d-flex gap-3 justify-content-evenly align-items-center">
         <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/beranda/ic-linkedin.svg') }}" width="20px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-linkedin.svg') }}" width="20px" alt="" />
         </a>
         <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/beranda/ic-ig.svg') }}" width="20px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-ig.svg') }}" width="20px" alt="" />
         </a>
         <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/beranda/ic-github.svg') }}" width="20px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-github.svg') }}" width="20px" alt="" />
         </a>
         <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/beranda/ic-youtube.svg') }}" width="20px" alt="" />
+          <img src="{{ asset('Main/assets/main/ic-youtube.svg') }}" width="20px" alt="" />
         </a>
       </div>
     </div>

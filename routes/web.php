@@ -15,6 +15,7 @@ use App\Http\Controllers\DetailBeritaController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\InformasiDokterController;
+use App\Http\Controllers\InformasiTerkiniController;
 use App\Http\Controllers\KalkulatorStuntingController;
 use App\Http\Controllers\KampanyeAcaraController;
 use App\Http\Controllers\KebijakanProgramController;
@@ -48,8 +49,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
 
-    // Before Auth Routes
+    // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
+    Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index']);
 
+    // Before Auth Routes
     Route::get('/about', [AboutController::class, 'index']);
 
     Route::get('/berita', [BeritaController::class, 'index']);
@@ -86,6 +89,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/statistik/auth', [StatistikController::class, 'auth']);
     Route::get('/kalkulatorStunting/auth', [KalkulatorStuntingController::class, 'auth']);
     Route::get('/kampanyeAcara/auth', [KampanyeAcaraController::class, 'auth']);
+
+    // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
+    Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
