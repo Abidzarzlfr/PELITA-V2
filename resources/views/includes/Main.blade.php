@@ -58,6 +58,9 @@
     <!-- Artikel Pendidikan Kesehatan -->
     @yield('artikelPendidikanKesehatan')
 
+    <!-- Detail Artikel Pendidikan Kesehatan -->
+    @yield('detailArtikelPendidikanKesehatan')
+
     <div class="container">
 
         <!-- About -->
