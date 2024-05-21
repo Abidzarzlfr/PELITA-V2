@@ -2,35 +2,29 @@
 <html lang="en">
 
 <head>
-    <!-- <style>
-        .carousel-item img {
-            height: 450px;
-            /* Set your desired height here */
-            object-fit: cover;
-            /* This property ensures the image covers the specified dimensions */
-        }
-    </style> -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('Main/main/main.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    <title>PELITA</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- CRISP -->
     <!-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="82c4ba15-4fa0-41da-bab8-a9281fe59437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> -->
+    <title>PELITA</title>
 </head>
 
 <body>
     <!-- Quotes -->
     <header class="bg-primary py-3">
-      <div class="container">
-        <p class="m-0 text-center fw-light">
-          Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
-          kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
-        </p>
-      </div>
+        <div class="container">
+            <p class="m-0 text-center fw-light">
+                Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
+                kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
+            </p>
+        </div>
     </header>
 
     <!-- Navbar -->
@@ -60,7 +54,10 @@
 
     <!-- Informasi Terkini -->
     @yield('informasiTerkini')
-    
+
+    <!-- Artikel Pendidikan Kesehatan -->
+    @yield('artikelPendidikanKesehatan')
+
     <div class="container">
 
         <!-- About -->
@@ -103,6 +100,5 @@
         @yield('dokter')
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>

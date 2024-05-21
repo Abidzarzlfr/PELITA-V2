@@ -44,6 +44,10 @@
                         Layanan Lainnya
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/artikelPendidikanKesehatan">Artikel Pendidikan Kesehatan</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
                         <li><a class="dropdown-item" href="/layananKesehatan">Layanan Kesehatan</a></li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -99,6 +103,10 @@
                         Layanan Lainnya
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/artikelPendidikanKesehatan/auth">Artikel Pendidikan Kesehatan</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
                         <li><a class="dropdown-item" href="/layananKesehatan/auth">Layanan Kesehatan</a></li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -181,6 +189,6 @@
             @endif
             @endguest
         </div>
-        
+
     </div>
 </nav>

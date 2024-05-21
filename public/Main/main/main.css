@@ -240,6 +240,14 @@ nav .active{
     border-color: var(--border);
 }
 
+.card-icon{
+    height: 160px;
+}
+
+.category-artikel-card {
+    width: 100px;
+}
+
 .feature-card{
     height: 160px;
     text-decoration: none;
@@ -379,12 +387,24 @@ nav .active{
     padding-bottom: 100px;
 }
 
+.header-artikel-kesehatan {
+    background-image: url('/Main/assets/main/bg-artikel-pendidikan-kesehatan.png');
+    background-position:90% 100%;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+
 .carousel-terkini{
     background-image: url('/Main/assets/main/bg-carousel-terkini.png');
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding-bottom: 100px;
+}
+
+.hover-bg-primary:hover{
+    background-color: var(--primary) !important;
+    transition: 0.3s;
 }
 
 .btn {

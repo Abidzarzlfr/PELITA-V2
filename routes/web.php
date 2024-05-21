@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminForumKomunitasController;
 use App\Http\Controllers\AdminKampanyeAcaraController;
 use App\Http\Controllers\AdminKebijakanProgramController;
 use App\Http\Controllers\AdminLayananKesehatanController;
+use App\Http\Controllers\ArtikelPendidikanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
@@ -51,6 +52,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index']);
+    Route::get('/artikelPendidikanKesehatan', [ArtikelPendidikanController::class, 'index']);
 
     // Before Auth Routes
     Route::get('/about', [AboutController::class, 'index']);
@@ -92,6 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
+    Route::get('/artikelPendidikanKesehatan/auth', [ArtikelPendidikanController::class, 'auth']);
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
