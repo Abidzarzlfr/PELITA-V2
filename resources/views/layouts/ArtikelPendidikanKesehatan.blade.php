@@ -57,6 +57,7 @@
 <!-- Konten Artikel -->
 <section class="artikel py-5 bg-bg">
     <div class="container">
+        <!-- Kategori Artikel -->
         <div class="news-category d-flex gap-4 mb-5">
             <a href="" class="news-item btn active">Tag Populer</a>
             <a href="" class="news-item">Pertumbuhan Balita</a>
@@ -65,79 +66,20 @@
             <a href="" class="news-item">Makanan dan Nutrisi Anak</a>
             <a href="" class="news-item">Otitis Media</a>
         </div>
-        <div class="row mb-5">
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="card-img-top" alt="">
+        <!-- Konten -->
+        <div class="row">
+            @foreach ($artikels as $artikel)
+            <div class="col-md-4 mt-5 mb-3">
+                <div class="card mb-1">
+                    <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 200px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Warna Feses Bayi: Tanda Penting bagi Orang Tua</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Banyak orang tua cemas tentang apakah anak kecil mereka mengonsumsi
-                            makanan yang cukup sehat. Anak kecil umumnya makan sedikit, picky terhadap makanan, dan
-                            sering menolak untuk makan. Nafsu makan anak kecil sering berubah-ubah karena
-                            pertumbuhan yang cepat dan variasi dalam aktivitas mereka.</p>
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ $artikel->kategori }}</h6>
+                        <p>{{ Str::limit($artikel->isi_konten, 200, '...') }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <h6 class="text-muted my-3">OLAHRAGA</h6>
-                        <p>Pelita - Jakarta, Keseruan Aktivitas Fisik: Balita Membutuhkan Gerakan untuk Tetap
-                            Enerjik! Minimal 180 Menit atau Lebih untuk Kesehatan Mereka!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Balita Terlalu Kurus, Awas Malabsorpsi Kronis</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Balita Kurus Meskipun Sudah Diberi Makanan Bergizi? Ini Tanda
-                            Malabsorpsi Kronis yang Harus Diwaspadai!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Warna Feses Bayi: Tanda Penting bagi Orang Tua</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Banyak orang tua cemas tentang apakah anak kecil mereka mengonsumsi
-                            makanan yang cukup sehat. Anak kecil umumnya makan sedikit, picky terhadap makanan, dan
-                            sering menolak untuk makan. Nafsu makan anak kecil sering berubah-ubah karena
-                            pertumbuhan yang cepat dan variasi dalam aktivitas mereka.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <h6 class="text-muted my-3">OLAHRAGA</h6>
-                        <p>Pelita - Jakarta, Keseruan Aktivitas Fisik: Balita Membutuhkan Gerakan untuk Tetap
-                            Enerjik! Minimal 180 Menit atau Lebih untuk Kesehatan Mereka!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Balita Terlalu Kurus, Awas Malabsorpsi Kronis</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Balita Kurus Meskipun Sudah Diberi Makanan Bergizi? Ini Tanda
-                            Malabsorpsi Kronis yang Harus Diwaspadai!</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="text-center">
             <a href="" class="btn btn-primary">Baca Selengkapnya</a>
