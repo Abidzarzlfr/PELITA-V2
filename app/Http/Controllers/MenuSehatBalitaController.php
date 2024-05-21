@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StatistikController extends Controller
+class MenuSehatBalitaController extends Controller
 {
     public function index()
     {
-        return view('layouts.informasi-kesehatan.Statistik');
+        return view('layouts.LayananLainnya.MenuSehatBalita');
     }
 
     public function auth()
@@ -18,7 +18,7 @@ class StatistikController extends Controller
         } elseif (auth()->user()->role == 'dokter') {
             return redirect()->route('dokter');
         } else {
-            return view('layouts.informasi-kesehatan.Statistik');
+            return view('layouts.LayananLainnya.MenuSehatBalita');
         }
     }
 }

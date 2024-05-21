@@ -1,9 +1,9 @@
 @extends('layouts.Admin.includes.Main')
 
-@section('kampanyeAcara')
+@section('acaraKesehatanBalita')
 <div class="row my-5">
     <div class="card text-center">
-        <div class="card-header bg-primary-subtle fw-bold">Add Kampanye & Acara Kesehatan Balita</div>
+        <div class="card-header bg-primary-subtle fw-bold">Add Acara Kesehatan Balita</div>
         <div class="card-body">
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf

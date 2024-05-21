@@ -10,7 +10,7 @@ class ArtikelPendidikanController extends Controller
     public function index()
     {
         $artikels = ArtikelPendidikanKesehatan::all();
-        return view('layouts.ArtikelPendidikanKesehatan', compact('artikels'));
+        return view('layouts.LayananLainnya.ArtikelPendidikanKesehatan', compact('artikels'));
     }
 
     public function auth()
@@ -21,7 +21,7 @@ class ArtikelPendidikanController extends Controller
         } elseif (auth()->user()->role == 'dokter') {
             return redirect()->route('dokter');
         } else {
-            return view('layouts.ArtikelPendidikanKesehatan', compact('artikels'));
+            return view('layouts.LayananLainnya.ArtikelPendidikanKesehatan', compact('artikels'));
         }
     }
 }

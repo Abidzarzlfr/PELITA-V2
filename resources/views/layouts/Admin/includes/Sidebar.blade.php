@@ -3,13 +3,13 @@
     <div class="list-group list-group-flush my-3">
         <a href="/adminView" class="list-group-item list-group-item-action bg-primary-subtle active border-bottom border-dark"><i class="fas fa-tachometer-alt me-2 text-dark"></i>Dashboard</a>
         <a href="/adminDokterRequest" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-project-diagram me-2 text-dark"></i>Dokter Request</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Informasi Dokter</a>
+        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Informasi Ahli Gizi</a>
         <a href="/adminBerita" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-paperclip me-2 text-dark"></i>Berita Kesehatan</a>
-        <a href="/adminLayananKesehatan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-shopping-cart me-2 text-dark"></i>Layanan Kesehatan</a>
-        <a href="/adminKebijakanProgram" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-gift me-2 text-dark"></i>Kebijakan & Program Kesehatan</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-comment-dots me-2 text-dark"></i>Statistik</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Stunting</a>
+        <a href="/adminLokasiPelayananKesehatan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-shopping-cart me-2 text-dark"></i>Lokasi Pelayanan Kesehatan</a>
+        <a href="/adminProgramKebijakan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-gift me-2 text-dark"></i>Program & Kebijakan</a>
+        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-comment-dots me-2 text-dark"></i>Grafik Gizi Indonesia</a>
+        <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Gizi</a>
         <a href="/adminForumKomunitas" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Forum Komunitas</a>
-        <a href="/adminKampanyeAcara" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Kampanye & Acara Kesehatan Balita</a>
+        <a href="/adminAcaraKesehatanBalita" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Kampanye & Acara Kesehatan Balita</a>
     </div>
 </div>

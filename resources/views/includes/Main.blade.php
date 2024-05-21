@@ -63,38 +63,35 @@
 
     <div class="container">
 
-        <!-- About -->
-        @yield('about')
-
         <!-- Berita Terkini -->
         @yield('berita')
 
         <!-- Detail Berita Terkini -->
         @yield('detailBerita')
 
-        <!-- Informasi Layanan Kesehatan -->
-        @yield('layananKesehatan')
+        <!-- Lokasi Pelayanan kesehatan -->
+        @yield('lokasiPelayananKesehatan')
 
-        <!-- Panduan Gizi Balita -->
-        @yield('panduanGizi')
+        <!-- Menu Sehat Balita -->
+        @yield('menuSehatBalita')
 
-        <!-- Kebijakan & Program Kesehatan -->
-        @yield('kebijakanProgram')
+        <!-- Program & Kebijakan -->
+        @yield('programKebijakan')
 
-        <!-- Statistik -->
-        @yield('statistik')
+        <!-- Grafik Gizi Indonesia -->
+        @yield('grafikGiziIndonesia')
 
-        <!-- Kalkulator Stunting -->
-        @yield('kalkulatorStunting')
+        <!-- Kalkulator Gizi -->
+        @yield('kalkulatorGizi')
 
-        <!-- Kampanye Acara -->
-        @yield('kampanyeAcara')
+        <!-- Acara Kesehatan Balita -->
+        @yield('acaraKesehatanBalita')
 
         <!-- Forum & Komunitas -->
         @yield('forumKomunitas')
 
-        <!-- Forum & Komunitas -->
-        @yield('informasiDokter')
+        <!-- Informasi Ahli Gizi -->
+        @yield('informasiAhliGizi')
 
         <!-- Profile -->
         @yield('profile')

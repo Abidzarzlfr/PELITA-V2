@@ -34,7 +34,13 @@
                     <a class="nav-link" aria-current="page" href="/informasiTerkini">Informasi Terkini</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/kalkulatorGizi">Kalkulator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/informasiAhliGizi">Ahli Gizi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/forumKomunitas">Forum</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/berita">Berita</a>
@@ -48,34 +54,28 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/layananKesehatan">Layanan Kesehatan</a></li>
+                        <li><a class="dropdown-item" href="/menuSehatBalita">Menu Sehat Balita</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/panduanGizi">Panduan Gizi</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/kebijakanProgram">Kebijakan & Program</a>
-                        </li>
+                        <li><a class="dropdown-item" href="/lokasiPelayananKesehatan">Lokasi Pelayanan Kesehatan</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/statistik">Statistik</a>
+                            <a class="dropdown-item" href="/programKebijakan">Program & Kebijakan</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kalkulatorStunting">Kalkulator Stunting</a>
+                            <a class="dropdown-item" href="/grafikGiziIndonesia">Grafik Gizi Indonesia</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kampanyeAcara">Kampanye & Acara</a>
+                            <a class="dropdown-item" href="/acaraKesehatanBalita">Acara Kesehatan Balita</a>
                         </li>
                     </ul>
                 </li>
@@ -93,7 +93,13 @@
                     <a class="nav-link" aria-current="page" href="/informasiTerkini/auth">Informasi Terkini</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about/auth">About</a>
+                    <a class="nav-link" href="/kalkulatorGizi/auth">Kalkulator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/informasiAhliGizi">Ahli Gizi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/forumKomunitas">Forum</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/berita/auth">Berita</a>
@@ -107,46 +113,28 @@
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/layananKesehatan/auth">Layanan Kesehatan</a></li>
+                        <li><a class="dropdown-item" href="/menuSehatBalita/auth">Menu Sehat Balita</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
-                        <li><a class="dropdown-item" href="/panduanGizi/auth">Panduan Gizi</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/kebijakanProgram/auth">Kebijakan & Program</a>
-                        </li>
+                        <li><a class="dropdown-item" href="/lokasiPelayananKesehatan/auth">Lokasi Pelayanan Kesehatan</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/statistik/auth">Statistik</a>
+                            <a class="dropdown-item" href="/programKebijakan/auth">Program & Kebijakan</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kalkulatorStunting/auth">Kalkulator Stunting</a>
+                            <a class="dropdown-item" href="/grafikGiziIndonesia/auth">Grafik Gizi Indonesia</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/kampanyeAcara/auth">Kampanye & Acara</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/forumKomunitas">Forum & Komunitas</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="/informasiDokter">Informasi Dokter</a>
+                            <a class="dropdown-item" href="/acaraKesehatanBalita/auth">Acara Kesehatan Balita</a>
                         </li>
                     </ul>
                 </li>
@@ -167,9 +155,6 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/dokter">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dokter">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/dokter">Berita</a>

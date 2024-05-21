@@ -1,6 +1,6 @@
 @extends('includes.Main')
 
-@section('statistik')
+@section('grafikGiziIndonesia')
 <!-- Carousel -->
 <div id="carouselExampleCaptions" class="carousel slide mt-5 mb-5">
   <div class="carousel-indicators">
@@ -12,7 +12,7 @@
     <div class="carousel-item active">
       <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" class="d-block w-100" alt="..." />
       <div class="carousel-caption d-none d-md-block">
-        <h5>Statistik</h5>
+        <h5>Grafik Gizi Indonesia</h5>
         <p>
           Some representative placeholder content for the first slide.
         </p>

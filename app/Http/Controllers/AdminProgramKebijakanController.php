@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminLayananKesehatanController extends Controller
+class AdminProgramKebijakanController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         if (auth()->user()->role == 'user') {
             return redirect()->route('berandaAuth');
         } elseif (auth()->user()->role == 'dokter') {
             return redirect()->route('dokter');
         } else {
-            return view('layouts.Admin.layouts.LayananKesehatan');
+            return view('layouts.Admin.layouts.ProgramKebijakan');
         }
     }
 }

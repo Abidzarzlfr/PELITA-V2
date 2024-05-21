@@ -1,9 +1,9 @@
 @extends('includes.Main')
 
-@section('layananKesehatan')
-<!-- Informasi Layanan Kesehatan -->
+@section('informasiAhliGizi')
+<!-- Forum & Komunitas -->
 <div class="about text-center mt-5">
-    <h3>Informasi Layanan Kesehatan</h3>
+    <h3>Informasi Ahli Gizi</h3>
 </div>
 <div class="d-flex justify-content-evenly mb-5">
     <div class="card" style="width: 18rem">
@@ -13,7 +13,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
     <div class="card" style="width: 18rem">
@@ -23,7 +23,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
     <div class="card" style="width: 18rem">
@@ -33,7 +33,7 @@
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
             </p>
-            <button type="button" class="btn btn-info">View More</button>
+            <button type="button" class="btn btn-info">Konsultasi</button>
         </div>
     </div>
 </div>

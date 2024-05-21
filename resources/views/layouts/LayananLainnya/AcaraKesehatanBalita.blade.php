@@ -1,9 +1,9 @@
 @extends('includes.Main')
 
-@section('panduanGizi')
-<!-- Panduan Gizi Balita -->
+@section('acaraKesehatanBalita')
+<!-- Acara Kesehatan Balita -->
 <div class="about text-center mt-5">
-    <h3>Panduan Gizi Balita</h3>
+    <h3>Acara Kesehatan Balita</h3>
 </div>
 <div class="d-flex justify-content-evenly mb-5">
     <div class="card" style="width: 18rem">

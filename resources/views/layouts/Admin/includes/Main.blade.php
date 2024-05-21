@@ -33,17 +33,17 @@
                 <!-- Berita Terkini -->
                 @yield('berita')
 
-                <!-- Layanan Kesehatan -->
-                @yield('layananKesehatan')
+                <!-- Lokasi Pelayanan Kesehatan -->
+                @yield('lokasiPelayananKesehatan')
 
-                <!-- Kebijakan & Program -->
-                @yield('kebijakanProgram')
+                <!-- Program & Kebijakan -->
+                @yield('programKebijakan')
 
                 <!-- Forum & Komunitas -->
                 @yield('forumKomunitas')
 
-                <!-- Kampanye & Acara -->
-                @yield('kampanyeAcara')
+                <!-- Acara Kesehatan Balita -->
+                @yield('acaraKesehatanBalita')
 
                 <!-- Modal Confirmation Logout -->
                 <div class="modal fade" id="confirmationLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
