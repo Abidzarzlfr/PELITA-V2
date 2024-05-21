@@ -67,44 +67,42 @@
     <div class="container">
         <h3 class="mb-5">Artikel Pendidikan Kesehatan</h3>
         <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="card-img-top" alt="">
+            @foreach ($artikels as $artikel)
+            @guest
+            <div class="col-md-4 mb-2">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/{{ $artikel->id }}">
+                    <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Warna Feses Bayi: Tanda Penting bagi Orang Tua</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Banyak orang tua cemas tentang apakah anak kecil mereka mengonsumsi
-                            makanan yang cukup sehat. Anak kecil umumnya makan sedikit, picky terhadap makanan, dan
-                            sering menolak untuk makan. Nafsu makan anak kecil sering berubah-ubah karena
-                            pertumbuhan yang cepat dan variasi dalam aktivitas mereka.</p>
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($artikel->kategori) }}</h6>
+                        <p>{{ Str::limit($artikel->isi_konten, 125, '...') }}</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="card-img-top" alt="">
+            @else
+            @if (Auth::user()->role == 'user')
+            <div class="col-md-4 mb-2">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/auth/{{ $artikel->id }}">
+                    <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <h6 class="text-muted my-3">OLAHRAGA</h6>
-                        <p>Pelita - Jakarta, Keseruan Aktivitas Fisik: Balita Membutuhkan Gerakan untuk Tetap
-                            Enerjik! Minimal 180 Menit atau Lebih untuk Kesehatan Mereka!</p>
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($artikel->kategori) }}</h6>
+                        <p>{{ Str::limit($artikel->isi_konten, 125, '...') }}</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Balita Terlalu Kurus, Awas Malabsorpsi Kronis</h5>
-                        <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-                        <p>Pelita - Jakarta, Balita Kurus Meskipun Sudah Diberi Makanan Bergizi? Ini Tanda
-                            Malabsorpsi Kronis yang Harus Diwaspadai!</p>
-                    </div>
-                </div>
-            </div>
+            @endif
+            @endguest
+            @endforeach
         </div>
         <div class="text-center">
-            <a href="" class="btn btn-primary mt-5">Baca Selengkapnya</a>
+            @guest
+            <a href="/artikelPendidikanKesehatan" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @else
+            @if (Auth::user()->role == 'user')
+            <a href="/artikelPendidikanKesehatan/auth" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @endif
+            @endguest
         </div>
     </div>
 </section>
@@ -198,49 +196,49 @@
 </section>
 <!-- Informasi Lebih Lanjut -->
 <section class="info text-center pt-5">
-  <div class="container">
-    <p>KESEHATAN BALITA UNTUK INDONESIA EMAS 2045</p>
-    <h1 class="my-3">Informasi Lebih Lanjut</h1>
-    <h6 class="mt-4">
-      Tak hanya sebuah website kesehatan balita, Pelita adalah panggung
-      inovasi yang mengukir jejak unik dalam tahap klinis, menerangi
-      perjalanan sehat si kecil di Indonesia dengan cahaya penuh harapan.
-    </h6>
-    <a href="" class="btn btn-primary my-3 mt-4">Kontak Kami</a>
-    <p class="text-muted mt-4">&copy; 2024 Pelita</p>
-  </div>
+    <div class="container">
+        <p>KESEHATAN BALITA UNTUK INDONESIA EMAS 2045</p>
+        <h1 class="my-3">Informasi Lebih Lanjut</h1>
+        <h6 class="mt-4">
+            Tak hanya sebuah website kesehatan balita, Pelita adalah panggung
+            inovasi yang mengukir jejak unik dalam tahap klinis, menerangi
+            perjalanan sehat si kecil di Indonesia dengan cahaya penuh harapan.
+        </h6>
+        <a href="" class="btn btn-primary my-3 mt-4">Kontak Kami</a>
+        <p class="text-muted mt-4">&copy; 2024 Pelita</p>
+    </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="container my-3">
-    <hr />
-    <div class="row">
-      <div class="col-2">
-        <img src="{{ asset('Main/assets/main/Logo.svg') }}" alt="" />
-      </div>
-      <div class="col-7 d-flex justify-content-around align-items-center">
-        <a href="" class="text-black text-decoration-none">Tentang</a>
-        <a href="" class="text-black text-decoration-none">Kontak</a>
-        <a href="" class="text-black text-decoration-none">Bantuan</a>
-        <a href="" class="text-black text-decoration-none">Kebijakan Privasi</a>
-        <a href="" class="text-black text-decoration-none">FAQ</a>
-      </div>
-      <div class="col-3 d-flex gap-3 justify-content-evenly align-items-center">
-        <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/main/ic-linkedin.svg') }}" width="20px" alt="" />
-        </a>
-        <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/main/ic-ig.svg') }}" width="20px" alt="" />
-        </a>
-        <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/main/ic-github.svg') }}" width="20px" alt="" />
-        </a>
-        <a href="" class="sosmed-circle">
-          <img src="{{ asset('Main/assets/main/ic-youtube.svg') }}" width="20px" alt="" />
-        </a>
-      </div>
+    <div class="container my-3">
+        <hr />
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ asset('Main/assets/main/Logo.svg') }}" alt="" />
+            </div>
+            <div class="col-7 d-flex justify-content-around align-items-center">
+                <a href="" class="text-black text-decoration-none">Tentang</a>
+                <a href="" class="text-black text-decoration-none">Kontak</a>
+                <a href="" class="text-black text-decoration-none">Bantuan</a>
+                <a href="" class="text-black text-decoration-none">Kebijakan Privasi</a>
+                <a href="" class="text-black text-decoration-none">FAQ</a>
+            </div>
+            <div class="col-3 d-flex gap-3 justify-content-evenly align-items-center">
+                <a href="" class="sosmed-circle">
+                    <img src="{{ asset('Main/assets/main/ic-linkedin.svg') }}" width="20px" alt="" />
+                </a>
+                <a href="" class="sosmed-circle">
+                    <img src="{{ asset('Main/assets/main/ic-ig.svg') }}" width="20px" alt="" />
+                </a>
+                <a href="" class="sosmed-circle">
+                    <img src="{{ asset('Main/assets/main/ic-github.svg') }}" width="20px" alt="" />
+                </a>
+                <a href="" class="sosmed-circle">
+                    <img src="{{ asset('Main/assets/main/ic-youtube.svg') }}" width="20px" alt="" />
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
 @endsection

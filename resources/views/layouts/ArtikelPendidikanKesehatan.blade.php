@@ -69,22 +69,31 @@
         <!-- Konten -->
         <div class="row">
             @foreach ($artikels as $artikel)
-            <div class="col-md-4 mt-5 mb-3">
-                <div class="card mb-1">
+            @guest
+            <div class="col-md-4 mb-3">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/{{ $artikel->id }}">
                     <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        @guest
-                        <a href="/detailArtikelPendidikanKesehatan/{{ $artikel->id }}"><h5 class="card-title">{{ $artikel->judul }}</h5></a>
-                        @else
-                        @if (Auth::user()->role == 'user')
-                        <a href="/detailArtikelPendidikanKesehatan/auth/{{ $artikel->id }}"><h5 class="card-title">{{ $artikel->judul }}</h5></a>    
-                        @endif    
-                        @endguest
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
                         <h6 class="text-muted my-3">{{ strtoupper($artikel->kategori) }}</h6>
                         <p>{{ Str::limit($artikel->isi_konten, 125, '...') }}</p>
                     </div>
-                </div>
+                </a>
             </div>
+            @else
+            @if (Auth::user()->role == 'user')
+            <div class="col-md-4 mb-3">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/auth/{{ $artikel->id }}">
+                    <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($artikel->kategori) }}</h6>
+                        <p>{{ Str::limit($artikel->isi_konten, 125, '...') }}</p>
+                    </div>
+                </a>
+            </div>
+            @endif
+            @endguest
             @endforeach
         </div>
         <div class="text-center">

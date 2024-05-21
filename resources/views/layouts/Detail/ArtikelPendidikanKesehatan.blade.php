@@ -7,9 +7,9 @@
         <!-- Tag -->
         <div class="category-label d-flex gap-3 align-items-center mb-3">
             <!-- Kategori -->
-            <h6 class="badge bg-secondary fs-6 text-black fw-normal m-0">{{ strtoupper($artikels->kategori) }}</h6>
+            <h6 class="badge bg-secondary-200 fs-6 text-black fw-normal m-0">{{ strtoupper($artikels->kategori) }}</h6>
             <!-- Status -->
-            <h6 class="badge bg-secondary fs-6 text-black fw-normal m-0">{{ strtoupper($artikels->status) }}</h6>
+            <h6 class="badge bg-secondary-200 fs-6 text-black fw-normal m-0">{{ strtoupper($artikels->status) }}</h6>
         </div>
         <!-- Judul Artikel -->
         <h1 class="mb-3">{{ $artikels->judul }}</h1>
@@ -22,7 +22,7 @@
             <p class="m-0">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $artikels->tanggal)->format('d/m/Y') }}</p>
         </div>
         <!-- Foto Konten -->
-        <img src="{{ $artikels->foto_konten }}" class="w-100 rounded mb-5" style="height:600px;" alt="">
+        <img src="{{ $artikels->foto_konten }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
         <!-- Isi Konten -->
         <div class="artikel-body">
             <p>{{ $artikels->isi_konten }}</p>

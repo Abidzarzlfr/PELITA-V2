@@ -52,7 +52,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [RegisterController::class, 'register']);
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
-    Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index']);
+    Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index', 'showArtikels']);
     Route::get('/artikelPendidikanKesehatan', [ArtikelPendidikanController::class, 'index']);
     Route::get('/detailArtikelPendidikanKesehatan/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
 

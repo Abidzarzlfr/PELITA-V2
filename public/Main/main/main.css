@@ -170,6 +170,7 @@ footer hr {
     --primary: #FFB3C6;
     --hovered: #FF8EAA;
     --secondary: #D4B8A8;
+    --secondary-200: #E3D1C6;
     --success: #198754;
     --danger: #DC3545;
     --warning: #FFC107;
@@ -408,7 +409,7 @@ nav .active{
 }
 
 .btn {
-    border: none;;
+    border: none;
 }
 
 .bg-primary {
@@ -416,6 +417,10 @@ nav .active{
 }
 .bg-secondary {
     background-color: var(--secondary) !important;
+}
+
+.bg-secondary-200 {
+    background-color: var(--secondary-200) !important;
 }
 
 /* HOVER THING */
