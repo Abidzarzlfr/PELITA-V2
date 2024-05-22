@@ -423,6 +423,10 @@ nav .active{
     background-color: var(--secondary-200) !important;
 }
 
+.bg-pink {
+    background-color: var(--bgPink) !important;
+}
+
 /* HOVER THING */
 .hover-bg-pink:hover{
     background-color: var(--bgPink);

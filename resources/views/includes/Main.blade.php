@@ -19,7 +19,7 @@
 
 <body>
     <!-- Quotes -->
-    <header class="bg-primary py-3">
+    <header class="bg-pink py-3">
         <div class="container">
             <p class="m-0 text-center fw-light">
                 Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
@@ -62,6 +62,9 @@
     <!-- Detail Artikel Pendidikan Kesehatan -->
     @yield('detailArtikelPendidikanKesehatan')
 
+    <!-- Program & Kebijakan -->
+    @yield('programKebijakan')
+
     <div class="container">
 
         <!-- Berita Terkini -->
@@ -76,8 +79,6 @@
         <!-- Menu Sehat Balita -->
         @yield('menuSehatBalita')
 
-        <!-- Program & Kebijakan -->
-        @yield('programKebijakan')
 
         <!-- Grafik Gizi Indonesia -->
         @yield('grafikGiziIndonesia')
