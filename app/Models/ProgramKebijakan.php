@@ -4,21 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ArtikelPendidikanKesehatan extends Model
+class ProgramKebijakan extends Model
 {
-    protected $table = 'artikel_pendidikan_kesehatan';
+    protected $table = 'program_kebijakan';
 
     protected $fillable = [
         'judul',
         'kategori',
         'status',
-        'kelompok_usia',
         'nama_penerbit',
         'foto_penerbit',
-        'artikel_request_status',
         'foto_konten',
         'isi_konten',
         'tanggal',
+        'sumber',
     ];
 
     protected $dates = [

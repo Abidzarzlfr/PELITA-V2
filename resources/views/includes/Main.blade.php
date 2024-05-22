@@ -65,6 +65,9 @@
     <!-- Program & Kebijakan -->
     @yield('programKebijakan')
 
+    <!-- Detail Program & Kebijakan -->
+    @yield('detailProgramKebijakan')
+
     <div class="container">
 
         <!-- Berita Terkini -->

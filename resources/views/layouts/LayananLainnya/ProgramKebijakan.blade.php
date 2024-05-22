@@ -86,26 +86,35 @@
         </div>
         <!-- Konten -->
         <div class="row">
+            @guest
+            @foreach ($programKebijakan as $item)
             <div class="col-md-4 mb-3">
-                <a class="card mb-1" style="text-decoration: none;" href="">
-                    <img src="{{ asset('Main/assets/main/acara-1.png') }}" class="card-img-top" style="height: 250px;" alt="">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/{{ $item->id }}">
+                    <img src="{{ asset($item->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">JUDUL</h5>
-                        <h6 class="text-muted my-3">KATEGORI</h6>
-                        <p>asdasdasd</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
+                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
                     </div>
                 </a>
             </div>
+            @endforeach
+            @else
+            @if (Auth::user()->role == 'user')
+            @foreach ($programKebijakan as $item)
             <div class="col-md-4 mb-3">
-                <a class="card mb-1" style="text-decoration: none;" href="">
-                    <img src="{{ asset('Main/assets/main/acara-1.png') }}" class="card-img-top" style="height: 250px;" alt="">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/auth/{{ $item->id }}">
+                    <img src="{{ asset($item->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">JUDUL</h5>
-                        <h6 class="text-muted my-3">asdasdasd</h6>
-                        <p>asdasdasd</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
+                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
                     </div>
                 </a>
             </div>
+            @endforeach
+            @endif
+            @endguest
         </div>
         <div class="text-center">
             <a href="" class="btn btn-primary">Baca Selengkapnya</a>

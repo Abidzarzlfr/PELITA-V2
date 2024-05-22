@@ -111,44 +111,44 @@
     <div class="container">
         <h3 class="mb-5">Program dan Kebijakan</h3>
         <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/program-terkini/program-terikini-1.png') }}" class="card-img-top" alt="">
+            @guest
+            @foreach ($programKebijakan as $item)
+            <div class="col-md-4 mb-3">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/{{ $item->id }}">
+                    <img src="{{ asset($item->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Kominfo ajak Masyarakat Turunkan Prevalensi Stunting</h5>
-                        <h6 class="text-muted my-3">STUNTING</h6>
-                        <p>Kominfo - Jakarta, Pada tahun 2030, Indonesia akan menikmati masa keemasan demografi, di
-                            mana mayoritas penduduknya berada dalam usia produktif. Kondisi ini akan menjadikan
-                            mereka sebagai pilar utama yang menopang pertumbuhan ekonomi negara.</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
+                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/program-terkini/program-terikini-2.png') }}" class="card-img-top" alt="">
+            @endforeach
+            @else
+            @if (Auth::user()->role == 'user')
+            @foreach ($programKebijakan as $item)
+            <div class="col-md-4 mb-3">
+                <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/auth/{{ $item->id }}">
+                    <img src="{{ asset($item->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Hari Gizi Nasional. Waspada Ancaman Gizi Buruk</h5>
-                        <h6 class="text-muted my-3">GIZI BURUK</h6>
-                        <p>Kemenkes - Jakarta, Peringatan Hari Gizi Nasional mengingatkan kita akan bahaya
-                            malnutrisi. Dalam konteks ini, ada beberapa aspek penting yang perlu diperhatikan.</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
+                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/program-terkini/program-terikini-3.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Bahaya Pneumonia Selalu Mengintai Anak-anak Kita</h5>
-                        <h6 class="text-muted my-3">KESEHATAN ANAK</h6>
-                        <p>IDAI - Jakarta, Setiap hari, puluhan hingga ratusan anak-anak dibawa oleh orangtua mereka
-                            ke IGD Rumah Sakit karena mengalami sesak napas akibat pneumonia atau radang paru-paru.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            @endif
+            @endguest
         </div>
         <div class="text-center">
-            <a href="" class="btn btn-primary mt-5">Baca Selengkapnya</a>
+            @guest
+            <a href="/programKebijakan" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @else
+            @if (Auth::user()->role == 'user')
+            <a href="/programKebijakan/auth" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @endif
+            @endguest
         </div>
     </div>
 </section>
