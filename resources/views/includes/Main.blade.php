@@ -13,6 +13,7 @@
     
     <!-- CRISP -->
     <!-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="82c4ba15-4fa0-41da-bab8-a9281fe59437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> -->
+    <link rel="icon" type="png" href="{{ asset('Main/assets/main/title-logo.png') }}">
     <title>PELITA</title>
 </head>
 

@@ -69,7 +69,8 @@
       font-family: "Poppins", sans-serif !important;
     }
   </style>
-  <title>Regsiter</title>
+  <link rel="icon" type="png" href="{{ asset('Main/assets/main/title-logo.png') }}">
+  <title>PELITA</title>
 </head>
 
 <body>
