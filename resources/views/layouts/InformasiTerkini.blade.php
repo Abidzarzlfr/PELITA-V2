@@ -157,40 +157,44 @@
     <div class="container">
         <h3 class="mb-5">Acara Kesehatan</h3>
         <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/acara-1.png') }}" class="card-img-top" alt="">
+            @foreach ($acaraKesehatan as $item)
+            @guest
+            <div class="col-md-4 mb-4">
+                <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $item->id }}">
+                    <img src="{{ $item->foto_acara }}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Perkembangan Motorik Balita Zaman Sekarang</h5>
-                        <h6 class="text-muted my-3">Dr. Rina Mulyani, Sp.A (Dokter Spesialis Anak)</h6>
-                        <p>Tanggal: Sabtu, 25 Mei 2024 <br> 10.00 - 12.00 WIB</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ $item->pemateri }}</h6>
+                        <p>Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}<br>
+                            Jam: {{ $item->jam_mulai }} - {{ $item->jam_selesai }} WIB</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/acara-2.png') }}" class="card-img-top" alt="">
+            @else
+            @if (Auth::user()->role == 'user')
+            <div class="col-md-4 mb-4">
+                <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $item->id }}">
+                    <img src="{{ $item->foto_acara }}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">Nutrisi Seimbang untuk Pertumbuhan Balita</h5>
-                        <h6 class="text-muted my-3">Dr. Yulia Ariani, Sp.A(K) (Dokter Spedialis Anak)</h6>
-                        <p>Tanggal: Minggu, 2 Juni 2024 <br>
-                            Jam: 14.00 - 16.00 WIB</p>
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <h6 class="text-muted my-3">{{ $item->pemateri }}</h6>
+                        <p>Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}<br>
+                            Jam: {{ $item->jam_mulai }} - {{ $item->jam_selesai }} WIB</p>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img src="{{ asset('Main/assets/main/acara-3.png') }}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Mengatasi Masalah Tidur pada Balita</h5>
-                        <h6 class="text-muted my-3">Dr. Indah Jati Pratiwi, M.Psi (Psikolog Anak)</h6>
-                        <p>Tanggal: Rabu, 12 Juni 2024 <br> Jam: 19.00 - 21.00 WIB</p>
-                    </div>
-                </div>
-            </div>
+            @endif
+            @endguest
+            @endforeach
         </div>
         <div class="text-center">
-            <a href="" class="btn btn-primary mt-5">Baca Selengkapnya</a>
+            @guest
+            <a href="/acaraKesehatanBalita" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @else
+            @if (Auth::user()->role == 'user')
+            <a href="/acaraKesehatanBalita/auth" class="btn btn-primary mt-5">Lihat Lebih Banyak</a>
+            @endif
+            @endguest
         </div>
     </div>
 </section>

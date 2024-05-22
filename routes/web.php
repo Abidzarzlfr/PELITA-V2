@@ -12,6 +12,7 @@ use App\Http\Controllers\ArtikelPendidikanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
+use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailBeritaController;
 use App\Http\Controllers\DetailProgramKebijakanController;
@@ -57,6 +58,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/detailArtikelPendidikanKesehatan/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
     Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
+    Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
 
     // Before Auth Routes
     Route::get('/berita', [BeritaController::class, 'index']);
@@ -66,7 +68,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
     Route::get('/kalkulatorGizi', [KalkulatorGiziController::class, 'index']);
-    Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
 });
 
 
@@ -88,7 +89,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
     Route::get('/grafikGiziIndonesia/auth', [GrafikGiziIndonesiaController::class, 'auth']);
     Route::get('/kalkulatorGizi/auth', [KalkulatorGiziController::class, 'auth']);
-    Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
     
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
@@ -96,7 +96,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailArtikelPendidikanKesehatan/auth/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
     Route::get('/programKebijakan/auth', [ProgramKebijakanController::class, 'auth']);
     Route::get('/detailProgramKebijakan/auth/{id}', [DetailProgramKebijakanController::class, 'auth']);
-
+    Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
+    Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
+    
 
 
     // Dokter Routes

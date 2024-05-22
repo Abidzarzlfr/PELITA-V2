@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- CRISP -->
     <!-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="82c4ba15-4fa0-41da-bab8-a9281fe59437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> -->
@@ -68,6 +69,12 @@
     <!-- Detail Program & Kebijakan -->
     @yield('detailProgramKebijakan')
 
+    <!-- Acara Kesehatan Balita -->
+    @yield('acaraKesehatanBalita')
+
+    <!-- Detail Acara Kesehatan Balita -->
+    @yield('detailAcaraKesehatanBalita')
+
     <div class="container">
 
         <!-- Berita Terkini -->
@@ -82,15 +89,11 @@
         <!-- Menu Sehat Balita -->
         @yield('menuSehatBalita')
 
-
         <!-- Grafik Gizi Indonesia -->
         @yield('grafikGiziIndonesia')
 
         <!-- Kalkulator Gizi -->
         @yield('kalkulatorGizi')
-
-        <!-- Acara Kesehatan Balita -->
-        @yield('acaraKesehatanBalita')
 
         <!-- Forum & Komunitas -->
         @yield('forumKomunitas')

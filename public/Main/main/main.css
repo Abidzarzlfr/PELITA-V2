@@ -462,3 +462,11 @@ footer hr {
     border-color: var(--primary);
     border-width: 2px;
 }
+
+/* Acara Kesehatan */
+.header-acara-kesehatan {
+    background-image: url('/Main/assets/main/bg-acara-kesehatan.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
