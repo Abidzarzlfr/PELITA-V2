@@ -108,5 +108,21 @@
         @yield('dokter')
     </div>
 </body>
+<script>
+    const passwordField = document.getElementById("password");
+    const togglePassword = document.querySelector("#pass-eye");
+
+    togglePassword.addEventListener("click", function () {
+        if (passwordField.type === "text") {
+            passwordField.type = "password";
+            togglePassword.classList.remove("fa-eye");
+            togglePassword.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "text";
+            togglePassword.classList.remove("fa-eye-slash");
+            togglePassword.classList.add("fa-eye");
+        }
+    });
+</script>
 
 </html>
