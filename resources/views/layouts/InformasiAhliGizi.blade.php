@@ -30,36 +30,36 @@
         <h2 class="text-center mb-5">langkah demi langkah untuk mendapatkan solusi</h2>
         <div class="row">
             <div class="col-3">
-                <div class="card-ahli-gizi">
+                <a class="card card-ahli-gizi" style="text-decoration: none;">
                     <i class="fa-regular fa-hospital text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Cari Lokasi</p>
                     <p class="fw-light">Temukan lokasi fasilitas kesehatan agar lebih mudah mencari ahli gizi yang
                         Anda inginkan</p>
-                </div>
+                </a>
             </div>
             <div class="col-3">
-                <div class="card-ahli-gizi">
+                <a class="card card-ahli-gizi" style="text-decoration: none;">
                     <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Cari Ahli Gizi</p>
                     <p class="fw-light">Pilih ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang
                         ada</p>
-                </div>
+                </a>
             </div>
             <div class="col-3">
-                <div class="card-ahli-gizi">
+                <a class="card card-ahli-gizi" style="text-decoration: none;">
                     <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Konsultasi</p>
                     <p class="fw-light">Jadwalkan konsultasi dengan ahli gizi terbaik melalui platform WhatsApp
                         terdaftar</p>
-                </div>
+                </a>
             </div>
             <div class="col-3">
-                <div class="card-ahli-gizi">
+                <a class="card card-ahli-gizi" style="text-decoration: none;">
                     <i class="fa-regular fa-newspaper text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Informasi Terkini</p>
                     <p class="fw-light">Akses informasi terkini dan terpercaya hanya di Pelita mengenai kesehatan
                         buah hati Anda</p>
-                </div>
+                </a>
             </div>
         </div>
     </div>
