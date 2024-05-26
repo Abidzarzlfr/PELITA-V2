@@ -75,6 +75,9 @@
     <!-- Detail Acara Kesehatan Balita -->
     @yield('detailAcaraKesehatanBalita')
 
+    <!-- Informasi Ahli Gizi -->
+    @yield('informasiAhliGizi')
+
     <div class="container">
 
         <!-- Berita Terkini -->
@@ -97,9 +100,6 @@
 
         <!-- Forum & Komunitas -->
         @yield('forumKomunitas')
-
-        <!-- Informasi Ahli Gizi -->
-        @yield('informasiAhliGizi')
 
         <!-- Profile -->
         @yield('profile')

@@ -96,7 +96,7 @@
                     <a class="nav-link" href="/kalkulatorGizi/auth">Kalkulator</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/informasiAhliGizi">Ahli Gizi</a>
+                    <a class="nav-link" href="/informasiAhliGizi/auth">Ahli Gizi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/forumKomunitas">Forum</a>

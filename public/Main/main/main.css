@@ -170,7 +170,9 @@ footer hr {
     --primary: #FFB3C6;
     --hovered: #FF8EAA;
     --secondary: #D4B8A8;
-    --secondary-200: #E3D1C6;
+    --secondary-100: #F6F0EC; /* update_at: 22/05/24 00:02 */
+    --secondary-200: #E3D1C6; /* update_at: 22/05/24 00:02 */
+    --secondary-300: #D0B2A0; /* update_at: 22/05/24 00:02 */
     --success: #198754;
     --danger: #DC3545;
     --warning: #FFC107;
@@ -183,8 +185,8 @@ footer hr {
     --accent: #C2A886;
 
     --textColor: #0A0708;
+    --text-white: #FFFFFF; /* updated_at : 24/05/24 00.08 */
 
-    /* --gradient: #198754; */
     --accent1: #A4D1E5;
     --accent2: #F8DDC4;
 }
@@ -199,6 +201,32 @@ body{
 
 nav .active{
     font-weight: bold;
+}
+
+h2{
+    font-size: 30px !important;
+}
+
+.quote-text{
+    font-size: 18px;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-300) !important; /* updated_at : 24/05/24 00.08 */
+    color: var(--textColor) !important; /* updated_at : 24/05/24 00.08 */
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-200) !important; /* updated_at : 24/05/24 00.08 */
+    color: var(--text-white) !important; /* updated_at : 24/05/24 00.08 */
+}
+
+.text-white {
+    color: white !important;
+}
+
+.text-accent {
+    color: var(--accent) !important;
 }
 
 /* .dropdown {
@@ -469,4 +497,55 @@ footer hr {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* Informasi Ahli Gizi */
+.header-ahli-gizi {
+    background-image: url('/Main/assets/main/bg-Header-Informasi-Ahli-Gizi.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 210px !important;
+}
+
+.card-ahli-gizi{
+    border-radius: 0 0 20px 20px;
+    padding: 30px;
+    background-color: var(--secondary-100);
+    border-top: 2px solid var(--accent);
+    box-shadow:  0 8px 16px rgba(0,0,0, .175);
+    height: 250px;
+}
+
+.find-ahli-gizi{
+    background-image: url('/Main/assets/main/bg-Cari-Informasi-Ahli-Gizi.png');
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 540px; */
+}
+
+.py-80px {
+    padding: 80px 0 80px 0 !important;
+}
+
+.btn-outline-primary{
+    border: 2px solid var(--primary);
+    color: var(--textColor);
+}
+
+.btn-outline-primary:hover{
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--textColor);
+}
+
+.p-5 {
+    padding: 40px !important;
+}
+
+a.card:hover {
+    border-color: var(--primary) !important;
 }

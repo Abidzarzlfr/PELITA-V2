@@ -61,9 +61,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
 
     // Before Auth Routes
+    Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
     Route::get('/berita', [BeritaController::class, 'index']);
     Route::get('/detailBerita/{id}', [DetailBeritaController::class, 'index']);
-
     Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/daftarDokter', [DaftarDokterController::class, 'daftar']);
     Route::get('/logout', [LogoutController::class, 'logout']);
     Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
-    Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'auth']);
+    Route::get('/informasiAhliGizi/auth', [InformasiAhliGiziController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 
     Route::get('/berita/auth', [BeritaController::class, 'auth']);
