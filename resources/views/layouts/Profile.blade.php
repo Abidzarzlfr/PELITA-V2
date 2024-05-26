@@ -128,7 +128,7 @@
                             </div>
                             <label for=" password"><strong>Password<span class="text-danger">*</span></strong></label>
                                 <div class="input-group mb-3 mt-2">
-                                    <input type="password" class="form-control border-end-none" name="password" id="password" required value="{{ Auth::user()->password }}">
+                                    <input type="password" class="form-control border-end-none" name="password" id="password" placeholder="your new password">
                                     <div class="input-group-text bg-body border-start-none">
                                         <i class="fa-regular fa-eye-slash" id="pass-eye"></i>
                                     </div>
