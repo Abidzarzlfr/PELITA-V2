@@ -37,8 +37,9 @@
                         Anda inginkan</p>
                 </a>
             </div>
+            @guest
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;">
+                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi">
                     <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Cari Ahli Gizi</p>
                     <p class="fw-light">Pilih ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang
@@ -46,13 +47,33 @@
                 </a>
             </div>
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;">
+                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi">
                     <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Konsultasi</p>
                     <p class="fw-light">Jadwalkan konsultasi dengan ahli gizi terbaik melalui platform WhatsApp
                         terdaftar</p>
                 </a>
             </div>
+            @else
+            @if (Auth::user()->role == 'user')
+            <div class="col-3">
+                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi/auth">
+                    <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Cari Ahli Gizi</p>
+                    <p class="fw-light">Pilih ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang
+                        ada</p>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi/auth">
+                    <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Konsultasi</p>
+                    <p class="fw-light">Jadwalkan konsultasi dengan ahli gizi terbaik melalui platform WhatsApp
+                        terdaftar</p>
+                </a>
+            </div>
+            @endif
+            @endguest
             <div class="col-3">
                 <a class="card card-ahli-gizi" style="text-decoration: none;">
                     <i class="fa-regular fa-newspaper text-accent fs-1 mb-4"></i>
@@ -83,7 +104,13 @@
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
                 <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
-                <a href="" class="btn btn-primary px-5">Cari Ahli Gizi</a>
+                @guest
+                <a href="/rekomendasiAhliGizi" class="btn btn-primary px-5">Cari Ahli Gizi</a>
+                @else
+                @if (Auth::user()->role == 'user')
+                <a href="/rekomendasiAhliGizi/auth" class="btn btn-primary px-5">Cari Ahli Gizi</a>
+                @endif
+                @endguest
             </div>
         </div>
     </div>
@@ -101,7 +128,13 @@
                 <p class="fw-light">Konsultasikan segala permasalahan buah hati Anda dengan ahli gizi terbaik hanya di Pelita melalui WhatsApp terdaftar</p>
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Buat jadwal dengan satu kali klik</p>
                 <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Melalui WhatsApp</p>
-                <a href="" class="btn btn-secondary px-5 text-white">Cari Ahli Gizi</a>
+                @guest
+                <a href="/rekomendasiAhliGizi" class="btn btn-secondary px-5 text-white">Cari Ahli Gizi</a>
+                @else
+                @if (Auth::user()->role == 'user')
+                <a href="/rekomendasiAhliGizi/auth" class="btn btn-secondary px-5 text-white">Cari Ahli Gizi</a>
+                @endif
+                @endguest
             </div>
         </div>
     </div>

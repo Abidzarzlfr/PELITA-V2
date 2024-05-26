@@ -447,8 +447,14 @@ h2{
     background-color: var(--secondary) !important;
 }
 
+.bg-secondary-100 {
+    background-color: var(--secondary-100) !important; /* updated_at : 24/05/24 00.08 */
+}
 .bg-secondary-200 {
-    background-color: var(--secondary-200) !important;
+    background-color: var(--secondary-200) !important; /* updated_at : 24/05/24 00.08 */
+}
+.bg-secondary-300 {
+    background-color: var(--secondary-300) !important; /* updated_at : 24/05/24 00.08 */
 }
 
 .bg-pink {

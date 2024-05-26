@@ -29,6 +29,7 @@ use App\Http\Controllers\MenuSehatBalitaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RekomendasiAhliGiziController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
+    Route::get('/rekomendasiAhliGizi', [RekomendasiAhliGiziController::class, 'index']);
 
     // Before Auth Routes
     Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
@@ -98,6 +100,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailProgramKebijakan/auth/{id}', [DetailProgramKebijakanController::class, 'auth']);
     Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
+    Route::get('/rekomendasiAhliGizi/auth', [RekomendasiAhliGiziController::class, 'auth']);
     
 
 

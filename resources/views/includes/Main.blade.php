@@ -78,6 +78,9 @@
     <!-- Informasi Ahli Gizi -->
     @yield('informasiAhliGizi')
 
+    <!-- Rekomendasi Ahli Gizi -->
+    @yield('rekomendasiAhliGizi')
+
     <div class="container">
 
         <!-- Berita Terkini -->
