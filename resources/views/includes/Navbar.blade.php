@@ -138,17 +138,21 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Profile Name -->
+                <div class="nav-item">
+                    <a href="/profile" class="btn btn-outline-primary border-primary">{{ Auth::user()->name }}</a>
+                </div>
+                <!-- Profile Photo -->
                 <li class="nav-item">
-                    <!-- Username -->
-                    <a class="btn btn-primary me-2" disabled>{{ Auth::user()->name }}</a>
-                    <!-- Logout Button -->
-                    <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#confirmationLogout">
-                        Logout
-                    </button>
-                    <!-- Profile -->
                     <a href="/profile">
-                        <img src="{{ asset(Auth::user()->foto) }}" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
+                        <img src="{{ asset(Auth::user()->foto) }}" class="rounded-circle img-fluid" style="width: 40px; height: 40px;" alt="">
                     </a>
+                </li>
+                <!-- Logout Button -->
+                <li class="nav-item">
+                    <form action="" style="width: 40px; height: 40px;">
+                        <button type="button" class="btn btn-primary rounded-circle text-white w-100 h-100" data-bs-toggle="modal" data-bs-target="#confirmationLogout"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></button>
+                    </form>
                 </li>
             </ul>
             @elseif (Auth::user()->role == 'dokter')
@@ -159,16 +163,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/dokter">Berita</a>
                 </li>
+                <!-- Profile Name -->
+                <div class="nav-item">
+                    <a href="/profile" class="btn btn-outline-primary border-primary">{{ Auth::user()->name }}</a>
+                </div>
+                <!-- Profile Photo -->
                 <li class="nav-item">
-                    <!-- <a class="btn bg-primary" href="#">Masuk/Daftar</a> -->
-                    <a class="btn btn-primary me-2" disabled>{{ Auth::user()->name }}</a>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#confirmationLogout">
-                        Logout
-                    </button>
                     <a href="/profile">
-                        <img src="{{ asset(Auth::user()->foto) }}" alt="Profile" class="profile-img rounded-circle" style="width: 40px; height: 40px;" />
+                        <img src="{{ asset(Auth::user()->foto) }}" class="rounded-circle img-fluid" style="width: 40px; height: 40px;" alt="">
                     </a>
+                </li>
+                <!-- Logout Button -->
+                <li class="nav-item">
+                    <form action="" style="width: 40px; height: 40px;">
+                        <button type="button" class="btn btn-primary rounded-circle text-white w-100 h-100" data-bs-toggle="modal" data-bs-target="#confirmationLogout"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></button>
+                    </form>
                 </li>
             </ul>
             @endif

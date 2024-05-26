@@ -140,47 +140,48 @@
                                 <button type="button" class="btn btn-danger w-full" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Daftar Sebagai Ahli Gizi Pelita
                                 </button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-primary-subtle">
-                                                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
-                                                    Daftar Dokter
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <form action="/daftarDokter" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('put')
-                                                <div class="modal-body">
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="nik" id="inputGroup-sizing-default">NIK</span>
-                                                        <input type="text" class="form-control" id="nik" name="nik" />
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="nip" id="inputGroup-sizing-default">NIP</span>
-                                                        <input type="text" class="form-control" id="nip" name="nip" />
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Spesialis</span>
-                                                        <input type="text" class="form-control" id="detail" name="detail" />
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer bg-primary-subtle">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                        Close
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary" href='/daftarDokter'>
-                                                        Daftar
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                </form>
+                    </form>
+                    <!-- Modal Daftar Ahli Gizi -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary-subtle">
+                                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
+                                        Daftar Dokter
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="/daftarDokter" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
+                                    <div class="modal-body">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" for="nik" id="inputGroup-sizing-default">NIK</span>
+                                            <input type="text" class="form-control" id="nik" name="nik" />
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" for="nip" id="inputGroup-sizing-default">NIP</span>
+                                            <input type="text" class="form-control" id="nip" name="nip" />
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Spesialis</span>
+                                            <input type="text" class="form-control" id="detail" name="detail" />
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer bg-primary-subtle">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary" href='/daftarDokter'>
+                                            Daftar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
