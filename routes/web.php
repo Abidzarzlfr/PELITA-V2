@@ -115,6 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/adminUploadBerita', [AdminBeritaController::class, 'store'])->name('adminUploadBerita');
     Route::get('/adminLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'index']);
     Route::get('/adminProgramKebijakan', [AdminProgramKebijakanController::class, 'index']);
+    Route::post('/adminUploadProgramKebijakan', [AdminProgramKebijakanController::class, 'store'])->name('adminUploadProgramKebijakan');
     Route::get('/adminForumKomunitas', [AdminForumKomunitasController::class, 'index']);
     Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
 });

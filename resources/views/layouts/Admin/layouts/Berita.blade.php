@@ -77,4 +77,26 @@
         </table>
     </div>
 </div>
+
+<script>
+    var el = document.getElementById("wrapper");
+    var toggleButton = document.getElementById("menu-toggle");
+
+    toggleButton.onclick = function() {
+        el.classList.toggle("toggled");
+    };
+
+    // Image logic views
+    document.getElementById('foto').addEventListener('change', function(event) {
+        var file = event.target.files[0]; // Mengambil file yang dipilih
+        var reader = new FileReader(); // Membuat objek FileReader
+
+        reader.onload = function(e) {
+            // Set nilai src dari elemen gambar berdasarkan data URL dari file yang dipilih
+            document.querySelector('.profile-img').setAttribute('src', e.target.result);
+        }
+
+        reader.readAsDataURL(file); // Membaca file sebagai data URL
+    });
+</script>
 @endsection

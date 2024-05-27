@@ -15,14 +15,14 @@
         <h1 class="mb-3">{{ $programKebijakan->judul }}</h1>
         <!-- Foto, Nama, dan Tanggal Penerbit -->
         <div class="author d-flex flex-row align-items-center gap-3 mb-5">
-            <img src="{{ $programKebijakan->foto_penerbit }}" width="30px" height="30px" alt="" class="rounded-circle">
+            <img src="{{ asset($programKebijakan->foto_penerbit) }}" width="30px" height="30px" alt="" class="rounded-circle">
             <!-- Nama Penerbit -->
             <p class="m-0">{{ $programKebijakan->nama_penerbit }}</p>
             <!-- Tanggal -->
             <p class="m-0">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $programKebijakan->tanggal)->format('d/m/Y') }}</p>
         </div>
         <!-- Foto Konten -->
-        <img src="{{ $programKebijakan->foto_konten }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
+        <img src="{{ asset($programKebijakan->foto_konten) }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
         <!-- Isi Konten -->
         <div class="artikel-body">
             <p>{{ $programKebijakan->isi_konten }}</p>

@@ -71,27 +71,6 @@
     <!-- /#page-content-wrapper -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        var el = document.getElementById("wrapper");
-        var toggleButton = document.getElementById("menu-toggle");
-
-        toggleButton.onclick = function() {
-            el.classList.toggle("toggled");
-        };
-
-        // Image logic views
-        document.getElementById('foto').addEventListener('change', function(event) {
-            var file = event.target.files[0]; // Mengambil file yang dipilih
-            var reader = new FileReader(); // Membuat objek FileReader
-
-            reader.onload = function(e) {
-                // Set nilai src dari elemen gambar berdasarkan data URL dari file yang dipilih
-                document.querySelector('.profile-img').setAttribute('src', e.target.result);
-            }
-
-            reader.readAsDataURL(file); // Membaca file sebagai data URL
-        });
-    </script>
 </body>
 
 </html>
