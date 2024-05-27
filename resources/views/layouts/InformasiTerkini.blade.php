@@ -161,7 +161,7 @@
             @guest
             <div class="col-md-4 mb-4">
                 <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $item->id }}">
-                    <img src="{{ $item->foto_acara }}" class="card-img-top" alt="">
+                    <img src="{{ asset($item->foto_acara) }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->judul }}</h5>
                         <h6 class="text-muted my-3">{{ $item->pemateri }}</h6>
@@ -174,7 +174,7 @@
             @if (Auth::user()->role == 'user')
             <div class="col-md-4 mb-4">
                 <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $item->id }}">
-                    <img src="{{ $item->foto_acara }}" class="card-img-top" alt="">
+                    <img src="{{ asset($item->foto_acara) }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->judul }}</h5>
                         <h6 class="text-muted my-3">{{ $item->pemateri }}</h6>

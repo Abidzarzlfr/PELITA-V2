@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ $acaraKesehatan->foto_acara }}" class="img-fluid rounded-4 w-100" alt="">
+                <img src="{{ asset($acaraKesehatan->foto_acara) }}" class="img-fluid rounded-4 w-100" alt="">
             </div>
             <div class="col-md-6">
                 <div class="card bg-secondary-100 rounded-4 h-100 border-none p-5">

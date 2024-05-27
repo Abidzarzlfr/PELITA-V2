@@ -9,6 +9,12 @@
             <form action="{{ route('adminUploadProgramKebijakan') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('post')
+                <a href="">
+                    <img src="" alt="foto_penerbit" class="foto_penerbit mt-3" style="width: 350px; height: 200px" />
+                </a>
+                <a href="">
+                    <img src="" alt="foto_konten" class="foto_konten mt-3" style="width: 350px; height: 200px" />
+                </a>
 
                 <!-- Judul -->
                 <div class="input-group mb-3 mt-3">

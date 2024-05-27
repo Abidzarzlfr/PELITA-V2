@@ -111,7 +111,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/adminProgramKebijakan', [AdminProgramKebijakanController::class, 'index']);
     Route::post('/adminUploadProgramKebijakan', [AdminProgramKebijakanController::class, 'store'])->name('adminUploadProgramKebijakan');
     
+    Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
+    Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');
+
     Route::get('/adminLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'index']);
     Route::get('/adminForumKomunitas', [AdminForumKomunitasController::class, 'index']);
-    Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
 });
