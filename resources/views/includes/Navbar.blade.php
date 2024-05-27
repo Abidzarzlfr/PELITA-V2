@@ -42,9 +42,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/forumKomunitas">Forum</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/berita">Berita</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Layanan Lainnya
@@ -101,9 +98,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/forumKomunitas">Forum</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/berita/auth">Berita</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Layanan Lainnya
@@ -159,9 +153,6 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/dokter">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dokter">Berita</a>
                 </li>
                 <!-- Profile Name -->
                 <div class="nav-item">
