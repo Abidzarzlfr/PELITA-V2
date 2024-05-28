@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AcaraKesehatanBalitaController;
 use App\Http\Controllers\AdminAcaraKesehatanBalitaController;
-use App\Http\Controllers\AdminBeritaController;
+use App\Http\Controllers\AdminArtikelPendidikanKesehatanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
 use App\Http\Controllers\AdminLokasiPelayananKesehatanController;
@@ -110,6 +110,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
     Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');
+
+    Route::get('/adminArtikelPendidikanKesehatan', [AdminArtikelPendidikanKesehatanController::class, 'index']);
+    Route::post('/adminUploadArtikelPendidikanKesehatan', [AdminArtikelPendidikanKesehatanController::class, 'store'])->name('adminUploadArtikelPendidikanKesehatan');
 
     Route::get('/adminLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'index']);
 });

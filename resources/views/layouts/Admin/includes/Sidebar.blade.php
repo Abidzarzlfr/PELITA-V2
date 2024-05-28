@@ -7,7 +7,7 @@
         <!-- <a href="/adminLokasiPelayananKesehatan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-shopping-cart me-2 text-dark"></i>Lokasi Pelayanan Kesehatan</a> -->
         <a href="/adminProgramKebijakan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-gift me-2 text-dark"></i>Program & Kebijakan</a>
         <!-- <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-comment-dots me-2 text-dark"></i>Grafik Gizi Indonesia</a> -->
-        <!-- <a href="#" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Kalkulator Gizi</a> -->
         <a href="/adminAcaraKesehatanBalita" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-chart-line me-2 text-dark"></i>Acara Kesehatan</a>
+        <a href="/adminArtikelPendidikanKesehatan" class="list-group-item list-group-item-action bg-primary-subtle border-bottom border-dark"><i class="fas fa-map-marker-alt me-2 text-dark"></i>Artikel Pendidikan Kesehatan</a>
     </div>
 </div>

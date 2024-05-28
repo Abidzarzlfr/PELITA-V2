@@ -15,14 +15,14 @@
         <h1 class="mb-3">{{ $artikels->judul }}</h1>
         <!-- Foto, Nama, dan Tanggal Penerbit -->
         <div class="author d-flex flex-row align-items-center gap-3 mb-5">
-            <img src="{{ $artikels->foto_penerbit }}" width="30px" height="30px" alt="" class="rounded-circle">
+            <img src="{{ asset($artikels->foto_penerbit) }}" width="30px" height="30px" alt="" class="rounded-circle">
             <!-- Nama Penerbit -->
             <p class="m-0">{{ $artikels->nama_penerbit }}</p>
             <!-- Tanggal -->
             <p class="m-0">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $artikels->tanggal)->format('d/m/Y') }}</p>
         </div>
         <!-- Foto Konten -->
-        <img src="{{ $artikels->foto_konten }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
+        <img src="{{ asset($artikels->foto_konten) }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
         <!-- Isi Konten -->
         <div class="artikel-body">
             <p>{{ $artikels->isi_konten }}</p>
