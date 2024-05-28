@@ -5,16 +5,13 @@ use App\Http\Controllers\AdminAcaraKesehatanBalitaController;
 use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
-use App\Http\Controllers\AdminForumKomunitasController;
 use App\Http\Controllers\AdminLokasiPelayananKesehatanController;
 use App\Http\Controllers\AdminProgramKebijakanController;
 use App\Http\Controllers\ArtikelPendidikanController;
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarDokterController;
 use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
-use App\Http\Controllers\DetailBeritaController;
 use App\Http\Controllers\DetailProgramKebijakanController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ForumKomunitasController;
@@ -115,5 +112,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');
 
     Route::get('/adminLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'index']);
-    Route::get('/adminForumKomunitas', [AdminForumKomunitasController::class, 'index']);
 });
