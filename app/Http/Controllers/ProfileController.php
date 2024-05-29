@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LokasiPelayananKesehatan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,16 +12,17 @@ class ProfileController extends Controller
 {
     public function index()
     {
+        $lokasiPelayananKesehatan = LokasiPelayananKesehatan::all();
+
         if (auth()->user()->role == 'admin') {
             return redirect()->route('adminView');
         } else {
-            return view('layouts.Profile');
+            return view('layouts.Profile', compact('lokasiPelayananKesehatan'));
         }
     }
 
     public function edit(Request $request)
     {
-
         $userId = Auth::id();
         $user = User::findOrFail($userId);
 

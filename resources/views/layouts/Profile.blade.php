@@ -142,46 +142,59 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    <!-- Modal Daftar Ahli Gizi -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary-subtle">
-                                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
-                                        Daftar Dokter
-                                    </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <form action="/daftarDokter" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('put')
-                                    <div class="modal-body">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" for="nik" id="inputGroup-sizing-default">NIK</span>
-                                            <input type="text" class="form-control" id="nik" name="nik" />
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" for="nip" id="inputGroup-sizing-default">NIP</span>
-                                            <input type="text" class="form-control" id="nip" name="nip" />
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Spesialis</span>
-                                            <input type="text" class="form-control" id="detail" name="detail" />
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer bg-primary-subtle">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Close
-                                        </button>
-                                        <button type="submit" class="btn btn-primary" href='/daftarDokter'>
-                                            Daftar
-                                        </button>
-                                    </div>
-                                </form>
+                </form>
+                <!-- Modal Daftar Dokter -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                    Daftar Dokter
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            <form action="/daftarDokter" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01">Lokasi Layanan Kesehatan</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="lokasi_id">
+                                            <option selected>Choose...</option>
+                                            @foreach($lokasiPelayananKesehatan as $lokasi)
+                                            <option value="{{ $lokasi->id }}">{{ $lokasi->nama_lokasi }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="dokter_nomor_str" id="inputGroup-sizing-default">Nomor STR</span>
+                                        <input type="text" class="form-control" id="dokter_nomor_str" name="dokter_nomor_str" />
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="dokter_dokumen_str">Dokumen STR</label>
+                                        <input type="file" class="form-control" id="dokter_dokumen_str" name="dokter_dokumen_str">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="dokter_kualifikasi" id="inputGroup-sizing-default">Kualifikasi</span>
+                                        <input type="text" class="form-control" id="dokter_kualifikasi" name="dokter_kualifikasi" />
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="dokter_hp" id="inputGroup-sizing-default">Nomor HP</span>
+                                        <input type="text" class="form-control" id="dokter_hp" name="dokter_hp" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button> -->
+                                    <button type="submit" class="btn btn-primary" href='/daftarDokter'>
+                                        Daftar
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

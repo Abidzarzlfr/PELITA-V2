@@ -26,7 +26,7 @@
 <div class="row my-5">
     <!-- Dokter Request Table -->
     <h3 class="fs-4 mb-3 text-primary">Dokter Requested Table</h3>
-    <div class="col">
+    <div class="col table-responsive">
         <table class="table table-bordered rounded shadow-sm table-hover">
             <thead>
                 <tr class="table-primary">
@@ -35,9 +35,11 @@
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
                     <th scope="col">Dokter Request</th>
-                    <th scope="col">Dokter NIK</th>
-                    <th scope="col">Dokter NIP</th>
-                    <th scope="col">Dokter Detail</th>
+                    <th scope="col">ID Lokasi</th>
+                    <th scope="col">Dokter Nomor STR</th>
+                    <th scope="col">Dokter Dokumen STR</th>
+                    <th scope="col">Dokter Kualifikasi</th>
+                    <th scope="col">Dokter HP</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -53,9 +55,11 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->dokter_request_status }}</td>
-                    <td>{{ $user->dokter_nik }}</td>
-                    <td>{{ $user->dokter_nip }}</td>
-                    <td>{{ $user->dokter_detail }}</td>
+                    <td>{{ $user->id_lokasi }}</td>
+                    <td>{{ $user->dokter_nomor_str }}</td>
+                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" style="width: 125px; height: 50px"></td>
+                    <td>{{ $user->dokter_kualifikasi }}</td>
+                    <td>{{ $user->dokter_hp }}</td>
                     <td>
                         <!-- Button Confirmation Dokter Requested -->
                         <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#confirmationDokterRequested"><i class="fas fa-check"></i></button>
@@ -97,7 +101,7 @@
 
     <!-- Dokter Approved Table -->
     <h3 class="fs-4 mb-3 text-primary mt-2">Dokter Approved Table</h3>
-    <div class="col">
+    <div class="col table-responsive">
         <table class="table table-bordered rounded shadow-sm table-hover">
             <thead>
                 <tr class="table-primary">
@@ -106,9 +110,11 @@
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
                     <th scope="col">Dokter Request</th>
-                    <th scope="col">Dokter NIK</th>
-                    <th scope="col">Dokter NIP</th>
-                    <th scope="col">Dokter Detail</th>
+                    <th scope="col">ID Lokasi</th>
+                    <th scope="col">Dokter Nomor STR</th>
+                    <th scope="col">Dokter Dokumen STR</th>
+                    <th scope="col">Dokter Kualifikasi</th>
+                    <th scope="col">Dokter HP</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -124,9 +130,11 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->dokter_request_status }}</td>
-                    <td>{{ $user->dokter_nik }}</td>
-                    <td>{{ $user->dokter_nip }}</td>
-                    <td>{{ $user->dokter_detail }}</td>
+                    <td>{{ $user->id_lokasi }}</td>
+                    <td>{{ $user->dokter_nomor_str }}</td>
+                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" style="width: 125px; height: 50px"></td>
+                    <td>{{ $user->dokter_kualifikasi }}</td>
+                    <td>{{ $user->dokter_hp }}</td>
                     <td>
                         <button type="button" class="btn btn-danger mt-1"><i class="fas fa-trash"></i></button>
                     </td>

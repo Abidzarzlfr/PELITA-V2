@@ -12,10 +12,23 @@ class DaftarDokterController extends Controller
     {
         $userId = Auth::id();
         $user = User::findOrFail($userId);
+
+        $user->id_lokasi = $request->lokasi_id;
         $user->dokter_request_status = 'requested';
-        $user->dokter_nik = $request->nik;
-        $user->dokter_nip = $request->nip;
-        $user->dokter_detail = $request->detail;
+        $user->dokter_nomor_str = $request->dokter_nomor_str;
+
+        $dokterDokumenStr = null;
+        if ($request->hasFile('dokter_dokumen_str')) {
+            $destinationPath = 'images/dokterDokumenStr/';
+            $image = $request->file('dokter_dokumen_str');
+            $dokterDokumenStr = $destinationPath . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $dokterDokumenStr);
+        }
+
+        $user->dokter_dokumen_str = $dokterDokumenStr;
+
+        $user->dokter_kualifikasi = $request->dokter_kualifikasi;
+        $user->dokter_hp = $request->dokter_hp;
 
         $user->save();
         return redirect('/profile');
