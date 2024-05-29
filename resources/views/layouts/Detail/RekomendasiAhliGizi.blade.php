@@ -1,7 +1,6 @@
 @extends('includes.Main')
 
-@section('rekomendasiAhliGizi')
-<!-- Rekomendasi Ahli Gizi -->
+@section('detailRekomendasiAhliGizi')
 <section class="informasi-ahli py-5">
     <div class="mx-5">
         <div class="row">
@@ -11,49 +10,27 @@
                     <p class="quote-text text-justify">Layanan telemedisin yang siap siaga untuk membantu Anda
                         memenuhi
                         kebutuhan si buah hati</p>
-                    <img src="{{ asset('Main/assets/main/img-informasi-ahli.png') }}" class="img-fluid py-5" alt="">
+                    <img src="img/img-informasi-ahli.png" class="img-fluid py-5" alt="">
                     <div class="daftar-feature align-self-start">
-                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
-                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
-                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
-                        <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
+                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
+                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
+                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
+                        <p class="mb-4"><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
                     </div>
                 </div>
             </div>
             <div class="col-7">
-                <div class="p-5">
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Cari informasi" aria-label="Cari Informasi" aria-describedby="btn-search">
-                            <button class="btn btn-secondary text-white" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
-                        </div>
-                    </form>
-                    <div class="py-5">
-                        <h5>Rekomendasi Ahli Gizi</h5>
-                        <p>Konsultasi online dengan ahli gizi terbaik kami</p>
-                    </div>
-                    <div class="row pb-4">
-                        @foreach ($dokter as $item)
-                        @if($item->role === 'dokter')
-                        <div class="col-md-6 mt-2">
-                            <div class="d-flex flex-row p-4 bg-secondary-100 rounded-4 gap-2">
-                                <img src="{{ asset($item->foto) }}" class="object-fit-cover" width="80px" alt="">
-                                <div class="detail w-100">
-                                    <p class="fw-bold m-0">{{ $item->name }}</p>
-                                    <p class="m-0">{{ $item->dokter_kualifikasi }}</p>
-                                    <p class="fw-light m-0">{{ $item->lokasi->nama_lokasi }}</p>
-                                    <a href="/detailRekomendasiAhliGizi/auth/{{ $item->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Ahli Gizi</a>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
+                <div class="container py-5 d-flex justify-content-center align-items-center">
+                    <div class="rounded-4 bg-secondary-100 w-75 p-5">
+                        <img src="{{ asset($detailRekomendasiAhliGizi->foto) }}" class="rounded-3 img-fluid mb-5" alt="">
+                        <h3 class="mb-2">{{ $detailRekomendasiAhliGizi->name }}</h3>
+                        <p class="quote-text mb-2">{{ $detailRekomendasiAhliGizi->dokter_kualifikasi }}</p>
+                        <p>{{ $detailRekomendasiAhliGizi->lokasi->nama_lokasi }}</p>
+                        <a href="https://wa.me/{{ $detailRekomendasiAhliGizi->dokter_hp }}" class="btn btn-secondary text-white w-100 text-center mt-5" target="_blank"><i class="fs-5 fa-brands fa-whatsapp me-2"></i>Jadwalkan Konsultasi</a>
                     </div>
                 </div>
-                <a href="" class="btn btn-secondary w-100 text-white mt-4">Lihat Lebih Banyak</a>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!-- Informasi Lebih Lanjut -->

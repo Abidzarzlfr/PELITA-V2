@@ -13,6 +13,7 @@ use App\Http\Controllers\DaftarDokterController;
 use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailProgramKebijakanController;
+use App\Http\Controllers\DetailRekomendasiAhliGizi;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\GrafikGiziIndonesiaController;
@@ -57,10 +58,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
+    Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
     Route::get('/rekomendasiAhliGizi', [RekomendasiAhliGiziController::class, 'index']);
 
     // Before Auth Routes
-    Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
     Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
@@ -93,6 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/rekomendasiAhliGizi/auth', [RekomendasiAhliGiziController::class, 'auth']);
+    Route::get('/detailRekomendasiAhliGizi/auth/{id}', [DetailRekomendasiAhliGizi::class, 'auth']);
     
 
 
