@@ -18,15 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_lokasi',
         'name',
         'email',
         'password',
         'role',
         'dokter_request_status',
         'foto',
-        'dokter_nik',
-        'dokter_nip',
-        'dokter_detail',
+        'dokter_nomor_str',
+        'dokter_dokumen_str',
+        'dokter_kualifikasi',
+        'dokter_hp',
     ];
 
     /**
@@ -48,4 +50,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function lokasi()
+    {
+        return $this->belongsTo(LokasiPelayananKesehatan::class, 'id_lokasi');
+    }
 }
