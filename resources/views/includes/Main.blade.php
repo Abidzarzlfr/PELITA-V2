@@ -104,9 +104,6 @@
         <!-- Kalkulator Gizi -->
         @yield('kalkulatorGizi')
 
-        <!-- Forum & Komunitas -->
-        @yield('forumKomunitas')
-
         <!-- Profile -->
         @yield('profile')
 

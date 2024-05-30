@@ -15,7 +15,6 @@ use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailProgramKebijakanController;
 use App\Http\Controllers\DetailRekomendasiAhliGizi;
 use App\Http\Controllers\DokterController;
-use App\Http\Controllers\ForumKomunitasController;
 use App\Http\Controllers\GrafikGiziIndonesiaController;
 use App\Http\Controllers\InformasiAhliGiziController;
 use App\Http\Controllers\InformasiTerkiniController;
@@ -76,7 +75,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/profile', [ProfileController::class, 'edit']);
     Route::put('/daftarDokter', [DaftarDokterController::class, 'daftar']);
     Route::get('/logout', [LogoutController::class, 'logout']);
-    Route::get('/forumKomunitas', [ForumKomunitasController::class, 'auth']);
     Route::get('/informasiAhliGizi/auth', [InformasiAhliGiziController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 

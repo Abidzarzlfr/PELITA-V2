@@ -40,9 +40,6 @@
                 <!-- Program & Kebijakan -->
                 @yield('programKebijakan')
 
-                <!-- Forum & Komunitas -->
-                @yield('forumKomunitas')
-
                 <!-- Acara Kesehatan Balita -->
                 @yield('acaraKesehatanBalita')
 
