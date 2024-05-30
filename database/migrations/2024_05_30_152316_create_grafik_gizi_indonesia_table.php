@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berita', function (Blueprint $table) {
+        Schema::create('grafik_gizi_indonesia', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('kategori');
-            $table->string('detail');
-            $table->date('tanggal');
-            $table->string('foto');
+            $table->enum('status', ['stunting', 'wasting', 'underweight', 'overweight']);
+            $table->double('tahun_1', 15, 2);
+            $table->double('tahun_2', 15, 2);
+            $table->double('tahun_3', 15, 2);
+            $table->double('tahun_4', 15, 2);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('berita');
+        Schema::dropIfExists('grafik_gizi_indonesia');
     }
 };

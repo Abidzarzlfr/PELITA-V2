@@ -31,9 +31,6 @@
                 <!-- Dokter Request -->
                 @yield('dokterRequest')
 
-                <!-- Berita Terkini -->
-                @yield('berita')
-
                 <!-- Lokasi Pelayanan Kesehatan -->
                 @yield('lokasiPelayananKesehatan')
 

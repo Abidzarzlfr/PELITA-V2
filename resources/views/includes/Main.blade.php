@@ -86,12 +86,6 @@
 
     <div class="container">
 
-        <!-- Berita Terkini -->
-        @yield('berita')
-
-        <!-- Detail Berita Terkini -->
-        @yield('detailBerita')
-
         <!-- Lokasi Pelayanan kesehatan -->
         @yield('lokasiPelayananKesehatan')
 
