@@ -15,47 +15,71 @@
         <div class="card-solusi row">
           <!-- Informasi Ahli Gizi -->
           <div class="col-3">
-            <a class="btn card card-icon" href="#">
-              <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
-                <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="75px" height="75px" alt="" />
+            @guest
+            <a class="btn card card-icon" href="/informasiAhliGizi">
+              @else
+              @if (Auth::user()->role == 'user')
+              <a class="btn card card-icon" href="/informasiAhliGizi/auth">
+                @endif
+                @endguest
+                <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
+                  <div class="rounded-circle bg-icon-beranda icon-circle">
+                    <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="75px" height="75px" alt="" />
+                  </div>
+                  <strong>Informasi Ahli Gizi</strong>
                 </div>
-                <strong>Informasi Ahli Gizi</strong>
-              </div>
-            </a>
+              </a>
           </div>
           <!-- Lokasi Pelayanan Kesehatan -->
           <div class="col-3">
-            <a class="btn card card-icon" href="#">
-              <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
-                <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="60px" alt="" />
+            @guest
+            <a class="btn card card-icon" href="/lokasiPelayananKesehatan">
+              @else
+              @if (Auth::user()->role == 'user')
+              <a class="btn card card-icon" href="/lokasiPelayananKesehatan/auth">
+                @endif
+                @endguest
+                <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
+                  <div class="rounded-circle bg-icon-beranda icon-circle">
+                    <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="60px" alt="" />
+                  </div>
+                  <strong>Lokasi Pelayanan Kesehatan</strong>
                 </div>
-                <strong>Lokasi Pelayanan Kesehatan</strong>
-              </div>
-            </a>
+              </a>
           </div>
-          <!-- Forum Komunitas Orang Tua -->
+          <!-- Informasi Terkini -->
           <div class="col-3">
-            <a class="btn card card-icon" href="#">
-              <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
-                <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/main/ic-komunitas.svg') }}" class="" width="60px" alt="" />
+            @guest
+            <a class="btn card card-icon" href="/informasiTerkini">
+              @else
+              @if (Auth::user()->role == 'user')
+              <a class="btn card card-icon" href="/informasiTerkini/auth">
+                @endif
+                @endguest
+                <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
+                  <div class="rounded-circle bg-icon-beranda icon-circle">
+                    <img src="{{ asset('Main/assets/main/ic-berita.svg') }}" class="" width="60px" alt="" />
+                  </div>
+                  <strong>Informasi Terkini</strong>
                 </div>
-                <strong>Forum Komunitas Orang Tua</strong>
-              </div>
-            </a>
+              </a>
           </div>
-          <!-- Grafik Gizi Indonesia -->
+          <!-- Kalkulator Gizi Indonesia -->
           <div class="col-3">
-            <a class="btn card card-icon" href="">
-              <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
-                <div class="rounded-circle bg-secondary icon-circle">
-                  <img src="{{ asset('Main/assets/main/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
+            @guest
+            <a class="btn card card-icon" href="/kalkulatorGizi">
+              @else
+              @if (Auth::user()->role == 'user')
+              <a class="btn card card-icon" href="/kalkulatorGizi/auth">
+                @endif
+                @endguest
+                <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
+                  <div class="rounded-circle bg-icon-beranda icon-circle">
+                    <img src="{{ asset('Main/assets/main/ic-kalkulator.svg') }}" class="" width="50px" alt="" />
+                  </div>
+                  <strong>Kalkulator Gizi</strong>
                 </div>
-                <strong>Grafik Gizi Indonesia</strong>
-              </div>
-            </a>
+              </a>
           </div>
         </div>
       </div>
@@ -67,78 +91,136 @@
   <div class="container">
     <h3>Layanan Pelita</h3>
     <div class="layanan-pelita row pt-3">
-      <!-- Berita Kesehatan Terkini -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-berita.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Berita Kesehatan Terkini</p>
-      </a>
-      <!-- Menu Sehat Balita -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-menu-kesehatan.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Menu Sehat Balita</p>
-      </a>
-      <!-- Artikel Pendidikan Kesehatan -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-artikel.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Artikel Pendidikan Kesehatan</p>
-      </a>
-      <!-- Lokasi Pelayanan Kesehatan -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Lokasi Pelayanan Kesehatan</p>
-      </a>
-      <!-- Program dan Kebijakan -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-program.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Program dan Kebijakan</p>
-      </a>
-      <!-- Grafik Gizi Indonesia -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-grafik-kesehatan.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Grafik Gizi Indonesia</p>
-      </a>
+
+      <!-- Informasi Terkini -->
+      @guest
+      <a class="btn col-2 circle-image" href="/informasiTerkini">
+        @else
+        @if (Auth::user()->role == 'user')
+        <a class="btn col-2 circle-image" href="/informasiTerkini/auth">
+          @endif
+          @endguest
+          <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+            <img src="{{ asset('Main/assets/main/ic-berita.svg') }}" class="" width="50px" alt="" />
+          </div>
+          <p class="fw-bold">Informasi Terkini</p>
+        </a>
+
+        <!-- Artikel Pendidikan Kesehatan -->
+        @guest
+        <a class="btn col-2 circle-image" href="/artikelPendidikanKesehatan">
+          @else
+          @if (Auth::user()->role == 'user')
+          <a class="btn col-2 circle-image" href="/artikelPendidikanKesehatan/auth">
+            @endif
+            @endguest
+            <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+              <img src="{{ asset('Main/assets/main/ic-artikel.svg') }}" class="" width="55px" alt="" />
+            </div>
+            <p class="fw-bold">Artikel Pendidikan Kesehatan</p>
+          </a>
+
+          <!-- Program dan Kebijakan -->
+          @guest
+          <a class="btn col-2 circle-image" href="/programKebijakan">
+            @else
+            @if (Auth::user()->role == 'user')
+            <a class="btn col-2 circle-image" href="/programKebijakan/auth">
+              @endif
+              @endguest
+              <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+                <img src="{{ asset('Main/assets/main/ic-program.svg') }}" class="" width="50px" alt="" />
+              </div>
+              <p class="fw-bold">Program dan Kebijakan</p>
+            </a>
+
+            <!-- Acara Kesehatan Balita -->
+            @guest
+            <a class="btn col-2 circle-image" href="/acaraKesehatanBalita">
+              @else
+              @if (Auth::user()->role == 'user')
+              <a class="btn col-2 circle-image" href="/acaraKesehatanBalita/auth">
+                @endif
+                @endguest
+                <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+                  <img src="{{ asset('Main/assets/main/ic-acara.svg') }}" class="" width="50px" alt="" />
+                </div>
+                <p class="fw-bold">Acara Kesehatan Balita</p>
+              </a>
+
+              <!-- Kalkulator Gizi -->
+              @guest
+              <a class="btn col-2 circle-image" href="/kalkulatorGizi">
+                @else
+                @if (Auth::user()->role == 'user')
+                <a class="btn col-2 circle-image" href="/kalkulatorGizi/auth">
+                  @endif
+                  @endguest
+                  <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+                    <img src="{{ asset('Main/assets/main/ic-kalkulator.svg') }}" class="" width="60px" height="60px" alt="" />
+                  </div>
+                  <p class="fw-bold">Kalkulator Gizi</p>
+                </a>
+
+                <!-- Menu Sehat Balita -->
+                @guest
+                <a class="btn col-2 circle-image" href="/menuSehatBalita">
+                  @else
+                  @if (Auth::user()->role == 'user')
+                  <a class="btn col-2 circle-image" href="/menuSehatBalita/auth">
+                    @endif
+                    @endguest
+                    <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+                      <img src="{{ asset('Main/assets/main/ic-menu-kesehatan.svg') }}" class="" width="50px" alt="" />
+                    </div>
+                    <p class="fw-bold">Menu Sehat Balita</p>
+                  </a>
+
     </div>
     <div class="layanan-pelita row pt-3">
+
       <!-- Informasi Ahli Gizi -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="60px" height="60px" alt="" />
-        </div>
-        <p class="fw-bold">Informasi Ahli Gizi</p>
-      </a>
-      <!-- Kalkulator Gizi -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-kalkulator.svg') }}" class="" width="60px" height="60px" alt="" />
-        </div>
-        <p class="fw-bold">Kalkulator Gizi</p>
-      </a>
-      <!-- Forum Komunitas Orang Tua -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-komunitas.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Forum Komunitas Orang Tua</p>
-      </a>
-      <!-- Acara Kesehatan Balita -->
-      <a class="btn col-2 circle-image" href="#">
-        <div class="rounded-circle bg-secondary icon-circle d-flex justify-content-center align-items-center">
-          <img src="{{ asset('Main/assets/main/ic-acara.svg') }}" class="" width="60px" alt="" />
-        </div>
-        <p class="fw-bold">Acara Kesehatan Balita</p>
-      </a>
+      @guest
+      <a class="btn col-2 circle-image" href="/informasiAhliGizi">
+        @else
+        @if (Auth::user()->role == 'user')
+        <a class="btn col-2 circle-image" href="/informasiAhliGizi/auth">
+          @endif
+          @endguest
+          <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+            <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="50px" height="55px" alt="" />
+          </div>
+          <p class="fw-bold">Informasi Ahli Gizi</p>
+        </a>
+
+        <!-- Lokasi Pelayanan Kesehatan -->
+        @guest
+        <a class="btn col-2 circle-image" href="/lokasiPelayananKesehatan">
+          @else
+          @if (Auth::user()->role == 'user')
+          <a class="btn col-2 circle-image" href="/lokasiPelayananKesehatan/auth">
+            @endif
+            @endguest
+            <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+              <img src="{{ asset('Main/assets/main/ic-faskes.svg') }}" class="" width="50px" alt="" />
+            </div>
+            <p class="fw-bold">Lokasi Pelayanan Kesehatan</p>
+          </a>
+
+          <!-- Grafik Gizi Indonesia -->
+          @guest
+          <a class="btn col-2 circle-image" href="/grafikGiziIndonesia">
+            @else
+            @if (Auth::user()->role == 'user')
+            <a class="btn col-2 circle-image" href="/grafikGiziIndonesia/auth">
+              @endif
+              @endguest
+              <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
+                <img src="{{ asset('Main/assets/main/ic-grafik-kesehatan.svg') }}" class="" width="50px" alt="" />
+              </div>
+              <p class="fw-bold">Grafik Gizi Indonesia</p>
+            </a>
+
     </div>
   </div>
 </section>

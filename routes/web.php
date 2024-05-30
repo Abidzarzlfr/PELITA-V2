@@ -76,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/profile', [ProfileController::class, 'edit']);
     Route::put('/daftarDokter', [DaftarDokterController::class, 'daftar']);
     Route::get('/logout', [LogoutController::class, 'logout']);
-    Route::get('/forumKomunitas', [ForumKomunitasController::class, 'index']);
+    Route::get('/forumKomunitas', [ForumKomunitasController::class, 'auth']);
     Route::get('/informasiAhliGizi/auth', [InformasiAhliGiziController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 

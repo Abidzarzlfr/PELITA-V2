@@ -12,10 +12,10 @@
                         kebutuhan si buah hati</p>
                     <img src="img/img-informasi-ahli.png" class="img-fluid py-5" alt="">
                     <div class="daftar-feature align-self-start">
-                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
-                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
-                        <p><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
-                        <p class="mb-4"><span class="me-4"><img src="img/icons/ic-check-secondary.svg" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
+                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
+                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
+                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
+                        <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
                     </div>
                 </div>
             </div>

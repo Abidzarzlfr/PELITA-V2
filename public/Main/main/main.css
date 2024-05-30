@@ -189,6 +189,8 @@ footer hr {
 
     --accent1: #A4D1E5;
     --accent2: #F8DDC4;
+
+    --bgIconBeranda: #E8DBDE;
 }
 
 
@@ -459,6 +461,9 @@ h2{
 }
 .bg-secondary-300 {
     background-color: var(--secondary-300) !important; /* updated_at : 24/05/24 00.08 */
+}
+.bg-icon-beranda {
+    background-color: var(--bgIconBeranda) !important;
 }
 
 .bg-pink {
