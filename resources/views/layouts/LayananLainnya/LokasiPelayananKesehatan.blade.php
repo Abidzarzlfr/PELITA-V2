@@ -1,7 +1,9 @@
 @extends('includes.Main')
 
+<!-- Lokasi Pelayanan Kesehatan -->
 @section('lokasiPelayananKesehatan')
 
+<!-- Header Lokasi Pelayanan Kesehatan -->
 <section class="header-lokasi-kesehatan py-5 bg-bg">
     <div class="container">
         <div class="row">
@@ -37,13 +39,14 @@
     </div>
 </section>
 
+<!-- Konten Lokasi Pelayanan Kesehatan -->
 <section class="lokasi-cards py-5">
     <div class="container">
         <div class="row">
             @guest
             @foreach ($lokasiPelayananKesehatan as $item)
             <div class="col-md-4 mb-4">
-                <a class="card" href="" style="text-decoration: none;">
+                <a class="card" href="/detailLokasiPelayananKesehatan/{{ $item->id }}" style="text-decoration: none;">
                     <img src="{{ asset($item->foto_lokasi) }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_lokasi }}</h5>
@@ -57,7 +60,7 @@
             @if (Auth::user()->role == 'user')
             @foreach ($lokasiPelayananKesehatan as $item)
             <div class="col-md-4 mb-4">
-                <a class="card" href="" style="text-decoration: none;">
+                <a class="card" href="/detailLokasiPelayananKesehatan/auth/{{ $item->id }}" style="text-decoration: none;">
                     <img src="{{ asset($item->foto_lokasi) }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_lokasi }}</h5>

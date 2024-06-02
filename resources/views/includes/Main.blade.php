@@ -87,6 +87,9 @@
     <!-- Lokasi Pelayanan kesehatan -->
     @yield('lokasiPelayananKesehatan')
 
+    <!-- Detail Lokasi Pelayanan Kesehatan -->
+    @yield('detailLokasiPelayananKesehatan')
+
     <div class="container">
         <!-- Menu Sehat Balita -->
         @yield('menuSehatBalita')

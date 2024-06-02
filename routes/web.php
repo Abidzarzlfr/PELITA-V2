@@ -12,6 +12,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DaftarDokterController;
 use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
+use App\Http\Controllers\DetailLokasiPelayananKesehatanController;
 use App\Http\Controllers\DetailProgramKebijakanController;
 use App\Http\Controllers\DetailRekomendasiAhliGizi;
 use App\Http\Controllers\DokterController;
@@ -59,9 +60,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
     Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
     Route::get('/rekomendasiAhliGizi', [RekomendasiAhliGiziController::class, 'index']);
+    Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
+    Route::get('/detailLokasiPelayananKesehatan/{id}', [DetailLokasiPelayananKesehatanController::class, 'index']);
 
     // Before Auth Routes
-    Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
     Route::get('/kalkulatorGizi', [KalkulatorGiziController::class, 'index']);
@@ -78,7 +80,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/informasiAhliGizi/auth', [InformasiAhliGiziController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 
-    Route::get('/lokasiPelayananKesehatan/auth', [LokasiPelayananKesehatanController::class, 'auth']);
     Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
     Route::get('/grafikGiziIndonesia/auth', [GrafikGiziIndonesiaController::class, 'auth']);
     Route::get('/kalkulatorGizi/auth', [KalkulatorGiziController::class, 'auth']);
@@ -93,6 +94,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/rekomendasiAhliGizi/auth', [RekomendasiAhliGiziController::class, 'auth']);
     Route::get('/detailRekomendasiAhliGizi/auth/{id}', [DetailRekomendasiAhliGizi::class, 'auth']);
+    Route::get('/lokasiPelayananKesehatan/auth', [LokasiPelayananKesehatanController::class, 'auth']);
+    Route::get('/detailLokasiPelayananKesehatan/auth/{id}', [DetailLokasiPelayananKesehatanController::class, 'auth']);
     
 
 
