@@ -22,7 +22,7 @@ class LokasiPelayananKesehatanSeeder extends Seeder
                 'tentang_lokasi' => 'Rumah Sakit A merupakan rumah sakit terkemuka di Jakarta Pusat.',
                 'no_tlp_lokasi' => '08123456789',
                 'alamat_lokasi' => 'Jl. Cipto Mangunkusumo No. 1, Jakarta Pusat',
-                'link_maps' => 'https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Siloam%20Hospitals%20Mampang%20+(Siloam%20Hospitals%20Mampang)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                'link_maps' => 'https://www.google.com/maps/embed/v1/place?q=Siloam+Hospitals+Mampang&key=AIzaSyBFw0Qbyq9zTFTd-'
             ],
             [
                 'nama_lokasi' => 'RS Hasan Sadikin',
@@ -32,7 +32,7 @@ class LokasiPelayananKesehatanSeeder extends Seeder
                 'tentang_lokasi' => 'Puskesmas B adalah pusat kesehatan masyarakat yang melayani warga Bandung.',
                 'no_tlp_lokasi' => '0222551111',
                 'alamat_lokasi' => 'Jl. Pasteur No.38, Pasteur, Kec. Sukajadi',
-                'link_maps' => 'https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20+(RS%20Hasan%20Sadikin)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                'link_maps' => 'https://www.google.com/maps/embed/v1/place?q=RS+hasan+sadikin&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8'
             ],
             // Tambahkan data lainnya sesuai kebutuhan
         ];
