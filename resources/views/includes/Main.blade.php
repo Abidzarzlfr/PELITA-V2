@@ -82,13 +82,12 @@
     @yield('rekomendasiAhliGizi')
 
     <!-- Detail Rekomendasi Ahli Gizi -->
-    @yield('detailRekomendasiAhliGizi');
+    @yield('detailRekomendasiAhliGizi')
+
+    <!-- Lokasi Pelayanan kesehatan -->
+    @yield('lokasiPelayananKesehatan')
 
     <div class="container">
-
-        <!-- Lokasi Pelayanan kesehatan -->
-        @yield('lokasiPelayananKesehatan')
-
         <!-- Menu Sehat Balita -->
         @yield('menuSehatBalita')
 
