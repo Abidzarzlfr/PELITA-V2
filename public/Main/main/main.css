@@ -209,6 +209,10 @@ h2{
     font-size: 30px !important;
 }
 
+.bg-navbar {
+    background-color: var(--bg) !important; 
+}
+
 .quote-text{
     font-size: 18px;
 }

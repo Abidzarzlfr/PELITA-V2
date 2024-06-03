@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary py-3 sticky-top">
+<nav class="navbar navbar-expand-lg bg-navbar py-3 sticky-top">
     <div class="container-fluid px-5">
 
         <!-- Logo -->
