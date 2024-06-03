@@ -22,7 +22,7 @@ class LokasiPelayananKesehatanSeeder extends Seeder
                 'tentang_lokasi' => 'Rumah Sakit A merupakan rumah sakit terkemuka di Jakarta Pusat.',
                 'no_tlp_lokasi' => '08123456789',
                 'alamat_lokasi' => 'Jl. Cipto Mangunkusumo No. 1, Jakarta Pusat',
-                'link_maps' => 'https://www.google.com/maps/embed/v1/place?q=Siloam+Hospitals+Mampang&key=AIzaSyBFw0Qbyq9zTFTd-'
+                'link_maps' => 'https://www.google.com/maps/embed/v1/place?q=Siloam+Hospitals+Mampang&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8'
             ],
             [
                 'nama_lokasi' => 'RS Hasan Sadikin',
