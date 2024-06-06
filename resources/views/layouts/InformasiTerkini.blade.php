@@ -9,12 +9,12 @@
                 <h2>Informasi Terkini untuk Si Kecil</h2>
                 <p>Temukan informasi terkini dan berguna! Mari bersama-sama menjaga kesehatan si kecil dengan
                     membaca berita terbaru di halaman kami!</p>
-                <form action="">
+                <!-- <form action="">
                     <div class="input-group pt-5">
                         <input type="text" class="form-control" placeholder="Cari Informasi" aria-label="Cari Informasi" aria-describedby="btn-search">
                         <button class="btn btn-primary" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>
@@ -30,24 +30,24 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="d-block w-100 rounded" alt="...">
+                    <img src="{{ asset($artikels->first()->foto_konten) }}" class="d-block w-100 rounded" style="height: 480px;" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <p>PERTUMBUHAN BALITA | 15 menit yang lalu</p>
+                        <h5>{{ $artikels->first()->judul }}</h5>
+                        <p>{{ $artikels->first()->kategori }} | {{ $artikels->first()->tanggal }}</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="d-block w-100 rounded" alt="...">
+                    <img src="{{ asset($programKebijakan->first()->foto_konten) }}" class="d-block w-100 rounded" style="height: 480px;" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <p>PERTUMBUHAN BALITA | 15 menit yang lalu</p>
+                        <h5>{{ $programKebijakan->first()->judul }}</h5>
+                        <p>{{ $programKebijakan->first()->kategori }} | {{ $programKebijakan->first()->tanggal }}</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="d-block w-100 rounded" alt="...">
+                    <img src="{{ asset($acaraKesehatan->first()->foto_acara) }}" class="d-block w-100 rounded" style="height: 480px;" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</h5>
-                        <p>PERTUMBUHAN BALITA | 15 menit yang lalu</p>
+                        <h5>{{ $acaraKesehatan->first()->judul }}</h5>
+                        <p>{{ $acaraKesehatan->first()->pemateri }} | {{ $acaraKesehatan->first()->status }}</p>
                     </div>
                 </div>
             </div>
