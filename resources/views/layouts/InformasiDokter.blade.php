@@ -12,17 +12,66 @@
                     permasalahan
                     buah hati Anda akan ditangani oleh dokter yang sudah professional dari fasilitas kesehatan
                     terbaik.</p>
-                <form action="">
-                    <div class="input-group pt-4">
-                        <input type="text" class="form-control" placeholder="Cari nama dokter" aria-label="Cari Informasi" aria-describedby="btn-search">
-                        <button class="btn btn-secondary text-white" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
-                    </div>
-                </form>
-                <a href="" class="btn btn-secondary text-white w-100 mt-4">Temukan Lokasi Pelayanan Kesehatan</a>
+                @guest
+                <form action="{{ route('searchDokter') }}" method="POST">
+                    @else
+                    @if (Auth::user()->role == 'user')
+                    <form action="{{ route('searchDokterAuth') }}" method="POST">
+                        @endif
+                        @endguest
+                        @csrf
+                        <div class="input-group pt-4">
+                            <input type="text" name="nama_dokter" class="form-control" placeholder="Cari nama dokter" aria-label="Cari Informasi" aria-describedby="btn-search">
+                            <button class="btn btn-secondary text-white" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
+                        </div>
+                    </form>
+                    @guest
+                    <a href="/lokasiPelayananKesehatan" class="btn btn-secondary text-white w-100 mt-4">Temukan Lokasi Pelayanan Kesehatan</a>
+                    @else
+                    @if (Auth::user()->role == 'user')
+                    <a href="/lokasiPelayananKesehatan/auth" class="btn btn-secondary text-white w-100 mt-4">Temukan Lokasi Pelayanan Kesehatan</a>
+                    @endif
+                    @endguest
             </div>
         </div>
     </div>
 </section>
+
+@if ($showResultSearchAhliGizi)
+<!-- Result Search Ahli Gizi -->
+<section class="result-search-ahli-gizi">
+    <div class="container">
+        <div class="py-5">
+            <h5>Rekomendasi Ahli Gizi</h5>
+            <p>Konsultasi online dengan ahli gizi terbaik kami</p>
+        </div>
+        @if($dokters->isEmpty())
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="mb-5 text-center">Mohon maaf, data dokter tidak tersedia.</p>
+                <br><br><br>
+            </div>
+        </div>
+        @else
+        <div class="row mb-4">
+            @foreach($dokters as $dokter)
+            <div class="col-md-6 mb-4">
+                <div class="d-flex flex-row p-4 bg-secondary-100 rounded-4 gap-2">
+                    <img src="{{ asset($dokter->foto) }}" class="object-fit-cover" width="80px" alt="Dokter Image">
+                    <div class="detail w-100">
+                        <p class="fw-bold m-0">{{ $dokter->name }}</p>
+                        <p class="m-0">{{ $dokter->dokter_kualifikasi }}</p>
+                        <p class="fw-light m-0">{{ $dokter->lokasi->nama_lokasi }}</p>
+                        <a href="/detailRekomendasiDokter/auth/{{ $dokter->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Ahli Gizi</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+    </div>
+</section>
+@else
 <!-- Card Dokter -->
 <section class="py-5">
     <div class="container">
@@ -139,6 +188,8 @@
         </div>
     </div>
 </section>
+@endif
+
 <!-- Informasi Lebih Lanjut -->
 <section class="info text-center pt-5">
     <div class="container">
@@ -153,7 +204,6 @@
         <p class="text-muted mt-4">&copy; 2024 Pelita</p>
     </div>
 </section>
-
 <!-- Footer -->
 <footer>
     <div class="container my-3">

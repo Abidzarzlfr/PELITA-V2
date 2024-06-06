@@ -63,6 +63,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/detailLokasiPelayananKesehatan/{id}', [DetailLokasiPelayananKesehatanController::class, 'index']);
 
+    // SEARCH DOKTER "informasiDokter.blade.php"
+    Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
+
     // Before Auth Routes
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
@@ -83,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
     Route::get('/grafikGiziIndonesia/auth', [GrafikGiziIndonesiaController::class, 'auth']);
     Route::get('/kalkulatorGizi/auth', [KalkulatorGiziController::class, 'auth']);
-    
+
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
     Route::get('/artikelPendidikanKesehatan/auth', [ArtikelPendidikanController::class, 'auth']);
@@ -96,8 +99,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailRekomendasiDokter/auth/{id}', [DetailRekomendasiDokter::class, 'auth']);
     Route::get('/lokasiPelayananKesehatan/auth', [LokasiPelayananKesehatanController::class, 'auth']);
     Route::get('/detailLokasiPelayananKesehatan/auth/{id}', [DetailLokasiPelayananKesehatanController::class, 'auth']);
-    
 
+    // SEARCH DOKTER "informasiDokter.blade.php"
+    Route::post('/searchDokter/auth', [InformasiDokterController::class, 'searchDokter'])->name('searchDokterAuth');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
@@ -110,7 +114,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/adminProgramKebijakan', [AdminProgramKebijakanController::class, 'index']);
     Route::post('/adminUploadProgramKebijakan', [AdminProgramKebijakanController::class, 'store'])->name('adminUploadProgramKebijakan');
-    
+
     Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
     Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');
 
