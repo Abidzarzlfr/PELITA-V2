@@ -14,10 +14,10 @@ use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailLokasiPelayananKesehatanController;
 use App\Http\Controllers\DetailProgramKebijakanController;
-use App\Http\Controllers\DetailRekomendasiAhliGizi;
+use App\Http\Controllers\DetailRekomendasiDokter;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\GrafikGiziIndonesiaController;
-use App\Http\Controllers\InformasiAhliGiziController;
+use App\Http\Controllers\InformasiDokterController;
 use App\Http\Controllers\InformasiTerkiniController;
 use App\Http\Controllers\KalkulatorGiziController;
 use App\Http\Controllers\LoginController;
@@ -27,7 +27,7 @@ use App\Http\Controllers\MenuSehatBalitaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\RekomendasiAhliGiziController;
+use App\Http\Controllers\RekomendasiDokterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,8 +58,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
-    Route::get('/informasiAhliGizi', [InformasiAhliGiziController::class, 'index']);
-    Route::get('/rekomendasiAhliGizi', [RekomendasiAhliGiziController::class, 'index']);
+    Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
+    Route::get('/rekomendasiDokter', [RekomendasiDokterController::class, 'index']);
     Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/detailLokasiPelayananKesehatan/{id}', [DetailLokasiPelayananKesehatanController::class, 'index']);
 
@@ -77,7 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/profile', [ProfileController::class, 'edit']);
     Route::put('/daftarDokter', [DaftarDokterController::class, 'daftar']);
     Route::get('/logout', [LogoutController::class, 'logout']);
-    Route::get('/informasiAhliGizi/auth', [InformasiAhliGiziController::class, 'auth']);
+    Route::get('/informasiDokter/auth', [InformasiDokterController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 
     Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
@@ -92,8 +92,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailProgramKebijakan/auth/{id}', [DetailProgramKebijakanController::class, 'auth']);
     Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
-    Route::get('/rekomendasiAhliGizi/auth', [RekomendasiAhliGiziController::class, 'auth']);
-    Route::get('/detailRekomendasiAhliGizi/auth/{id}', [DetailRekomendasiAhliGizi::class, 'auth']);
+    Route::get('/rekomendasiDokter/auth', [RekomendasiDokterController::class, 'auth']);
+    Route::get('/detailRekomendasiDokter/auth/{id}', [DetailRekomendasiDokter::class, 'auth']);
     Route::get('/lokasiPelayananKesehatan/auth', [LokasiPelayananKesehatanController::class, 'auth']);
     Route::get('/detailLokasiPelayananKesehatan/auth/{id}', [DetailLokasiPelayananKesehatanController::class, 'auth']);
     

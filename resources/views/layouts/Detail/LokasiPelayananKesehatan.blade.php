@@ -32,7 +32,7 @@
                     </style>
                 </div>
             </div>
-            <!-- Rekomendasi Ahli Gizi -->
+            <!-- Rekomendasi Dokter -->
             <div class="col-6">
                 <form action="">
                     <div class="input-group pt-5">
@@ -40,8 +40,8 @@
                         <button class="btn btn-primary" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
                     </div>
                 </form>
-                <h5 class="mt-5">Rekomendasi Ahli Gizi</h5>
-                <p>Konsultasi online dengan ahli gizi terbaik kami</p>
+                <h5 class="mt-5">Rekomendasi Dokter</h5>
+                <p>Konsultasi online dengan dokter terbaik kami</p>
                 @forelse ($dokter as $item)
                 <div class="d-flex flex-row p-4 bg-bg rounded-3 gap-2 mb-4">
                     <img src="{{ $item->foto }}" class="object-fit-cover" width="80px" alt="">
@@ -49,12 +49,12 @@
                         <p class="fw-bold m-0">{{ $item->name }}</p>
                         <p class="m-0">{{ $item->dokter_kualifikasi }}</p>
                         <p class="fw-light m-0">{{ $lokasiPelayananKesehatan->nama_lokasi }}</p>
-                        <a href="/detailRekomendasiAhliGizi/auth/{{ $item->id }}" class="btn btn-primary text-black w-100 mt-3">Konsultasi</a>
+                        <a href="/detailRekomendasiDokter/auth/{{ $item->id }}" class="btn btn-primary text-black w-100 mt-3">Konsultasi</a>
                     </div>
                 </div>
                 @empty
                 <div class="p-4 bg-bg mb-4">
-                    <p>Mohon Maaf, tidak ada rekomendasi ahli gizi pada lokasi ini.</p>
+                    <p>Mohon Maaf, tidak ada rekomendasi dokter pada lokasi ini.</p>
                 </div>
                 @endforelse
             </div>

@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class RekomendasiAhliGiziController extends Controller
+class InformasiDokterController extends Controller
 {
     public function index()
     {
-        $dokter = User::all();
-        return view('layouts.RekomendasiAhliGizi', compact('dokter'));
+        return view('layouts.InformasiDokter');
     }
 
     public function auth()
     {
-        $dokter = User::all();
         if (auth()->user()->role == 'admin') {
             return redirect()->route('adminView');
         } elseif (auth()->user()->role == 'dokter') {
             return redirect()->route('dokter');
         } else {
-            return view('layouts.RekomendasiAhliGizi', compact('dokter'));
+            return view('layouts.InformasiDokter');
         }
     }
 }

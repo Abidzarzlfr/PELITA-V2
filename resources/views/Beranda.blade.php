@@ -8,25 +8,25 @@
       <div class="col-8">
         <h2>Solusi Kesehatan Terlengkap</h2>
         <p>
-          Jelajahi saran ahli gizi, temukan pusat kesehatan terdekat, tanya
+          Jelajahi saran dokter, temukan pusat kesehatan terdekat, tanya
           jawab dengan sesama orang tua, dan nikmati fitur-fitur menarik
           lainnya untuk mendukung kesehatan si kecil, hanya di Pelita!
         </p>
         <div class="card-solusi row">
-          <!-- Informasi Ahli Gizi -->
+          <!-- Informasi Dokter -->
           <div class="col-3">
             @guest
-            <a class="btn card card-icon" href="/informasiAhliGizi">
+            <a class="btn card card-icon" href="/informasiDokter">
               @else
               @if (Auth::user()->role == 'user')
-              <a class="btn card card-icon" href="/informasiAhliGizi/auth">
+              <a class="btn card card-icon" href="/informasiDokter/auth">
                 @endif
                 @endguest
                 <div class="card-body text-center d-flex flex-column justify-content-start align-items-center gap-2">
                   <div class="rounded-circle bg-icon-beranda icon-circle">
-                    <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="75px" height="75px" alt="" />
+                    <img src="{{ asset('Main/assets/main/ic-dokter.svg') }}" class="" width="75px" height="75px" alt="" />
                   </div>
-                  <strong>Informasi Ahli Gizi</strong>
+                  <strong>Informasi Dokter</strong>
                 </div>
               </a>
           </div>
@@ -179,18 +179,18 @@
     </div>
     <div class="layanan-pelita row pt-3">
 
-      <!-- Informasi Ahli Gizi -->
+      <!-- Informasi Dokter -->
       @guest
-      <a class="btn col-2 circle-image" href="/informasiAhliGizi">
+      <a class="btn col-2 circle-image" href="/informasiDokter">
         @else
         @if (Auth::user()->role == 'user')
-        <a class="btn col-2 circle-image" href="/informasiAhliGizi/auth">
+        <a class="btn col-2 circle-image" href="/informasiDokter/auth">
           @endif
           @endguest
           <div class="rounded-circle bg-icon-beranda icon-circle d-flex justify-content-center align-items-center">
-            <img src="{{ asset('Main/assets/main/ic-ahli.svg') }}" class="" width="50px" height="55px" alt="" />
+            <img src="{{ asset('Main/assets/main/ic-dokter.svg') }}" class="" width="50px" height="55px" alt="" />
           </div>
-          <p class="fw-bold">Informasi Ahli Gizi</p>
+          <p class="fw-bold">Informasi Dokter</p>
         </a>
 
         <!-- Lokasi Pelayanan Kesehatan -->

@@ -36,7 +36,7 @@
             </div>
             <div class="col-7">
                 <h2>Acara Kesehatan</h2>
-                <p class="quote-text">Ikuti berbagai acara kesehatan yang diadakan oleh para ahli terkemuka. Dapatkan wawasan terkini dan solusi praktis untuk hidup lebih sehat dan bahagia.</p>
+                <p class="quote-text">Ikuti berbagai acara kesehatan yang diadakan oleh para dokter terkemuka. Dapatkan wawasan terkini dan solusi praktis untuk hidup lebih sehat dan bahagia.</p>
 
             </div>
         </div>

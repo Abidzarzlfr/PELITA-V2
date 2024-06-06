@@ -518,16 +518,16 @@ footer hr {
     background-repeat: no-repeat;
 }
 
-/* Informasi Ahli Gizi */
-.header-ahli-gizi {
-    background-image: url('/Main/assets/main/bg-Header-Informasi-Ahli-Gizi.png');
+/* Informasi Dokter */
+.header-dokter {
+    background-image: url('/Main/assets/main/bg-Header-Informasi-Dokter.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 210px !important;
 }
 
-.card-ahli-gizi{
+.card-dokter{
     border-radius: 0 0 20px 20px;
     padding: 30px;
     background-color: var(--secondary-100);
@@ -536,8 +536,8 @@ footer hr {
     height: 250px;
 }
 
-.find-ahli-gizi{
-    background-image: url('/Main/assets/main/bg-Cari-Informasi-Ahli-Gizi.png');
+.find-dokter{
+    background-image: url('/Main/assets/main/bg-Cari-Informasi-Dokter.png');
     padding-top: 80px;
     padding-bottom: 80px;
     background-position: center;

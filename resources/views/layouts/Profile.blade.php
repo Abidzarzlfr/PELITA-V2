@@ -136,9 +136,9 @@
                             </div>
                             <div class="d-flex flex-column gap-4">
                                 <input type="submit" class="btn btn-primary w-full" value="Ubah Profile">
-                                <!-- <a href="" class="btn btn-danger w-full">Daftar Sebagai Ahli Gizi Pelita</a> -->
+                                <!-- <a href="" class="btn btn-danger w-full">Daftar Sebagai Dokter Pelita</a> -->
                                 <button type="button" class="btn btn-danger w-full" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Daftar Sebagai Ahli Gizi Pelita
+                                    Daftar Sebagai Dokter Pelita
                                 </button>
                             </div>
                         </div>

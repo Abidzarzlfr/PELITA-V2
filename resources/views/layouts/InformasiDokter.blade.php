@@ -1,20 +1,20 @@
 @extends('includes.Main')
 
-<!-- Informasi Ahli Gizi -->
-@section('informasiAhliGizi')
-<!-- Header Ahli Gizi -->
-<section class="header-ahli-gizi py-5 bg-bg">
+<!-- Informasi Dokter -->
+@section('informasiDokter')
+<!-- Header Dokter -->
+<section class="header-dokter py-5 bg-bg">
     <div class="container">
         <div class="row">
             <div class="col-6 pt-3">
-                <h2>Informasi Ahli Gizi Balita</h2>
-                <p class="quote-text text-justify">Jelajahi pilihan ahli gizi belita terbaik melalui Pelita. Segala
+                <h2>Informasi Dokter Balita</h2>
+                <p class="quote-text text-justify">Jelajahi pilihan dokter belita terbaik melalui Pelita. Segala
                     permasalahan
-                    buah hati Anda akan ditangani oleh ahli gizi yang sudah professional dari fasilitas kesehatan
+                    buah hati Anda akan ditangani oleh dokter yang sudah professional dari fasilitas kesehatan
                     terbaik.</p>
                 <form action="">
                     <div class="input-group pt-4">
-                        <input type="text" class="form-control" placeholder="Cari nama ahli gizi" aria-label="Cari Informasi" aria-describedby="btn-search">
+                        <input type="text" class="form-control" placeholder="Cari nama dokter" aria-label="Cari Informasi" aria-describedby="btn-search">
                         <button class="btn btn-secondary text-white" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
                     </div>
                 </form>
@@ -23,59 +23,59 @@
         </div>
     </div>
 </section>
-<!-- Card Ahli Gizi -->
+<!-- Card Dokter -->
 <section class="py-5">
     <div class="container">
         <p class="fw-bold text-accent text-center">Solusi Terbaik</p>
         <h2 class="text-center mb-5">langkah demi langkah untuk mendapatkan solusi</h2>
         <div class="row">
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;">
+                <a class="card card-dokter" style="text-decoration: none;">
                     <i class="fa-regular fa-hospital text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Cari Lokasi</p>
-                    <p class="fw-light">Temukan lokasi fasilitas kesehatan agar lebih mudah mencari ahli gizi yang
+                    <p class="fw-light">Temukan lokasi fasilitas kesehatan agar lebih mudah mencari dokter yang
                         Anda inginkan</p>
                 </a>
             </div>
             @guest
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter">
                     <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
-                    <p class="fw-bold">Cari Ahli Gizi</p>
-                    <p class="fw-light">Pilih ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang
+                    <p class="fw-bold">Cari Dokter</p>
+                    <p class="fw-light">Pilih dokter terbaik menurut Anda dari fasilitas kesehatan terbaik yang
                         ada</p>
                 </a>
             </div>
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter">
                     <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Konsultasi</p>
-                    <p class="fw-light">Jadwalkan konsultasi dengan ahli gizi terbaik melalui platform WhatsApp
+                    <p class="fw-light">Jadwalkan konsultasi dengan dokter terbaik melalui platform WhatsApp
                         terdaftar</p>
                 </a>
             </div>
             @else
             @if (Auth::user()->role == 'user')
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi/auth">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
                     <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
-                    <p class="fw-bold">Cari Ahli Gizi</p>
-                    <p class="fw-light">Pilih ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang
+                    <p class="fw-bold">Cari Dokter</p>
+                    <p class="fw-light">Pilih dokter terbaik menurut Anda dari fasilitas kesehatan terbaik yang
                         ada</p>
                 </a>
             </div>
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;" href="/rekomendasiAhliGizi/auth">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
                     <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Konsultasi</p>
-                    <p class="fw-light">Jadwalkan konsultasi dengan ahli gizi terbaik melalui platform WhatsApp
+                    <p class="fw-light">Jadwalkan konsultasi dengan dokter terbaik melalui platform WhatsApp
                         terdaftar</p>
                 </a>
             </div>
             @endif
             @endguest
             <div class="col-3">
-                <a class="card card-ahli-gizi" style="text-decoration: none;">
+                <a class="card card-dokter" style="text-decoration: none;">
                     <i class="fa-regular fa-newspaper text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Informasi Terkini</p>
                     <p class="fw-light">Akses informasi terkini dan terpercaya hanya di Pelita mengenai kesehatan
@@ -85,54 +85,54 @@
         </div>
     </div>
 </section>
-<!-- Cari Ahli Gizi -->
-<section class="find-ahli-gizi">
+<!-- Cari Dokter -->
+<section class="find-dokter">
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <p class="fw-bold text-accent">Cari Ahli Gizi</p>
-                <h2 class="mb-4">Cari ahli gizi terbaik menurut Anda dari fasilitas kesehatan terbaik yang ada</h2>
+                <p class="fw-bold text-accent">Cari Dokter</p>
+                <h2 class="mb-4">Cari dokter terbaik menurut Anda dari fasilitas kesehatan terbaik yang ada</h2>
                 <p class="fw-light">Pelita bukan sekadar aplikasi kesehatan balita. Dengan Pelita, Anda mendapatkan
                     lebih
-                    dari sekadar rekomendasi ahli gizi terbaik. Kami membantu Anda secara proaktif menemukan ahli
+                    dari sekadar rekomendasi dokter terbaik. Kami membantu Anda secara proaktif menemukan dokter
                     gizi yang
                     tepat berdasarkan lokasi Anda dan kebutuhan pribadi buah hati Anda. Nikmati perjalanan menuju
                     kehidupan
-                    yang lebih sehat untuk si kecil dengan dukungan ahli gizi terpercaya, hanya dengan Pelita. Unduh
+                    yang lebih sehat untuk si kecil dengan dukungan dokter terpercaya, hanya dengan Pelita. Unduh
                     sekarang dan mulailah petualangan kesehatan balita Anda yang penuh cinta dan perhatian!</p>
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
-                <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
+                <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 dokter di Indonesia</p>
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
                 <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check.svg') }}" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
                 @guest
-                <a href="/rekomendasiAhliGizi" class="btn btn-primary px-5">Cari Ahli Gizi</a>
+                <a href="/rekomendasiDokter" class="btn btn-primary px-5">Cari Dokter</a>
                 @else
                 @if (Auth::user()->role == 'user')
-                <a href="/rekomendasiAhliGizi/auth" class="btn btn-primary px-5">Cari Ahli Gizi</a>
+                <a href="/rekomendasiDokter/auth" class="btn btn-primary px-5">Cari Dokter</a>
                 @endif
                 @endguest
             </div>
         </div>
     </div>
 </section>
-<!-- Hero Konsultasi Ahli Gizi -->
+<!-- Hero Konsultasi Dokter -->
 <section class="hero-konsul py-80px">
     <div class="container">
         <div class="row">
             <div class="col-6 position-relative img-konsul">
-                <img src="{{ asset('Main/assets/main/img-hero-find-ahli-gizi.png') }}" alt="" class="img-fluid" id="img-hero-konsul">
+                <img src="{{ asset('Main/assets/main/img-hero-find-dokter.png') }}" alt="" class="img-fluid" id="img-hero-konsul">
             </div>
             <div class="col-6 px-5">
                 <p class="fw-bold text-accent">Konsultasi Online</p>
-                <h2 class="mb-4">Jadwalkan konsultasi dengan ahli gizi terbaik</h2>
-                <p class="fw-light">Konsultasikan segala permasalahan buah hati Anda dengan ahli gizi terbaik hanya di Pelita melalui WhatsApp terdaftar</p>
+                <h2 class="mb-4">Jadwalkan konsultasi dengan dokter terbaik</h2>
+                <p class="fw-light">Konsultasikan segala permasalahan buah hati Anda dengan dokter terbaik hanya di Pelita melalui WhatsApp terdaftar</p>
                 <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Buat jadwal dengan satu kali klik</p>
                 <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Melalui WhatsApp</p>
                 @guest
-                <a href="/rekomendasiAhliGizi" class="btn btn-secondary px-5 text-white">Cari Ahli Gizi</a>
+                <a href="/rekomendasiDokter" class="btn btn-secondary px-5 text-white">Cari Dokter</a>
                 @else
                 @if (Auth::user()->role == 'user')
-                <a href="/rekomendasiAhliGizi/auth" class="btn btn-secondary px-5 text-white">Cari Ahli Gizi</a>
+                <a href="/rekomendasiDokter/auth" class="btn btn-secondary px-5 text-white">Cari Dokter</a>
                 @endif
                 @endguest
             </div>

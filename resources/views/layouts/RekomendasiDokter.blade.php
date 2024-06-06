@@ -1,20 +1,20 @@
 @extends('includes.Main')
 
-@section('rekomendasiAhliGizi')
-<!-- Rekomendasi Ahli Gizi -->
-<section class="informasi-ahli py-5">
+@section('rekomendasiDokter')
+<!-- Rekomendasi Dokter -->
+<section class="informasi-dokter py-5">
     <div class="mx-5">
         <div class="row">
             <div class="col-5 py-5 rounded-5 bg-secondary-100 shadow">
                 <div class="h-100 px-5 d-flex flex-column justify-content-center align-items-center">
-                    <h3>Konsultasi dengan ahli gizi</h3>
+                    <h3>Konsultasi dengan dokter</h3>
                     <p class="quote-text text-justify">Layanan telemedisin yang siap siaga untuk membantu Anda
                         memenuhi
                         kebutuhan si buah hati</p>
-                    <img src="{{ asset('Main/assets/main/img-informasi-ahli.png') }}" class="img-fluid py-5" alt="">
+                    <img src="{{ asset('Main/assets/main/img-informasi-dokter.png') }}" class="img-fluid py-5" alt="">
                     <div class="daftar-feature align-self-start">
                         <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>100% gratis untuk seluruh orang tua</p>
-                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 ahli gizi di Indonesia</p>
+                        <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Didukung lebih dari 200 dokter di Indonesia</p>
                         <p><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Bekerja sama dengan lebih dari 50 fasilitas kesehatan</p>
                         <p class="mb-4"><span class="me-4"><img src="{{ asset('Main/assets/main/icons/ic-check-secondary.svg') }}" alt="" width="24px" height="24px"></span>Konsultasi melalui platform WhatsApp</p>
                     </div>
@@ -29,8 +29,8 @@
                         </div>
                     </form>
                     <div class="py-5">
-                        <h5>Rekomendasi Ahli Gizi</h5>
-                        <p>Konsultasi online dengan ahli gizi terbaik kami</p>
+                        <h5>Rekomendasi Dokter</h5>
+                        <p>Konsultasi online dengan dokter terbaik kami</p>
                     </div>
                     <div class="row pb-4">
                         @foreach ($dokter as $item)
@@ -42,7 +42,7 @@
                                     <p class="fw-bold m-0">{{ $item->name }}</p>
                                     <p class="m-0">{{ $item->dokter_kualifikasi }}</p>
                                     <p class="fw-light m-0">{{ $item->lokasi->nama_lokasi }}</p>
-                                    <a href="/detailRekomendasiAhliGizi/auth/{{ $item->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Ahli Gizi</a>
+                                    <a href="/detailRekomendasiDokter/auth/{{ $item->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Dokter</a>
                                 </div>
                             </div>
                         </div>
@@ -56,6 +56,7 @@
     </div>
     </div>
 </section>
+
 <!-- Informasi Lebih Lanjut -->
 <section class="info text-center pt-5">
     <div class="container">

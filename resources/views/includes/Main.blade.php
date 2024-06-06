@@ -75,14 +75,14 @@
     <!-- Detail Acara Kesehatan Balita -->
     @yield('detailAcaraKesehatanBalita')
 
-    <!-- Informasi Ahli Gizi -->
-    @yield('informasiAhliGizi')
+    <!-- Informasi Dokter -->
+    @yield('informasiDokter')
 
-    <!-- Rekomendasi Ahli Gizi -->
-    @yield('rekomendasiAhliGizi')
+    <!-- Rekomendasi Dokter -->
+    @yield('rekomendasiDokter')
 
-    <!-- Detail Rekomendasi Ahli Gizi -->
-    @yield('detailRekomendasiAhliGizi')
+    <!-- Detail Rekomendasi Dokter -->
+    @yield('detailRekomendasiDokter')
 
     <!-- Lokasi Pelayanan kesehatan -->
     @yield('lokasiPelayananKesehatan')

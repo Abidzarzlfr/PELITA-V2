@@ -37,7 +37,7 @@
                     <a class="nav-link {{ Request::is('kalkulatorGizi') ? 'active' : '' }}" href="/kalkulatorGizi">Kalkulator</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('informasiAhliGizi') ? 'active' : '' }}" href="/informasiAhliGizi">Ahli Gizi</a>
+                    <a class="nav-link {{ Request::is('informasiDokter') ? 'active' : '' }}" href="/informasiDokter">Dokter</a>
                 </li>
                 <li class="nav-item dropdown">
                     @php
@@ -89,7 +89,7 @@
                     <a class="nav-link {{ Request::is('kalkulatorGizi/auth') ? 'active' : '' }}" href="/kalkulatorGizi/auth">Kalkulator</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('informasiAhliGizi/auth') ? 'active' : '' }}" href="/informasiAhliGizi/auth">Ahli Gizi</a>
+                    <a class="nav-link {{ Request::is('informasiDokter/auth') ? 'active' : '' }}" href="/informasiDokter/auth">Dokter</a>
                 </li>
                 <li class="nav-item dropdown">
                     @php

@@ -9,9 +9,9 @@
         <div class="row">
             <div class="col-7 pt-3 px-5">
                 <h2>Lokasi Pelayanan Kesehatan</h2>
-                <p class="quote-text text-justify">Jelajahi pilihan ahli gizi belita terbaik melalui Pelita. Segala
+                <p class="quote-text text-justify">Jelajahi pilihan dokter belita terbaik melalui Pelita. Segala
                     permasalahan
-                    buah hati Anda akan ditangani oleh ahli gizi yang sudah professional dari fasilitas kesehatan
+                    buah hati Anda akan ditangani oleh dokter yang sudah professional dari fasilitas kesehatan
                     terbaik.</p>
                 <form action="" class="w-100 form-filter-lokasi">
                     <div class="d-flex gap-4">
