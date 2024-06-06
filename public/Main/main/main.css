@@ -193,6 +193,9 @@ footer hr {
     --bgIconBeranda: #E8DBDE;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body{
     background-color: var(--bg);

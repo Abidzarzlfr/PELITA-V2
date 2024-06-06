@@ -225,68 +225,142 @@
   </div>
 </section>
 <!-- Berita Terbaru -->
-<section class="berita py-4 bg-bg">
+<section id="berita-terbaru" class="berita py-4 bg-bg">
   <div class="container">
-    <h3>Berita Terbaru</h3>
+    <h3 class="mt-4">Berita Terbaru</h3>
+
+    <!-- Kategori Berita -->
     <div class="news-category d-flex gap-4 my-4">
-      <a href="" class="btn active">Tag Populer</a>
-      <a href="" class="btn">Pertumbuhan Balita</a>
-      <a href="" class="btn">Olahraga</a>
-      <a href="" class="btn">Stunting</a>
-      <a href="" class="btn">Makanan dan Nutrisi Anak</a>
-      <a href="" class="btn">Otitis Media</a>
+      <a href="?category=populer#berita-terbaru" class="btn active">Tag Populer</a>
+      <a href="?category=artikel_pendidikan_kesehatan#berita-terbaru" class="btn {{ request('category') == 'artikel_pendidikan_kesehatan' ? 'active' : '' }}">Artikel Pendidikan Kesehatan</a>
+      <a href="?category=program_kebijakan#berita-terbaru" class="btn {{ request('category') == 'program_kebijakan' ? 'active' : '' }}">Program dan Kebijakan</a>
+      <a href="?category=acara_kesehatan_balita#berita-terbaru" class="btn {{ request('category') == 'acara_kesehatan_balita' ? 'active' : '' }}">Acara Kesehatan Balita</a>
     </div>
     <div class="row">
-      <div class="col-4">
-        <div class="card">
-          <img src="{{ asset('Main/assets/main/berita-1.png') }}" class="card-img-top" alt="" />
-          <div class="card-body">
-            <h5 class="card-title">
-              Warna Feses Bayi: Tanda Penting bagi Orang Tua
-            </h5>
-            <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-            <p>
-              Pelita - Jakarta, Banyak orang tua cemas tentang apakah anak
-              kecil mereka mengonsumsi makanan yang cukup sehat. Anak kecil
-              umumnya makan sedikit, picky terhadap makanan, dan sering
-              menolak untuk makan. Nafsu makan anak kecil sering
-              berubah-ubah karena pertumbuhan yang cepat dan variasi dalam
-              aktivitas mereka.
-            </p>
-          </div>
+
+      <!-- Artikel Pendidikan Kesehatan -->
+      @if (request('category') == 'artikel_pendidikan_kesehatan')
+      @foreach ($artikelPendidikanKesehatan as $artikel)
+      <div class="col-md-4 mb-2">
+        @guest
+        <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/{{ $artikel->id }}">
+          @else
+          @if (Auth::user()->role == 'user')
+          <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/auth/{{ $artikel->id }}">
+            @endif
+            @endguest
+            <img src="{{ asset($artikel->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ $artikel->judul }}</h5>
+              <h6 class="text-muted my-3">{{ strtoupper($artikel->kategori) }}</h6>
+              <p>{{ Str::limit($artikel->isi_konten, 125, '...') }}</p>
+            </div>
+          </a>
+      </div>
+      @endforeach
+
+      <!-- Program & Kebijakan -->
+      @elseif (request('category') == 'program_kebijakan')
+      @foreach ($programKebijakan as $program)
+      <div class="col-md-4 mb-2">
+        @guest
+        <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/{{ $program->id }}">
+          @else
+          @if (Auth::user()->role == 'user')
+          <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/auth/{{ $program->id }}">
+            @endif
+            @endguest
+            <img src="{{ asset($program->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ $program->judul }}</h5>
+              <h6 class="text-muted my-3">{{ strtoupper($program->kategori) }}</h6>
+              <p>{{ Str::limit($program->isi_konten, 125, '...') }}</p>
+            </div>
+          </a>
+      </div>
+      @endforeach
+
+      <!-- Acara Kesehatan Balita -->
+      @elseif (request('category') == 'acara_kesehatan_balita')
+      @foreach ($acaraKesehatanBalita as $acara)
+      <div class="col-md-4 mb-2">
+        @guest
+        <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $acara->id }}">
+          @else
+          @if (Auth::user()->role == 'user')
+          <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $acara->id }}">
+            @endif
+            @endguest
+            <img src="{{ asset($acara->foto_acara) }}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{ $acara->judul }}</h5>
+              <h6 class="text-muted my-3">{{ $acara->pemateri }}</h6>
+              <p>Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $acara->tanggal)->format('d/m/Y') }}<br>
+                Jam: {{ $acara->jam_mulai }} - {{ $acara->jam_selesai }} WIB</p>
+            </div>
+          </a>
+      </div>
+      @endforeach
+
+      <!-- Tag Populer -->
+      @else
+      <div class="row">
+        <!-- Artikel Pendidikan Kesehatan -->
+        <div class="col-md-4 mb-2">
+          @guest
+          <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/{{ $artikelPendidikanKesehatan->first()->id }}">
+            @else
+            @if (Auth::user()->role == 'user')
+            <a class="card mb-1" style="text-decoration: none;" href="/detailArtikelPendidikanKesehatan/auth/{{ $artikelPendidikanKesehatan->first()->id }}">
+              @endif
+              @endguest
+              <img src="{{ asset($artikelPendidikanKesehatan->first()->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{ $artikelPendidikanKesehatan->first()->judul }}</h5>
+                <h6 class="text-muted my-3">{{ strtoupper($artikelPendidikanKesehatan->first()->kategori) }}</h6>
+                <p>{{ Str::limit($artikelPendidikanKesehatan->first()->isi_konten, 125, '...') }}</p>
+              </div>
+            </a>
+        </div>
+        <!-- Program & Kebijakan -->
+        <div class="col-md-4 mb-2">
+          @guest
+          <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/{{ $programKebijakan->first()->id }}">
+            @else
+            @if (Auth::user()->role == 'user')
+            <a class="card mb-1" style="text-decoration: none;" href="/detailProgramKebijakan/auth/{{ $programKebijakan->first()->id }}">
+              @endif
+              @endguest
+              <img src="{{ asset($programKebijakan->first()->foto_konten) }}" class="card-img-top" style="height: 250px;" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{ $programKebijakan->first()->judul }}</h5>
+                <h6 class="text-muted my-3">{{ strtoupper($programKebijakan->first()->kategori) }}</h6>
+                <p>{{ Str::limit($programKebijakan->first()->isi_konten, 125, '...') }}</p>
+              </div>
+            </a>
+        </div>
+        <!-- Acara Kesehatan Balita -->
+        <div class="col-md-4">
+          @guest
+          <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $acaraKesehatanBalita->first()->id }}">
+            @else
+            @if (Auth::user()->role == 'user')
+            <a class="card" style="text-decoration: none;" href="/detailAcaraKesehatanBalita/auth/{{ $acaraKesehatanBalita->first()->id }}">
+              @endif
+              @endguest
+              <img src="{{ asset($acaraKesehatanBalita->first()->foto_acara) }}" class="card-img-top" style="height: 250px;" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{ $acaraKesehatanBalita->first()->judul }}</h5>
+                <h6 class="text-muted my-3">{{ $acaraKesehatanBalita->first()->pemateri }}</h6>
+                <p class="mb-5">Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $acaraKesehatanBalita->first()->tanggal)->format('d/m/Y') }}<br>
+                  Jam: {{ $acaraKesehatanBalita->first()->jam_mulai }} - {{ $acaraKesehatanBalita->first()->jam_selesai }} WIB</p>
+                <br>
+              </div>
+            </a>
         </div>
       </div>
-      <div class="col-4">
-        <div class="card">
-          <img src="{{ asset('Main/assets/main/berita-2.png') }}" class="card-img-top" alt="" />
-          <div class="card-body">
-            <h5 class="card-title">
-              6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!
-            </h5>
-            <h6 class="text-muted my-3">OLAHRAGA</h6>
-            <p>
-              Pelita - Jakarta, Keseruan Aktivitas Fisik: Balita Membutuhkan
-              Gerakan untuk Tetap Enerjik! Minimal 180 Menit atau Lebih
-              untuk Kesehatan Mereka!
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <img src="{{ asset('Main/assets/main/berita-3.png') }}" class="card-img-top" alt="" />
-          <div class="card-body">
-            <h5 class="card-title">
-              Balita Terlalu Kurus, Awas Malabsorpsi Kronis
-            </h5>
-            <h6 class="text-muted my-3">PERTUMBUHAN BALITA</h6>
-            <p>
-              Pelita - Jakarta, Balita Kurus Meskipun Sudah Diberi Makanan
-              Bergizi? Ini Tanda Malabsorpsi Kronis yang Harus Diwaspadai!
-            </p>
-          </div>
-        </div>
-      </div>
+      @endif
+
     </div>
   </div>
 </section>
