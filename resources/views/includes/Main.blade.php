@@ -11,9 +11,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+
     <!-- CRISP -->
     <!-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="82c4ba15-4fa0-41da-bab8-a9281fe59437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> -->
+
+    <!-- Z-Score (Kalkulator) -->
+    <script src="{{ asset('Main/kalkulator/zscore.js') }}"></script>
+
+    <!-- Date Picker -->
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css">
+
     <link rel="icon" type="png" href="{{ asset('Main/assets/main/title-logo.png') }}">
     <title>PELITA</title>
 </head>
@@ -90,15 +98,15 @@
     <!-- Detail Lokasi Pelayanan Kesehatan -->
     @yield('detailLokasiPelayananKesehatan')
 
+    <!-- Kalkulator Gizi -->
+    @yield('kalkulatorGizi')
+
     <div class="container">
         <!-- Menu Sehat Balita -->
         @yield('menuSehatBalita')
 
         <!-- Grafik Gizi Indonesia -->
         @yield('grafikGiziIndonesia')
-
-        <!-- Kalkulator Gizi -->
-        @yield('kalkulatorGizi')
 
         <!-- Profile -->
         @yield('profile')
@@ -111,7 +119,7 @@
     const passwordField = document.getElementById("password");
     const togglePassword = document.querySelector("#pass-eye");
 
-    togglePassword.addEventListener("click", function () {
+    togglePassword.addEventListener("click", function() {
         if (passwordField.type === "text") {
             passwordField.type = "password";
             togglePassword.classList.remove("fa-eye");
@@ -122,6 +130,19 @@
             togglePassword.classList.add("fa-eye");
         }
     });
+</script>
+
+<script type="module">
+    import indo from '{{ asset("Main/datePicker/indo.js") }}';
+    document.addEventListener('DOMContentLoaded', () => {
+        const calendar = new AirDatepicker('#tanggal_lahir', {
+            locale: indo,
+            autoClose: true,
+            dateFormat: 'yyyy-MM-dd',
+        });
+    });
+    var results = document.getElementById('result').children;
+    console.log(results);
 </script>
 
 </html>

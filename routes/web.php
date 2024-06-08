@@ -66,10 +66,14 @@ Route::group(['middleware' => 'guest'], function () {
     // SEARCH DOKTER "informasiDokter.blade.php"
     Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
 
+
     // Before Auth Routes
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
+
+    // Kalkulator
     Route::get('/kalkulatorGizi', [KalkulatorGiziController::class, 'index']);
+    Route::post('/kalkulatorGizi', [KalkulatorGiziController::class, 'handlePost']);
 });
 
 
