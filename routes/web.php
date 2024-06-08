@@ -57,7 +57,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index', 'showArtikels']);
     Route::get('/artikelPendidikanKesehatan', [ArtikelPendidikanController::class, 'index'])->name('artikelPendidikanKesehatan');
     Route::get('/detailArtikelPendidikanKesehatan/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
-    Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
+    Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index'])->name('programKebijakan');
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
     Route::get('/acaraKesehatanBalita', [AcaraKesehatanBalitaController::class, 'index']);
     Route::get('/informasiDokter', [InformasiDokterController::class, 'index']);
@@ -71,9 +71,11 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
     Route::post('/searchDokterRekomendasi', [RekomendasiDokterController::class, 'searchDokter'])->name('searchDokterRekomendasi');
 
-    // Search Artikel
+    // Search Artikel Kesehatan Balita
     Route::get('/searchArtikel', [ArtikelPendidikanController::class, 'searchArtikel'])->name('searchArtikel');
 
+    // Search Program Kebijakan
+    Route::get('/searchProgram', [ProgramKebijakanController::class, 'searchProgram'])->name('searchProgram');
 
     // Before Auth Routes
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
@@ -101,7 +103,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
     Route::get('/artikelPendidikanKesehatan/auth', [ArtikelPendidikanController::class, 'auth'])->name('artikelPendidikanKesehatanAuth');
     Route::get('/detailArtikelPendidikanKesehatan/auth/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
-    Route::get('/programKebijakan/auth', [ProgramKebijakanController::class, 'auth']);
+    Route::get('/programKebijakan/auth', [ProgramKebijakanController::class, 'auth'])->name('programKebijakanAuth');
     Route::get('/detailProgramKebijakan/auth/{id}', [DetailProgramKebijakanController::class, 'auth']);
     Route::get('/acaraKesehatanBalita/auth', [AcaraKesehatanBalitaController::class, 'auth']);
     Route::get('/detailAcaraKesehatanBalita/auth/{id}', [DetailAcaraKesehatanBalitaController::class, 'auth']);
@@ -118,6 +120,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Search Artikel
     Route::get('/searchArtikel/auth', [ArtikelPendidikanController::class, 'searchArtikel'])->name('searchArtikelAuth');
+
+    // Search Program Kebijakan
+    Route::get('/searchProgram/auth', [ProgramKebijakanController::class, 'searchProgram'])->name('searchProgramAuth');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
