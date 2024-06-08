@@ -13,27 +13,35 @@
                     permasalahan
                     buah hati Anda akan ditangani oleh dokter yang sudah professional dari fasilitas kesehatan
                     terbaik.</p>
-                <form action="" class="w-100 form-filter-lokasi">
-                    <div class="d-flex gap-4">
-                        <div class="input-group pt-4">
-                            <select class="form-select text-center" aria-label="Default select example" name="provinsi">
-                                <option value="">Provinsi</option>
-                                <option value="1">Banten</option>
-                                <option value="2">Jawa Tengah</option>
-                                <option value="3">DKI Jakarta</option>
-                            </select>
+                <!-- Filter Lokasi -->
+                @guest
+                <form action="{{ route('filterLokasi') }}" class="w-100 form-filter-lokasi" method="GET">
+                    @else
+                    @if (Auth::user()->role == 'user')
+                    <form action="{{ route('filterLokasiAuth') }}" class="w-100 form-filter-lokasi" method="GET">
+                        @endif
+                        @endguest
+                        <div class="d-flex gap-4">
+                            <div class="input-group pt-4">
+                                <select class="form-select text-center" aria-label="Provinsi" name="provinsi">
+                                    <option selected disabled>Provinsi</option>
+                                    @foreach ($lokasiPelayananKesehatan as $item)
+                                    <option value="{{ $item->provinsi }}" @if(session('provinsi')==$item->provinsi) selected @endif>{{ $item->provinsi }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="input-group pt-4">
+                                <select class="form-select text-center" aria-label="Kabupaten/Kota" name="kota">
+                                    <option selected disabled>Kabupaten/Kota</option>
+                                    @foreach ($lokasiPelayananKesehatan as $item)
+                                    <option value="{{ $item->kota }}" @if(session('kota')==$item->kota) selected @endif>{{ $item->kota }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                        <div class="input-group pt-4">
-                            <select class="form-select text-center" aria-label="Default select example" name="kota">
-                                <option value="">Kabupaten/Kota</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary w-100 mt-4" value="Temukan Lokasi Pelayanan Kesehatan">
-                </form>
+                        <input type="submit" class="btn btn-primary w-100 mt-4" value="Temukan Lokasi Pelayanan Kesehatan">
+                    </form>
+
             </div>
         </div>
     </div>
@@ -43,6 +51,11 @@
 <section class="lokasi-cards py-5">
     <div class="container">
         <div class="row">
+            @if ($lokasiPelayananKesehatan->isEmpty())
+            <div class="mt-5 mb-5">
+                <p class="text-center">Mohon maaf, program ataupun kebijakan tidak ditemukan.</p>
+            </div>
+            @else
             @guest
             @foreach ($lokasiPelayananKesehatan as $item)
             <div class="col-md-4 mb-4">
@@ -72,6 +85,7 @@
             @endforeach
             @endif
             @endguest
+            @endif
         </div>
     </div>
 </section>

@@ -30,6 +30,7 @@ use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekomendasiDokterController;
 use App\Models\AcaraKesehatanBalita;
+use App\Models\LokasiPelayananKesehatan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -81,6 +82,9 @@ Route::group(['middleware' => 'guest'], function () {
     // Search Acara Kesehatan Balita
     Route::get('/searchAcara', [AcaraKesehatanBalitaController::class, 'searchAcara'])->name('searchAcara');
 
+    // Filter Lokasi Pelayanan Kesehatan
+    Route::get('/filterLokasi', [LokasiPelayananKesehatanController::class, 'filterLokasi'])->name('filterLokasi');
+
     // Before Auth Routes
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
 
@@ -130,6 +134,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Search Acara Kesehatan Balita
     Route::get('/searchAcara/auth', [AcaraKesehatanBalitaController::class, 'searchAcara'])->name('searchAcaraAuth');
+
+    // Filter Lokasi Pelayanan Kesehatan
+    Route::get('/filterLokasi/auth', [LokasiPelayananKesehatanController::class, 'filterLokasi'])->name('filterLokasiAuth');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
