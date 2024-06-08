@@ -18,16 +18,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="?category=semua_usia" class="btn btn-danger w-100">Semua Usia</a>
+                <a href="?category=semua_usia" class="btn w-100 {{ request('category') == 'semua_usia' ? 'btn-danger' : 'btn-primary' }}">Semua Usia</a>
             </div>
             <div class="col">
-                <a href="?category=6_8_bulan" class="btn btn-primary w-100">6-8 bulan</a>
+                <a href="?category=6_8_bulan" class="btn w-100 {{ request('category') == '6_8_bulan' ? 'btn-danger' : 'btn-primary' }}">6-8 bulan</a>
             </div>
             <div class="col">
-                <a href="?category=9_11_bulan" class="btn btn-primary w-100">9-11 bulan</a>
+                <a href="?category=9_11_bulan" class="btn w-100 {{ request('category') == '9_11_bulan' ? 'btn-danger' : 'btn-primary' }}">9-11 bulan</a>
             </div>
             <div class="col">
-                <a href="?category=12_bulan_keatas" class="btn btn-primary w-100">12 bulan ke atas</a>
+                <a href="?category=12_bulan_keatas" class="btn w-100 {{ request('category') == '12_bulan_keatas' ? 'btn-danger' : 'btn-primary' }}">12 bulan ke atas</a>
             </div>
         </div>
     </div>
