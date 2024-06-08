@@ -21,10 +21,17 @@
                 </div>
             </div>
             <div class="col-7">
-                <div class="p-5">
-                    <form action="">
+            <div class="p-5">
+                    @guest
+                    <form action="{{ route('searchDokterRekomendasi') }}" method="POST">
+                    @else
+                    @if (Auth::user()->role == 'user')
+                    <form action="{{ route('searchDokterRekomendasiAuth') }}" method="POST">
+                    @endif
+                    @endguest
+                        @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Cari informasi" aria-label="Cari Informasi" aria-describedby="btn-search">
+                            <input type="text" name="nama_dokter" class="form-control" placeholder="Cari informasi" aria-label="Cari Informasi" aria-describedby="btn-search">
                             <button class="btn btn-secondary text-white" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
                         </div>
                     </form>
@@ -33,23 +40,53 @@
                         <p>Konsultasi online dengan dokter terbaik kami</p>
                     </div>
                     <div class="row pb-4">
-                        @foreach ($dokter as $item)
-                        @if($item->role === 'dokter')
-                        <div class="col-md-6 mt-2">
-                            <div class="d-flex flex-row p-4 bg-secondary-100 rounded-4 gap-2">
-                                <img src="{{ asset($item->foto) }}" class="object-fit-cover" width="80px" alt="">
-                                <div class="detail w-100">
-                                    <p class="fw-bold m-0">{{ $item->name }}</p>
-                                    <p class="m-0">{{ $item->dokter_kualifikasi }}</p>
-                                    <p class="fw-light m-0">{{ $item->lokasi->nama_lokasi }}</p>
-                                    <a href="/detailRekomendasiDokter/auth/{{ $item->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Dokter</a>
+                        @if ($showResultSearchAhliGizi)
+                        <!-- Setelah Search -->
+                            <!-- Jika Data Kosong -->
+                            @if($dokters->isEmpty())
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <p class="mb-5 text-center">Mohon maaf, data dokter tidak tersedia.</p>
+                                    <br><br><br>
                                 </div>
                             </div>
-                        </div>
+                            <!-- Jika Data Tidak Kosong -->
+                            @else
+                            <div class="row mb-4">
+                                @foreach($dokters as $dokter)
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex flex-row p-4 bg-secondary-100 rounded-4 gap-2">
+                                        <img src="{{ asset($dokter->foto) }}" class="object-fit-cover" width="80px" alt="Dokter Image">
+                                        <div class="detail w-100">
+                                            <p class="fw-bold m-0">{{ $dokter->name }}</p>
+                                            <p class="m-0">{{ $dokter->dokter_kualifikasi }}</p>
+                                            <p class="fw-light m-0">{{ $dokter->lokasi->nama_lokasi }}</p>
+                                            <a href="/detailRekomendasiDokter/auth/{{ $dokter->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Ahli Gizi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            @endif
+                        @else
+                        <!-- Sebelum Search -->
+                            @foreach ($user as $item)
+                            @if($item->role === 'dokter')
+                            <div class="col-md-6 mt-2">
+                                <div class="d-flex flex-row p-4 bg-secondary-100 rounded-4 gap-2">
+                                    <img src="{{ asset($item->foto) }}" class="object-fit-cover" width="80px" alt="">
+                                    <div class="detail w-100">
+                                        <p class="fw-bold m-0">{{ $item->name }}</p>
+                                        <p class="m-0">{{ $item->dokter_kualifikasi }}</p>
+                                        <p class="fw-light m-0">{{ $item->lokasi->nama_lokasi }}</p>
+                                        <a href="/detailRekomendasiDokter/auth/{{ $item->id }}" class="btn btn-secondary text-white w-100 mt-3">Cari Dokter</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            @endforeach
                         @endif
-                        @endforeach
                     </div>
-                </div>
                 <a href="" class="btn btn-secondary w-100 text-white mt-4">Lihat Lebih Banyak</a>
             </div>
         </div>

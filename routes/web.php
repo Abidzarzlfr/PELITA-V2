@@ -69,6 +69,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     // SEARCH DOKTER "informasiDokter.blade.php"
     Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
+    Route::post('/searchDokterRekomendasi', [RekomendasiDokterController::class, 'searchDokter'])->name('searchDokterRekomendasi');
 
 
     // Before Auth Routes
@@ -110,6 +111,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // SEARCH DOKTER "informasiDokter.blade.php"
     Route::post('/searchDokter/auth', [InformasiDokterController::class, 'searchDokter'])->name('searchDokterAuth');
+    Route::post('/searchDokterRekomendasi/auth', [RekomendasiDokterController::class, 'searchDokter'])->name('searchDokterRekomendasiAuth');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
