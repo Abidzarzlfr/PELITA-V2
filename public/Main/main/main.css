@@ -572,6 +572,10 @@ a.card:hover {
     border-color: var(--primary) !important;
 }
 
+.active-primary {
+    background-color: var(--primary) !important;
+}
+
 /* Lokasi Pelayanan Kesehatan */
 
 .header-lokasi-kesehatan {

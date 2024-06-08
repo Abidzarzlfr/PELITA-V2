@@ -55,7 +55,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index', 'showArtikels']);
-    Route::get('/artikelPendidikanKesehatan', [ArtikelPendidikanController::class, 'index']);
+    Route::get('/artikelPendidikanKesehatan', [ArtikelPendidikanController::class, 'index'])->name('artikelPendidikanKesehatan');
     Route::get('/detailArtikelPendidikanKesehatan/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
     Route::get('/programKebijakan', [ProgramKebijakanController::class, 'index']);
     Route::get('/detailProgramKebijakan/{id}', [DetailProgramKebijakanController::class, 'index']);
@@ -67,9 +67,12 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/detailMenuSehatBalita/{id}', [DetailMenuSehatBalitaController::class, 'index']);
 
-    // SEARCH DOKTER "informasiDokter.blade.php"
+    // Search Dokter
     Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
     Route::post('/searchDokterRekomendasi', [RekomendasiDokterController::class, 'searchDokter'])->name('searchDokterRekomendasi');
+
+    // Search Artikel
+    Route::get('/searchArtikel', [ArtikelPendidikanController::class, 'searchArtikel'])->name('searchArtikel');
 
 
     // Before Auth Routes
@@ -96,7 +99,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini/auth', [InformasiTerkiniController::class, 'auth']);
-    Route::get('/artikelPendidikanKesehatan/auth', [ArtikelPendidikanController::class, 'auth']);
+    Route::get('/artikelPendidikanKesehatan/auth', [ArtikelPendidikanController::class, 'auth'])->name('artikelPendidikanKesehatanAuth');
     Route::get('/detailArtikelPendidikanKesehatan/auth/{id}', [DetailArtikelPendidikanKesehatan::class, 'index']);
     Route::get('/programKebijakan/auth', [ProgramKebijakanController::class, 'auth']);
     Route::get('/detailProgramKebijakan/auth/{id}', [DetailProgramKebijakanController::class, 'auth']);
@@ -109,9 +112,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
     Route::get('/detailMenuSehatBalita/auth/{id}', [DetailMenuSehatBalitaController::class, 'auth']);
 
-    // SEARCH DOKTER "informasiDokter.blade.php"
+    // Search Dokter
     Route::post('/searchDokter/auth', [InformasiDokterController::class, 'searchDokter'])->name('searchDokterAuth');
     Route::post('/searchDokterRekomendasi/auth', [RekomendasiDokterController::class, 'searchDokter'])->name('searchDokterRekomendasiAuth');
+
+    // Search Artikel
+    Route::get('/searchArtikel/auth', [ArtikelPendidikanController::class, 'searchArtikel'])->name('searchArtikelAuth');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
