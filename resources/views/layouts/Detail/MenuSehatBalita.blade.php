@@ -1,58 +1,41 @@
 @extends('includes.Main')
 
-@section('menuSehatBalita')
-<!-- Menu Sehat Balita -->
+@section('detailMenuSehatBalita')
 
-<!-- Header Menu Sehat Balita -->
-<section class="header-menu-balita py-5">
-    <div class="container text-center">
-        <h2>Menu Sehat Balita</h2>
-        <p class="fw-bold text-accent">Memastikan Tumbuh Kembang Anak yang Optimal dengan Menu Sehat dan Lezat</p>
-        <p class="quote-text">Masa balita merupakan periode penting dalam pertumbuhan dan perkembangan anak.
-            Memberikan asupan gizi yang seimbang dan tepat menjadi kunci utama untuk mendukung proses tersebut. Di
-            halaman ini, Pelita menyediakan berbagai inspirasi menu sehat balita yang lezat dan mudah dibuat.</p>
+<!-- Header Detail Menu Sehat Balita -->
+<section class="header-detail-menu py-5">
+    <div class="container">
+        <h2>{{ $menuSehat->name }}</h2>
+        <p class="badge bg-secondary-200 text-black fs-6 p-3 mt-4 mb-0">{{ $menuSehat->kelompok_usia }}</p>
     </div>
 </section>
-<!-- Kategori Usia -->
-<section class="category-buttons">
+<!-- Detail Menu Sehat Balita -->
+<section class="detail-menu">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <a href="?category=semua_usia" class="btn btn-danger w-100">Semua Usia</a>
+            <div class="col-6">
+                <img src="{{ asset( $menuSehat->foto_konten ) }}" alt="" class="img-fluid w-100 rounded-4">
+                <div class="menu-content mt-5">
+                    <p>{{ $menuSehat->isi_konten }}</p>
+                </div>
             </div>
-            <div class="col">
-                <a href="?category=6_8_bulan" class="btn btn-primary w-100">6-8 bulan</a>
-            </div>
-            <div class="col">
-                <a href="?category=9_11_bulan" class="btn btn-primary w-100">9-11 bulan</a>
-            </div>
-            <div class="col">
-                <a href="?category=12_bulan_keatas" class="btn btn-primary w-100">12 bulan ke atas</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Menu Sehat Card -->
-<section class="menu-balita-cards py-5">
-    <div class="container">
-        <div class="row mb-5">
-            @foreach ($menuSehat as $item)
-            <div class="col-md-3">
+            <div class="col-6">
+                <h4 class="mb-4">Resep Lainnya</h4>
+                @foreach($menuSehatLainnya as $item)
                 @guest
-                <a class="card" style="text-decoration: none;" href="/detailMenuSehatBalita/{{ $item->id }}">
+                <a href="/detailMenuSehatBalita/{{ $item->id }}" class="card mb-4" style="text-decoration: none;">
                     @else
                     @if (Auth::user()->role == 'user')
-                    <a class="card" style="text-decoration: none;" href="/detailMenuSehatBalita/auth/{{ $item->id }}">
+                    <a href="/detailMenuSehatBalita/auth/{{ $item->id }}" class="card mb-4" style="text-decoration: none;">
                         @endif
                         @endguest
-                        <img src="{{ asset( $item->foto_konten ) }}" class="card-img-top" alt="">
                         <div class="card-body">
-                            <h6 class="card-title">{{ $item->name }}</h6>
-                            <p class="text-muted my-3">{{ $item->kelompok_usia }}</p>
+                            <p class="fw-bold mb-2">{{ $item->name }}</p>
+                            <p class="text-muted m-0">{{ $item->kelompok_usia }}</p>
                         </div>
                     </a>
+                    @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </section>
@@ -71,7 +54,6 @@
         <p class="text-muted mt-4">&copy; 2024 Pelita</p>
     </div>
 </section>
-
 <!-- Footer -->
 <footer>
     <div class="container my-3">

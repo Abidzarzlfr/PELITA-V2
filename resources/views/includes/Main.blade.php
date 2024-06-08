@@ -101,9 +101,13 @@
     <!-- Kalkulator Gizi -->
     @yield('kalkulatorGizi')
 
+    <!-- Menu Sehat Balita -->
+    @yield('menuSehatBalita')
+
+    <!-- Detail Menu Sehat Balita -->
+    @yield('detailMenuSehatBalita')
+
     <div class="container">
-        <!-- Menu Sehat Balita -->
-        @yield('menuSehatBalita')
 
         <!-- Grafik Gizi Indonesia -->
         @yield('grafikGiziIndonesia')

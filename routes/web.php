@@ -13,6 +13,7 @@ use App\Http\Controllers\DaftarDokterController;
 use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailLokasiPelayananKesehatanController;
+use App\Http\Controllers\DetailMenuSehatBalitaController;
 use App\Http\Controllers\DetailProgramKebijakanController;
 use App\Http\Controllers\DetailRekomendasiDokter;
 use App\Http\Controllers\DokterController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekomendasiDokterController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,13 +64,14 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/rekomendasiDokter', [RekomendasiDokterController::class, 'index']);
     Route::get('/lokasiPelayananKesehatan', [LokasiPelayananKesehatanController::class, 'index']);
     Route::get('/detailLokasiPelayananKesehatan/{id}', [DetailLokasiPelayananKesehatanController::class, 'index']);
+    Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
+    Route::get('/detailMenuSehatBalita/{id}', [DetailMenuSehatBalitaController::class, 'index']);
 
     // SEARCH DOKTER "informasiDokter.blade.php"
     Route::post('/searchDokter', [InformasiDokterController::class, 'searchDokter'])->name('searchDokter');
 
 
     // Before Auth Routes
-    Route::get('/menuSehatBalita', [MenuSehatBalitaController::class, 'index']);
     Route::get('/grafikGiziIndonesia', [GrafikGiziIndonesiaController::class, 'index']);
 
     // Kalkulator
@@ -87,7 +90,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/informasiDokter/auth', [InformasiDokterController::class, 'auth']);
     Route::get('/beranda/auth', [BerandaController::class, 'auth'])->name('berandaAuth');
 
-    Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
     Route::get('/grafikGiziIndonesia/auth', [GrafikGiziIndonesiaController::class, 'auth']);
     Route::get('/kalkulatorGizi/auth', [KalkulatorGiziController::class, 'auth']);
 
@@ -103,6 +105,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailRekomendasiDokter/auth/{id}', [DetailRekomendasiDokter::class, 'auth']);
     Route::get('/lokasiPelayananKesehatan/auth', [LokasiPelayananKesehatanController::class, 'auth']);
     Route::get('/detailLokasiPelayananKesehatan/auth/{id}', [DetailLokasiPelayananKesehatanController::class, 'auth']);
+    Route::get('/menuSehatBalita/auth', [MenuSehatBalitaController::class, 'auth']);
+    Route::get('/detailMenuSehatBalita/auth/{id}', [DetailMenuSehatBalitaController::class, 'auth']);
 
     // SEARCH DOKTER "informasiDokter.blade.php"
     Route::post('/searchDokter/auth', [InformasiDokterController::class, 'searchDokter'])->name('searchDokterAuth');
