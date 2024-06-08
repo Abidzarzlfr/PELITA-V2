@@ -72,21 +72,22 @@
     </div>
 </section>
 @else
+
 <!-- Card Dokter -->
 <section class="py-5">
     <div class="container">
         <p class="fw-bold text-accent text-center">Solusi Terbaik</p>
         <h2 class="text-center mb-5">langkah demi langkah untuk mendapatkan solusi</h2>
         <div class="row">
+            @guest
             <div class="col-3">
-                <a class="card card-dokter" style="text-decoration: none;">
+                <a class="card card-dokter" style="text-decoration: none;" href="/lokasiPelayananKesehatan">
                     <i class="fa-regular fa-hospital text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Cari Lokasi</p>
                     <p class="fw-light">Temukan lokasi fasilitas kesehatan agar lebih mudah mencari dokter yang
                         Anda inginkan</p>
                 </a>
             </div>
-            @guest
             <div class="col-3">
                 <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter">
                     <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
@@ -103,34 +104,50 @@
                         terdaftar</p>
                 </a>
             </div>
-            @else
-            @if (Auth::user()->role == 'user')
             <div class="col-3">
-                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
-                    <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
-                    <p class="fw-bold">Cari Dokter</p>
-                    <p class="fw-light">Pilih dokter terbaik menurut Anda dari fasilitas kesehatan terbaik yang
-                        ada</p>
-                </a>
-            </div>
-            <div class="col-3">
-                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
-                    <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
-                    <p class="fw-bold">Konsultasi</p>
-                    <p class="fw-light">Jadwalkan konsultasi dengan dokter terbaik melalui platform WhatsApp
-                        terdaftar</p>
-                </a>
-            </div>
-            @endif
-            @endguest
-            <div class="col-3">
-                <a class="card card-dokter" style="text-decoration: none;">
+                <a class="card card-dokter" style="text-decoration: none;" href="/informasiTerkini">
                     <i class="fa-regular fa-newspaper text-accent fs-1 mb-4"></i>
                     <p class="fw-bold">Informasi Terkini</p>
                     <p class="fw-light">Akses informasi terkini dan terpercaya hanya di Pelita mengenai kesehatan
                         buah hati Anda</p>
                 </a>
             </div>
+            @else
+            @if (Auth::user()->role == 'user')
+            <div class="col-3">
+                <a class="card card-dokter" style="text-decoration: none;" href="/lokasiPelayananKesehatan/auth">
+                    <i class="fa-regular fa-hospital text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Cari Lokasi</p>
+                    <p class="fw-light">Temukan lokasi fasilitas kesehatan agar lebih mudah mencari dokter yang
+                        Anda inginkan</p>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
+                    <i class="fa-solid fa-stethoscope text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Cari Dokter</p>
+                    <p class="fw-light">Pilih dokter terbaik menurut Anda dari fasilitas kesehatan terbaik yang
+                        ada</p>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="card card-dokter" style="text-decoration: none;" href="/rekomendasiDokter/auth">
+                    <i class="fa-brands fa-whatsapp text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Konsultasi</p>
+                    <p class="fw-light">Jadwalkan konsultasi dengan dokter terbaik melalui platform WhatsApp
+                        terdaftar</p>
+                </a>
+            </div>
+            <div class="col-3">
+                <a class="card card-dokter" style="text-decoration: none;" href="/informasiTerkini/auth">
+                    <i class="fa-regular fa-newspaper text-accent fs-1 mb-4"></i>
+                    <p class="fw-bold">Informasi Terkini</p>
+                    <p class="fw-light">Akses informasi terkini dan terpercaya hanya di Pelita mengenai kesehatan
+                        buah hati Anda</p>
+                </a>
+            </div>
+            @endif
+            @endguest
         </div>
     </div>
 </section>
