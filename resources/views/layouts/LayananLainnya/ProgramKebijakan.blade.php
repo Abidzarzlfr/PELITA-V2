@@ -163,7 +163,7 @@
         <div class="row">
             @if($programKebijakan->isEmpty())
             <div class="col-12 mt-5 mb-5">
-                <p class="text-center">Mohon maaf, artikel tidak ditemukan.</p>
+                <p class="text-center">Mohon maaf, program ataupun kebijakan tidak ditemukan.</p>
             </div>
 
             @else

@@ -13,21 +13,28 @@
                         <button type="button" data-bs-target="#carouselAcaraKesehatan" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselAcaraKesehatan" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
+                    <!-- Foto Acara -->
                     <div class="carousel-inner">
+                        @foreach ($carouselAcara as $item)
+                        @guest
                         <div class="carousel-item active">
-                            <img src="{{ asset('/Main/assets/main/berita-3.png') }}" class="d-block w-100 rounded-4 " alt="...">
+                            <img src="{{ asset( $item->foto_acara ) }}" class="d-block w-100 rounded-4 " alt="...">
                         </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('/Main/assets/main/berita-3.png') }}" class="d-block w-100 rounded-4 " alt="...">
+                        @else
+                        @if (Auth::user()->role == 'user')
+                        <div class="carousel-item active">
+                            <img src="{{ asset( $item->foto_acara ) }}" class="d-block w-100 rounded-4 " alt="...">
                         </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('/Main/assets/main/berita-3.png') }}" class="d-block w-100 rounded-4 " alt="...">
-                        </div>
+                        @endif
+                        @endguest
+                        @endforeach
                     </div>
+                    <!-- Prev -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselAcaraKesehatan" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
+                    <!-- Next -->
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselAcaraKesehatan" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
@@ -37,21 +44,32 @@
             <div class="col-7">
                 <h2>Acara Kesehatan</h2>
                 <p class="quote-text">Ikuti berbagai acara kesehatan yang diadakan oleh para dokter terkemuka. Dapatkan wawasan terkini dan solusi praktis untuk hidup lebih sehat dan bahagia.</p>
-
             </div>
         </div>
-        <form action="">
-            <div class="input-group pt-5">
-                <input type="text" class="form-control" placeholder="Cari Informasi" aria-label="Cari acara kesehatan" aria-describedby="btn-search">
-                <button class="btn btn-primary" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
-            </div>
-        </form>
+        @guest
+        <form action="{{ route('searchAcara') }}" method="GET">
+            @else
+            @if (Auth::user()->role == 'user')
+            <form action="{{ route('searchAcaraAuth') }}" method="GET">
+                @endif
+                @endguest
+                <div class="input-group pt-5">
+                    <input name="judul" type="text" class="form-control" placeholder="Cari Informasi" aria-label="Cari acara kesehatan" aria-describedby="btn-search">
+                    <button class="btn btn-primary" type="submit" id="btn-search"><i class="bi bi-search me-2"></i>Cari</button>
+                </div>
+            </form>
     </div>
 </section>
 <!-- Card Acara Kesehatan -->
 <section class="acara-kesehatan-cards py-5">
     <div class="container">
         <div class="row mb-5">
+            @if($acaraKesehatan->isEmpty())
+            <div class="col-12 mt-5 mb-5">
+                <p class="text-center">Mohon maaf, acara kesehatan tidak ditemukan.</p>
+            </div>
+
+            @else
             @foreach ($acaraKesehatan as $item)
             @guest
             <div class="col-md-4 mb-4">
@@ -81,6 +99,7 @@
             @endif
             @endguest
             @endforeach
+            @endif
         </div>
         <div class="text-center">
             <a href="" class="btn btn-primary">Lihat Lebih Banyak</a>
