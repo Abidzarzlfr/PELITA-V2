@@ -138,6 +138,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Filter Lokasi Pelayanan Kesehatan
     Route::get('/filterLokasi/auth', [LokasiPelayananKesehatanController::class, 'filterLokasi'])->name('filterLokasiAuth');
 
+
+    
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
 

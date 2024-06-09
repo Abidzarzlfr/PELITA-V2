@@ -44,7 +44,7 @@ class LoginController extends Controller
             } elseif (Auth::user()->role == 'admin') {
                 return redirect('/adminView');
             } elseif (Auth::user()->role == 'dokter') {
-                return redirect('/dokter');
+                return redirect()->route('dokter');
             }
         } else {
             return redirect('/login')->withErrors('Username dan password yang dimasukkan salah')->withInput();

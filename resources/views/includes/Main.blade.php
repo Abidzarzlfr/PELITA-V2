@@ -28,14 +28,27 @@
 
 <body>
     <!-- Quotes -->
-    <header class="bg-pink py-3">
-        <div class="container">
-            <p class="m-0 text-center fw-light">
-                Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
-                kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
-            </p>
-        </div>
-    </header>
+     @guest
+     <header class="bg-pink py-3">
+         <div class="container">
+             <p class="m-0 text-center fw-light">
+                 Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
+                 kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
+             </p>
+         </div>
+     </header>
+     @else
+     @if (Auth::user()->role == 'user')
+     <header class="bg-pink py-3">
+         <div class="container">
+             <p class="m-0 text-center fw-light">
+                 Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
+                 kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
+             </p>
+         </div>
+     </header>
+     @endif
+     @endguest
 
     <!-- Navbar -->
     @include('includes.Navbar')
@@ -107,6 +120,9 @@
     <!-- Detail Menu Sehat Balita -->
     @yield('detailMenuSehatBalita')
 
+    <!-- Dokter Views (Konsultasi) -->
+    @yield('dokter')
+    
     <div class="container">
 
         <!-- Grafik Gizi Indonesia -->
@@ -115,8 +131,6 @@
         <!-- Profile -->
         @yield('profile')
 
-        <!-- Dokter Views (ON PROGRESS!) -->
-        @yield('dokter')
     </div>
 </body>
 <script>
@@ -136,6 +150,7 @@
     });
 </script>
 
+<!-- Kalkulator Input -->
 <script type="module">
     import indo from '{{ asset("Main/datePicker/indo.js") }}';
     document.addEventListener('DOMContentLoaded', () => {
@@ -147,6 +162,20 @@
     });
     var results = document.getElementById('result').children;
     console.log(results);
+</script>
+
+<!-- Dokter Views (Konsultasi) -->
+<script type="module">
+    import indo from '{{ asset("Main/datePicker/indo.js") }}';
+    const calendar = new AirDatepicker('#kalender', {
+    inline: true,
+    locale: indo,
+    onSelect: ({date, formattedDate, datepicker}) => {
+        console.log(date)
+        console.log(formattedDate)
+        console.log(datepicker)
+    }
+});
 </script>
 
 </html>

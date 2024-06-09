@@ -617,3 +617,73 @@ a.card:hover {
 .w-150px {
     width: 150px !important;
 }
+
+/* Dokter Views */
+.btn-outline-secondary {
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-outline-secondary:hover {
+    border: 2px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--text-white);
+}
+
+.border-secondary {
+    border-color: var(--secondary) !important;
+}
+
+.w-67px {
+    width: 67px !important;
+}
+
+.h-67px {
+    height: 67px !important;
+}
+
+.bg-text-black {
+    background-color: var(--textColor) !important;
+}
+
+.air-datepicker,
+#kalender {
+    border-radius: 4% !important;
+    border: none !important;
+}
+
+.air-datepicker-body--day-name {
+    color: var(--textColor) !important;
+}
+
+.air-datepicker-cell.-current- {
+    color: var(--textColor) !important;
+    border: 2px solid var(--secondary) !important;
+}
+
+.air-datepicker-cell.-selected- {
+    color: var(--text-white) !important;
+    border: 2px solid var(--secondary) !important;
+    background-color: var(--secondary) !important;
+}
+
+/* Footer Dokter */
+.sosmed-circle-secondary {
+    text-decoration: none;
+    color: var(--secondary-200);
+    border: 3px solid var(--secondary-200);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sosmed-circle-secondary:hover,
+.sosmed-circle-secondary i:hover {
+    border-color: var(--secondary);
+    color: var(--secondary) !important;
+    fill: var(--secondary) !important;
+}
+
