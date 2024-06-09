@@ -25,6 +25,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LokasiPelayananKesehatanController;
 use App\Http\Controllers\MenuSehatBalitaController;
+use App\Http\Controllers\PortalArtikelDokterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
@@ -139,9 +140,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/filterLokasi/auth', [LokasiPelayananKesehatanController::class, 'filterLokasi'])->name('filterLokasiAuth');
 
 
-    
+
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
+    Route::get('/portalArtikelDokter', [PortalArtikelDokterController::class, 'index'])->name('portalArtikelDokter');
 
     // Admin Routes
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');

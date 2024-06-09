@@ -72,6 +72,8 @@
         </div>
     </div>
 
+    <!-- USER VIEWS (BEFORE-AFTER AUTH) -->
+
     <!-- Beranda -->
     @yield('beranda')
 
@@ -120,9 +122,15 @@
     <!-- Detail Menu Sehat Balita -->
     @yield('detailMenuSehatBalita')
 
+
+    <!-- DOKTER VIEWS -->
+
     <!-- Dokter Views (Konsultasi) -->
     @yield('dokter')
     
+    <!-- Portal Artikel Dokter -->
+    @yield('portalArtikelDokter')
+
     <div class="container">
 
         <!-- Grafik Gizi Indonesia -->

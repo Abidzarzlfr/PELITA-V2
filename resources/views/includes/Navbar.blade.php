@@ -147,11 +147,11 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 <!-- Konsultasi -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/dokter">Konsultasi</a>
+                    <a class="nav-link {{ Request::is('dokter') ? 'active' : '' }}" aria-current="page" href="/dokter">Konsultasi</a>
                 </li>
                 <!-- Artikel Pendidikan Kesehatan -->
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/dokter">ArtikelPendidikanKesehatan</a>
+                    <a class="nav-link {{ Request::is('portalArtikelDokter') ? 'active' : '' }}" href="/portalArtikelDokter">Artikel Pendidikan Kesehatan</a>
                 </li>
                 <!-- Profile Name -->
                 <div class="nav-item">
