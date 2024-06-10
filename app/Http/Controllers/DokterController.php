@@ -13,10 +13,26 @@ class DokterController extends Controller
         // Mendapatkan ID dokter yang sedang login
         $id_dokter = Auth::id();
 
+        // Mendapatkan tanggal dari form filter modal jika ada
+        $tanggal = $request->input('tanggal');
+
+        // Mendapatkan semua data konsultasi yang terkait dengan dokter yang sedang login
+        $query = Konsultasi::where('id_dokter', $id_dokter);
+
+        // Ambil data konsultasi yang disetujui tanpa memperhatikan tanggal
+        $approvedKonsultasi = $query->where('konsultasi_request_status', 'approved')->get();
+
+        // Jika ada tanggal yang dipilih, filter konsultasi yang disetujui berdasarkan tanggal
+        if ($tanggal) {
+            $approvedKonsultasi = $approvedKonsultasi->filter(function ($konsultasi) use ($tanggal) {
+                return $konsultasi->tanggal->format('Y-m-d') == $tanggal;
+            });
+        }
+
         // Mendapatkan semua data konsultasi yang terkait dengan dokter yang sedang login
         $permintaanKonsultasi = Konsultasi::where('id_dokter', $id_dokter)->get();
 
-        // Mendapatkan semua data konsultasi yang terkait dengan dokter yang sedang login
+        // Mendapatkan jumlah konsultasi yang masih dalam status "requested" dan "approved"
         $widgetPermintaan = Konsultasi::where('id_dokter', $id_dokter)
             ->where('konsultasi_request_status', 'requested')
             ->count();
@@ -30,12 +46,12 @@ class DokterController extends Controller
         } elseif (auth()->user()->role == 'admin') {
             return redirect()->route('adminView');
         } else {
-            // Format tanggal untuk dikirim ke view
+            // Format tanggal untuk dikirim ke view (jika Anda ingin tetap melakukan formatting tanggal)
             foreach ($permintaanKonsultasi as $konsultasi) {
                 $konsultasi->tanggal = $konsultasi->tanggal->format('Y-m-d');
             }
 
-            return view('layouts.Dokter.Dokter', compact('permintaanKonsultasi', 'widgetPermintaan', 'widgetJadwal'));
+            return view('layouts.Dokter.Dokter', compact('approvedKonsultasi', 'permintaanKonsultasi', 'widgetPermintaan', 'widgetJadwal', 'tanggal'));
         }
     }
 

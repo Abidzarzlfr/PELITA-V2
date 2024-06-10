@@ -104,9 +104,9 @@
             <div class="col-6">
                 <h5>Jadwal Konsultasi</h5>
                 <p>Pilih tanggal untuk melihat jadwal konsultasi</p>
-                <div class="d-flex gap-4">
+                <div class="gap-4 w-100">
                     <!-- Filter Tanggal -->
-                    <button type="button" class="btn btn-secondary w-full" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter Tanggal</button>
+                    <button type="button" class="btn btn-secondary w-100 mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Filter Tanggal <i class="fa-solid fa-calendar-days fs-4"></i></button>
                     <!-- Modal Filter Tanggal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -118,12 +118,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <!-- Filter Tanggal -->
-                                <form action="" method="GET">
+                                <form id="filterForm" action="" method="GET">
                                     @csrf
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" for="tanggal" id="inputGroup-sizing-default">Tanggal</span>
-                                        <input type="date" class="form-control" id="tanggal" name="tanggal" />
-                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    <div class="modal-body">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" for="tanggal" id="inputGroup-sizing-default">Tanggal</span>
+                                            <input type="date" class="form-control" id="tanggal" name="tanggal" />
+                                            <button type="submit" class="btn btn-primary">Filter</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -131,8 +133,8 @@
                     </div>
                     <!-- Konsultasi Approved -->
                     <div class="detail-permintaan-wrapper">
-                        @foreach($permintaanKonsultasi as $konsultasi)
-                        @if($konsultasi->konsultasi_request_status == 'approved')
+                        <!-- Loop untuk menampilkan konsultasi yang sesuai -->
+                        @foreach($approvedKonsultasi as $konsultasi)
                         <div class="d-flex w-100 gap-3 detail-permintaan mb-3 align-items-center konsultasi-item" data-tanggal="{{ $konsultasi->tanggal->format('Y-m-d') }}" data-status="{{ $konsultasi->konsultasi_request_status }}">
                             <img src="{{ asset($konsultasi->user->foto) }}" class="rounded-circle" alt="" width="84px" height="84px">
                             <div class="w-100">
@@ -159,7 +161,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
                         @endforeach
                     </div>
 
@@ -263,4 +264,15 @@
         </div>
     </div>
 </footer>
+
+<!-- Tambahkan kode JavaScript ini di bagian bawah view -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Tangkap perubahan pada input tanggal dan submit form
+        $('#tanggal').change(function() {
+            $('form#filterForm').submit();
+        });
+    });
+</script>
 @endsection
