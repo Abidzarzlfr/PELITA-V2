@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminProgramKebijakanController;
 use App\Http\Controllers\ArtikelPendidikanController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DaftarDokterController;
+use App\Http\Controllers\DaftarKonsultasiDokterController;
 use App\Http\Controllers\DetailAcaraKesehatanBalitaController;
 use App\Http\Controllers\DetailArtikelPendidikanKesehatan;
 use App\Http\Controllers\DetailLokasiPelayananKesehatanController;
@@ -139,7 +140,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Filter Lokasi Pelayanan Kesehatan
     Route::get('/filterLokasi/auth', [LokasiPelayananKesehatanController::class, 'filterLokasi'])->name('filterLokasiAuth');
 
-
+    // Daftar Konsultasi
+    Route::post('/daftarKonsultasi', [DaftarKonsultasiDokterController::class, 'daftarKonsultasi'])->name('daftarKonsultasi');
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');

@@ -4,6 +4,7 @@
 <section class="informasi-dokter py-5">
     <div class="mx-5">
         <div class="row">
+            <!-- Header Detail Rekomendasi (left) -->
             <div class="col-5 py-5 rounded-5 bg-secondary-100 shadow">
                 <div class="h-100 px-5 d-flex flex-column justify-content-center align-items-center">
                     <h3>Konsultasi dengan dokter</h3>
@@ -19,6 +20,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Detail Rekomendasi Dokter (right) -->
             <div class="col-7">
                 <div class="container py-5 d-flex justify-content-center align-items-center">
                     <div class="rounded-4 bg-secondary-100 w-75 p-5">
@@ -26,7 +28,47 @@
                         <h3 class="mb-2">{{ $detailRekomendasiDokter->name }}</h3>
                         <p class="quote-text mb-2">{{ $detailRekomendasiDokter->dokter_kualifikasi }}</p>
                         <p>{{ $detailRekomendasiDokter->lokasi->nama_lokasi }}</p>
-                        <a href="https://wa.me/{{ $detailRekomendasiDokter->dokter_hp }}" class="btn btn-secondary text-white w-100 text-center mt-5" target="_blank"><i class="fs-5 fa-brands fa-whatsapp me-2"></i>Jadwalkan Konsultasi</a>
+                        <!-- <a href="https://wa.me/{{ $detailRekomendasiDokter->dokter_hp }}" class="btn btn-secondary text-white w-100 text-center mt-5" target="_blank"><i class="fs-5 fa-brands fa-whatsapp me-2"></i>Jadwalkan Konsultasi</a> -->
+                        @if($konsultasiStatus && $konsultasiStatus->konsultasi_request_status == 'requested')
+                        <button type="button" class="btn btn-secondary w-full" disabled>Requested</button>
+                        @elseif($konsultasiStatus && $konsultasiStatus->konsultasi_request_status == 'approved')
+                        <a type="button" class="btn btn-secondary w-full" href="https://wa.me/{{ $detailRekomendasiDokter->dokter_hp }}" target="_blank">Konsultasi</a>
+                        @else
+                        <button type="button" class="btn btn-secondary w-full" data-bs-toggle="modal" data-bs-target="#exampleModal">Jadwalkan Konsultasi</button>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Konsultasi Dokter -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                Permintaan Konsultasi
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="{{ route('daftarKonsultasi') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-body">
+                                <input type="hidden" name="id_user" value="{{ auth()->id() }}">
+                                <input type="hidden" name="id_dokter" value="{{ $detailRekomendasiDokter->id }}">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" for="tanggal" id="inputGroup-sizing-default">Tanggal</span>
+                                    <input type="date" class="form-control" id="tanggal" name="tanggal" />
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Detail</span>
+                                    <input type="text" class="form-control" id="detail" name="detail" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">
+                                    Ajukan Konsultasi
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
