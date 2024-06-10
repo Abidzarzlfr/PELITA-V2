@@ -173,7 +173,7 @@
 </script>
 
 <!-- Dokter Views (Konsultasi) -->
-<script type="module">
+<!-- <script type="module">
     import indo from '{{ asset("Main/datePicker/indo.js") }}';
     const calendar = new AirDatepicker('#kalender', {
     inline: true,
@@ -184,6 +184,6 @@
         console.log(datepicker)
     }
 });
-</script>
+</script> -->
 
 </html>

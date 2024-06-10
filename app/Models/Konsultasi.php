@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,5 +34,10 @@ class Konsultasi extends Model
     public function dokter()
     {
         return $this->belongsTo(User::class, 'id_dokter');
+    }
+
+    public function getTanggalAttribute($value)
+    {
+        return Carbon::parse($value);
     }
 }
