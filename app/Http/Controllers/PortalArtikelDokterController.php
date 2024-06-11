@@ -29,7 +29,6 @@ class PortalArtikelDokterController extends Controller
             'status' => 'required',
             'kelompok_usia' => 'required',
             'isi_konten' => 'required',
-            // 'tanggal' => 'required|date_format:Y-m-d',
         ]);
 
         // Dapatkan id_dokter dari user yang sedang terautentikasi
@@ -59,7 +58,6 @@ class PortalArtikelDokterController extends Controller
             'foto_penerbit' => $fotoPenerbit,
             'foto_konten' => $fotoKonten,
             'isi_konten' => $request->isi_konten,
-            // 'tanggal' => $request->tanggal,
         ]);
 
         return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');

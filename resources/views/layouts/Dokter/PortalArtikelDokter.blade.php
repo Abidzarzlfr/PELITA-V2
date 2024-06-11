@@ -68,11 +68,6 @@
                         <span class="input-group-text">Isi Konten</span>
                         <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
                     </div>
-                    <!-- Tanggal -->
-                    <!-- <div class="input-group mb-3">
-                        <span for="tanggal" class="input-group-text" id="basic-addon1">Tanggal</span>
-                        <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="YYYY-MM-DD" />
-                    </div> -->
                 </div>
             </div>
             <input type="submit" class="btn btn-secondary text-white w-100" value="Unggah Artikel" />
@@ -109,7 +104,7 @@
                         <td>{{ $item->kelompok_usia }}</td>
                         <td><img src="{{ asset($item->foto_konten) }}" class="" alt="" width="168px"></td>
                         <td>{{ $item->isi_konten }}</td>
-                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                         <td>
                             <a href="" class="text-decoration-none text-black">Ubah</a>
                             <span class="text-muted fw-light">|</span>

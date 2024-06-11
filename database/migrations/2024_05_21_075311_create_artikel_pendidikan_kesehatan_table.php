@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('artikel_request_status', ['requested', 'not requested', 'approved'])->default('not requested');
             $table->string('foto_konten');
             $table->longText('isi_konten');
-            $table->date('tanggal');
+            $table->date('tanggal')->nullable();
             $table->timestamps();
         });
     }
