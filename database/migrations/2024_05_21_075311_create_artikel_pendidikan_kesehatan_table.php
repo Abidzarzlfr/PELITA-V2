@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('artikel_pendidikan_kesehatan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_dokter')->nullable()->constrained('users')->comment('dokter role');
             $table->string('judul');
             $table->enum('kategori', ['umum', 'pertumbuhan anak', 'olahraga', 'panduan orang tua', 'makanan dan nutrisi anak', 'asi dan menyusui'])->default('umum');
             $table->enum('status', ['umum', 'stunting', 'wasting', 'underweight', 'overweight'])->default('umum');

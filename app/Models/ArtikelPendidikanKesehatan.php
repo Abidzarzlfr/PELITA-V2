@@ -9,6 +9,7 @@ class ArtikelPendidikanKesehatan extends Model
     protected $table = 'artikel_pendidikan_kesehatan';
 
     protected $fillable = [
+        'id_dokter',
         'judul',
         'kategori',
         'status',
@@ -26,4 +27,9 @@ class ArtikelPendidikanKesehatan extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function dokter()
+    {
+        return $this->belongsTo(User::class, 'id_dokter');
+    }
 }

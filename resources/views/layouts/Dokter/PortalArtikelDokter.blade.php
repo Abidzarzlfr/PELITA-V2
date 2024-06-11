@@ -7,55 +7,79 @@
 <section class="statistik-ahli-gizi py-5">
     <div class="container">
         <h2>Tambah Artikel</h2>
-        <form action="" enctype="multipart/form-data">
+        <form action="{{ route('dokterUploadArtikelPendidikanKesehatan') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('post')
             <div class="row my-5">
+                <!-- Foto Konten -->
                 <div class="col-6">
-                    <img src="img/berita-1.png" class="img-fluid rounded-3" alt="" id="artikelPreview">
+                    <img src="" class="foto_konten img-fluid rounded-3" alt="foto_konten">
                 </div>
                 <div class="col-6">
+                    <!-- Judul -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Judul</span>
-                        <input type="text" class="form-control" placeholder="Judul" aria-label="Dokumen STR" name="judul">
+                        <span for="judul" class="input-group-text" id="basic-addon1">Judul</span>
+                        <input type="text" class="form-control" id="judul" name="judul" placeholder="" />
                     </div>
+                    <!-- Kategori -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Kategori</span>
-                        <select name="kategori" class="form-select" id="">
-                            <option value="">Pilih Kategori</option>
-                            <option value="">Pertumbuhan Anak</option>
-                            <option value="">Olahraga</option>
+                        <label class="input-group-text" for="kategori">Kategori</label>
+                        <select class="form-select" id="kategori" name="kategori">
+                            <option value="" selected>Pilih Kategori</option>
+                            <option value="pertumbuhan anak">Pertumbuhan Anak</option>
+                            <option value="olahraga">Olahraga</option>
+                            <option value="panduan orang tua">Panduan Orang Tua</option>
+                            <option value="makanan dan nutrisi anak">Makanan dan Nutrisi Anak</option>
+                            <option value="asi dan menyusui">ASI dan Menyusui</option>
+                            <option value="umum">Umum</option>
                         </select>
                     </div>
+                    <!-- Status -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Status</span>
-                        <select name="status" class="form-select" id="">
-                            <option value="">Pilih Status Gizi</option>
-                            <option value="">Wasting</option>
-                            <option value="">Umum</option>
+                        <label class="input-group-text" for="status">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            <option value="" selected>Pilih Status</option>
+                            <option value="stunting">Stunting</option>
+                            <option value="wasting">Wasting</option>
+                            <option value="underweight">Underweight</option>
+                            <option value="overweight">Overweight</option>
+                            <option value="umum">Umum</option>
                         </select>
                     </div>
+                    <!-- Kelompok Usia -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Kelompok Usia</span>
-                        <select name="kelompok_usia" class="form-select" id="">
-                            <option value="">Pilih Kategori</option>
-                            <option value="">Pertumbuhan Anak</option>
-                            <option value="">Olahraga</option>
+                        <label class="input-group-text" for="kelompok_usia">Kelompok Usia</label>
+                        <select class="form-select" id="kelompok_usia" name="kelompok_usia">
+                            <option value="" selected>Pilih Kelompok Usia</option>
+                            <option value="semua usia">Semua Usia</option>
+                            <option value="hamil">Hamil</option>
+                            <option value="bayi">Bayi</option>
+                            <option value="batita">Batita</option>
+                            <option value="anak">Anak</option>
                         </select>
                     </div>
+                    <!-- Foto Konten -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Dokumen STR</span>
-                        <input type="file" class="form-control d-none" placeholder="Foto Konten" name="foto_konten" aria-describedby="basic-addon1" accept="image/png,image/jpg,image/jpeg" id="foto_konten">
-                        <label for="foto_konten" class="fs-6 border form-control cursor-pointer" id="fotoKontenId">Pilih Berkas</label>
+                        <label class="input-group-text" for="foto_konten">Foto Konten</label>
+                        <input type="file" class="form-control" name="foto_konten" id="foto_konten" />
                     </div>
+                    <!-- Isi Konten -->
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-gray-200" id="basic-addon1">Isi Konten</span>
-                        <input type="text" class="form-control" placeholder="Example" name="isi_konten">
+                        <span class="input-group-text">Isi Konten</span>
+                        <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
                     </div>
+                    <!-- Tanggal -->
+                    <!-- <div class="input-group mb-3">
+                        <span for="tanggal" class="input-group-text" id="basic-addon1">Tanggal</span>
+                        <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="YYYY-MM-DD" />
+                    </div> -->
                 </div>
             </div>
             <input type="submit" class="btn btn-secondary text-white w-100" value="Unggah Artikel" />
         </form>
     </div>
 </section>
+
 <!-- Tabel Artikel -->
 <section class="artikel-table py-5">
     <div class="container">
@@ -75,42 +99,27 @@
                     <th class="bg-secondary-100" style="width: 120px;">Aksi</th>
                 </thead>
                 <tbody>
+                    @php $index = 1; @endphp
+                    @foreach ($artikelPendidikanKesehatan->where('id_dokter', auth()->user()->id) as $item)
                     <tr>
-                        <td>3</td>
-                        <td>Balita Terlalu Kurus, Awas Malabsorpsi Kronis</td>
-                        <td>Pertumbuhan Anak</td>
-                        <td>Wasting</td>
-                        <td>Anak</td>
-                        <td><img src="img/carousel-3.png" class="" alt="" width="168px"></td>
-                        <td>Pelita - Jakarta, Balita Kurus Meskipun Sudah Diberi Makanan Bergizi? Ini Tanda
-                            Malabsorpsi
-                            Kronis yang Harus Diwaspadai!</td>
-                        <td>3 Juni 2024</td>
-                        <td><a href="" class="text-decoration-none text-black">Ubah</a> <span class="text-muted fw-light">|</span> <a href="" class="text-decoration-none text-black">Hapus</a></td>
+                        <td>{{ $index }}</td>
+                        <td>{{ $item->judul }}</td>
+                        <td>{{ $item->kategori }}</td>
+                        <td>{{ $item->status }}</td>
+                        <td>{{ $item->kelompok_usia }}</td>
+                        <td><img src="{{ asset($item->foto_konten) }}" class="" alt="" width="168px"></td>
+                        <td>{{ $item->isi_konten }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>
+                            <a href="" class="text-decoration-none text-black">Ubah</a>
+                            <span class="text-muted fw-light">|</span>
+                            <a href="" class="text-decoration-none text-black">Hapus</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>6 Aktivitas Seru untuk Balita yang Bikin Badan Tetap Fit!</td>
-                        <td>Olahraga</td>
-                        <td>Umum</td>
-                        <td>Anak</td>
-                        <td><img src="img/carousel-2.png" class="" alt="" width="168px"></td>
-                        <td>Pelita - Jakarta, Keseruan Aktivitas Fisik: Balita Membutuhkan Gerakan untuk Tetap Enerjik! Minimal 180 Menit atau Lebih untuk Kesehatan Mereka!</td>
-                        <td>2 Juni 2024</td>
-                        <td><a href="" class="text-decoration-none text-black">Ubah</a> <span class="text-muted fw-light">|</span> <a href="" class="text-decoration-none text-black">Hapus</a></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Warna Feses Bayi: Tanda Penting bagi Orang Tua</td>
-                        <td>Pertumbuhan Anak</td>
-                        <td>Umum</td>
-                        <td>Bayi</td>
-                        <td><img src="img/carousel-1.png" class="" alt="" width="168px"></td>
-                        <td>Pelita - Jakarta, Banyak orang tua cemas tentang apakah anak kecil mereka mengonsumsi makanan yang cukup sehat. Anak kecil umumnya makan sedikit, picky terhadap makanan, dan sering menolak untuk makan. Nafsu makan anak kecil sering berubah-ubah karena pertumbuhan yang cepat dan variasi dalam aktivitas mereka.</td>
-                        <td>1 Juni 2024</td>
-                        <td><a href="" class="text-decoration-none text-black">Ubah</a> <span class="text-muted fw-light">|</span> <a href="" class="text-decoration-none text-black">Hapus</a></td>
-                    </tr>
+                    @php $index++; @endphp
+                    @endforeach
                 </tbody>
+
             </table>
         </div>
     </div>
@@ -161,4 +170,21 @@
     </div>
 </footer>
 
+<!-- Tambahkan jQuery (jika belum ada) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Tambahkan skrip JavaScript -->
+<script>
+    $(document).ready(function() {
+        // Tangkap peristiwa ketika pengguna memilih file
+        $('#foto_konten').change(function() {
+            // Dapatkan file yang dipilih
+            var file = this.files[0];
+            // Buat URL sementara untuk file yang dipilih
+            var temporaryUrl = URL.createObjectURL(file);
+            // Perbarui atribut src dari elemen gambar
+            $('.foto_konten').attr('src', temporaryUrl);
+        });
+    });
+</script>
 @endsection

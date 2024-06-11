@@ -148,7 +148,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/confirmKonsultasi/{id}', [DokterController::class, 'confirmKonsultasi'])->name('confirmKonsultasi');
     Route::post('/rejectedKonsultasi/{id}', [DokterController::class, 'rejected'])->name('rejectedKonsultasi');
     Route::get('/portalArtikelDokter', [PortalArtikelDokterController::class, 'index'])->name('portalArtikelDokter');
-
+    Route::post('/dokterUploadArtikelPendidikanKesehatan', [PortalArtikelDokterController::class, 'store'])->name('dokterUploadArtikelPendidikanKesehatan');
     // Admin Routes
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
 
