@@ -62,4 +62,12 @@ class PortalArtikelDokterController extends Controller
 
         return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
     }
+
+    public function delete($id)
+    {
+        $artikel = ArtikelPendidikanKesehatan::findOrFail($id);
+        $artikel->delete();
+
+        return redirect()->back()->with('success', 'Artikel berhasil dihapus');
+    }
 }

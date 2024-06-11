@@ -149,6 +149,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/rejectedKonsultasi/{id}', [DokterController::class, 'rejected'])->name('rejectedKonsultasi');
     Route::get('/portalArtikelDokter', [PortalArtikelDokterController::class, 'index'])->name('portalArtikelDokter');
     Route::post('/dokterUploadArtikelPendidikanKesehatan', [PortalArtikelDokterController::class, 'store'])->name('dokterUploadArtikelPendidikanKesehatan');
+    Route::delete('/dokterDeleteArtikelPendidikanKesehatan/{id}', [PortalArtikelDokterController::class, 'delete'])->name('dokterDeleteArtikelPendidikanKesehatan');
+
+
     // Admin Routes
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
 

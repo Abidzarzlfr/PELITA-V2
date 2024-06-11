@@ -80,7 +80,6 @@
     <div class="container">
         <h2>Daftar Artikel</h2>
         <div class="table-responsive">
-
             <table class="table table-bordered mt-4 w-100">
                 <thead class="text-black">
                     <th class="bg-secondary-100">No</th>
@@ -106,11 +105,35 @@
                         <td>{{ $item->isi_konten }}</td>
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                         <td>
+                            <!-- Ubah -->
                             <a href="" class="text-decoration-none text-black">Ubah</a>
                             <span class="text-muted fw-light">|</span>
-                            <a href="" class="text-decoration-none text-black">Hapus</a>
+                            <!-- Hapus -->
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                         </td>
                     </tr>
+                    <!-- Modal Delete -->
+                    <div class="modal fade" id="modalDelete{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteLabel{{ $item->id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 fw-bold" id="modalDeleteLabel{{ $item->id }}">Konfirmasi Hapus</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah anda yakin ingin menghapus artikel "<b>{{ $item->judul }}</b>"?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                                    <form method="POST" action="{{ route('dokterDeleteArtikelPendidikanKesehatan', ['id' => $item->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @php $index++; @endphp
                     @endforeach
                 </tbody>
