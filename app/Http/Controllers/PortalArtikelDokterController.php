@@ -70,4 +70,47 @@ class PortalArtikelDokterController extends Controller
 
         return redirect()->back()->with('success', 'Artikel berhasil dihapus');
     }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $artikel = ArtikelPendidikanKesehatan::findOrFail($id);
+
+        // Update judul jika disediakan
+        if ($request->filled('judul-update')) {
+            $artikel->judul = $request->input('judul-update');
+        }
+
+        // Update kategori jika disediakan
+        if ($request->filled('kategori_update')) {
+            $artikel->kategori = $request->input('kategori_update');
+        }
+
+        // Update status jika disediakan
+        if ($request->filled('status_update')) {
+            $artikel->status = $request->input('status_update');
+        }
+
+        // Update kelompok usia jika disediakan
+        if ($request->filled('kelompok_usia_update')) {
+            $artikel->kelompok_usia = $request->input('kelompok_usia_update');
+        }
+
+        // Update isi konten jika disediakan
+        if ($request->filled('isi_konten_update')) {
+            $artikel->isi_konten = $request->input('isi_konten_update');
+        }
+
+        // Mengelola pembaruan foto konten
+        if ($request->hasFile('foto_konten_update')) {
+            $destinationPath = 'images/artikelPendidikanKesehatan/fotoKontenDokter/';
+            $image = $request->file('foto_konten_update');
+            $fotoKonten = 'images/artikelPendidikanKesehatan/fotoKontenDokter/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $fotoKonten);
+            $artikel->foto_konten = $fotoKonten;
+        }
+
+        $artikel->save();
+        return redirect('/portalArtikelDokter');
+    }
 }

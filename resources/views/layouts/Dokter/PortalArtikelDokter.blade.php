@@ -106,12 +106,86 @@
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                         <td>
                             <!-- Ubah -->
-                            <a href="" class="text-decoration-none text-black">Ubah</a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalUpdate{{ $item->id }}" class="text-decoration-none text-black">Ubah</a>
                             <span class="text-muted fw-light">|</span>
                             <!-- Hapus -->
                             <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                         </td>
                     </tr>
+                    <!-- Modal Update -->
+                    <div class="modal fade" id="modalUpdate{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalUpdateLabel{{ $item->id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 fw-bold" id="modalUpdateLabel{{ $item->id }}">Ubah Artikel "{{ $item->judul }}"</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form method="POST" action="{{ route('dokterUpdateArtikelPendidikanKesehatan') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <div class="modal-body">
+                                        <!-- Judul -->
+                                        <div class="input-group mb-3">
+                                            <span for="judul-update" class="input-group-text" id="basic-addon1">Judul</span>
+                                            <input type="text" class="form-control" id="judul-update" name="judul-update" placeholder="{{ $item->judul }}" />
+                                        </div>
+                                        <!-- Kategori -->
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" for="kategori_update">Kategori</label>
+                                            <select class="form-select" id="kategori_update" name="kategori_update">
+                                                <option selected disabled>{{ $item->kategori }}</option>
+                                                <option value="pertumbuhan anak">Pertumbuhan Anak</option>
+                                                <option value="olahraga">Olahraga</option>
+                                                <option value="panduan orang tua">Panduan Orang Tua</option>
+                                                <option value="makanan dan nutrisi anak">Makanan dan Nutrisi Anak</option>
+                                                <option value="asi dan menyusui">ASI dan Menyusui</option>
+                                                <option value="umum">Umum</option>
+                                            </select>
+                                        </div>
+                                        <!-- Status -->
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" for="status_update">Status</label>
+                                            <select class="form-select" id="status_update" name="status_update">
+                                                <option selected disabled>{{ $item->status }}</option>
+                                                <option value="stunting">Stunting</option>
+                                                <option value="wasting">Wasting</option>
+                                                <option value="underweight">Underweight</option>
+                                                <option value="overweight">Overweight</option>
+                                                <option value="umum">Umum</option>
+                                            </select>
+                                        </div>
+                                        <!-- Kelompok Usia -->
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" for="kelompok_usia_update">Kelompok Usia</label>
+                                            <select class="form-select" id="kelompok_usia_update" name="kelompok_usia_update">
+                                                <option selected disabled>{{ $item->kelompok_usia }}</option>
+                                                <option value="semua usia">Semua Usia</option>
+                                                <option value="hamil">Hamil</option>
+                                                <option value="bayi">Bayi</option>
+                                                <option value="batita">Batita</option>
+                                                <option value="anak">Anak</option>
+                                            </select>
+                                        </div>
+                                        <!-- Foto Konten -->
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" for="foto_konten_update">Foto Konten</label>
+                                            <input type="file" class="form-control" name="foto_konten_update" id="foto_konten_update" />
+                                        </div>
+                                        <!-- Isi Konten -->
+                                        <div class="input-group">
+                                            <span class="input-group-text">Isi Konten</span>
+                                            <textarea class="form-control" placeholder="{{ $item->isi_konten }}" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                        <button type="submit" class="btn btn-success">Ubah</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Modal Delete -->
                     <div class="modal fade" id="modalDelete{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteLabel{{ $item->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
