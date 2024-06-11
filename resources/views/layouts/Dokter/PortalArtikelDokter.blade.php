@@ -13,7 +13,7 @@
             <div class="row my-5">
                 <!-- Foto Konten -->
                 <div class="col-6">
-                    <img src="" class="foto_konten img-fluid rounded-3" alt="foto_konten">
+                    <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" class="foto_konten img-fluid rounded-3" alt="foto_konten">
                 </div>
                 <div class="col-6">
                     <!-- Judul -->
@@ -64,7 +64,7 @@
                         <input type="file" class="form-control" name="foto_konten" id="foto_konten" />
                     </div>
                     <!-- Isi Konten -->
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <span class="input-group-text">Isi Konten</span>
                         <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
                     </div>
