@@ -145,8 +145,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Dokter Routes
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
-    Route::get('/confirmKonsultasi/{id}', [DokterController::class, 'confirmKonsultasi'])->name('confirmKonsultasi');
-    Route::get('/rejectedKonsultasi/{id}', [DokterController::class, 'rejected'])->name('rejectedKonsultasi');
+    Route::post('/confirmKonsultasi/{id}', [DokterController::class, 'confirmKonsultasi'])->name('confirmKonsultasi');
+    Route::post('/rejectedKonsultasi/{id}', [DokterController::class, 'rejected'])->name('rejectedKonsultasi');
     Route::get('/portalArtikelDokter', [PortalArtikelDokterController::class, 'index'])->name('portalArtikelDokter');
 
     // Admin Routes

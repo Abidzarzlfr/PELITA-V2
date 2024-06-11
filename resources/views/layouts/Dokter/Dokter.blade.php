@@ -49,8 +49,16 @@
             <div class="col-6">
                 <h5>Permintaan Konsultasi</h5>
                 <p>Terima atau tolak permintaan konsultasi oleh user</p>
-                @foreach($permintaanKonsultasi as $konsultasi)
+
+                @php
+                $hasRequested = false;
+                @endphp
+
+                @forelse($permintaanKonsultasi as $konsultasi)
                 @if($konsultasi->konsultasi_request_status == 'requested')
+                @php
+                $hasRequested = true;
+                @endphp
                 <div class="d-flex justify-content-start gap-3 align-items-center mb-4">
                     <img src="{{ asset($konsultasi->user->foto) }}" class="rounded-circle" width="84px" height="84px" alt="">
                     <div class="konsul-detail-card w-100">
@@ -65,26 +73,29 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
-                                <a href="/rejectedKonsultasi/{{ $konsultasi->id }}" class="btn btn-danger w-100">Tolak</a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#modalRejected{{ $konsultasi->id }}" class="btn btn-danger w-100">Tolak</a>
                             </div>
                             <div class="col-6">
-                                <a href="/confirmKonsultasi/{{ $konsultasi->id }}" class="btn btn-success w-100">Terima</a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#modalApproved{{ $konsultasi->id }}" class="btn btn-success w-100">Terima</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Modal Detail Permintaan -->
                 <div class="modal fade" id="modalDetailKonsultasi{{ $konsultasi->id }}" tabindex="-1" aria-labelledby="modalDetailKonsultasiLabel{{ $konsultasi->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modalDetailKonsultasiLabel{{ $konsultasi->id }}">
-                                    Permintaan Konsultasi
-                                </h1>
+                                <h1 class="modal-title fs-5" id="modalDetailKonsultasiLabel{{ $konsultasi->id }}">Permintaan Konsultasi</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Nama</span>
+                                        <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->user->name }}" disabled />
+                                    </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Detail</span>
                                         <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->detail }}" disabled />
@@ -94,12 +105,64 @@
                         </div>
                     </div>
                 </div>
-                @else
-                <!-- <p class="mt-5 mb-5">Tidak ada permintaan konsultasi.</p> -->
+
+                <!-- Modal Rejected -->
+                <div class="modal fade" id="modalRejected{{ $konsultasi->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRejectedLabel{{ $konsultasi->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalRejectedLabel{{ $konsultasi->id }}">Penolakan Konsultasi</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah anda yakin ingin menolak permintaan <b>{{ $konsultasi->user->name }}</b>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                                <form method="POST" action="{{ route('rejectedKonsultasi', ['id' => $konsultasi->id]) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Yes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Approved -->
+                <div class="modal fade" id="modalApproved{{ $konsultasi->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalApprovedLabel{{ $konsultasi->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalApprovedLabel{{ $konsultasi->id }}">Penerimaan Konsultasi</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah anda yakin ingin menerima permintaan <b>{{ $konsultasi->user->name }}</b>?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                <form method="POST" action="{{ route('confirmKonsultasi', ['id' => $konsultasi->id]) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Yes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endif
-                @endforeach
+                @empty
+                <p class="mt-5 mb-5">Tidak ada permintaan konsultasi.</p>
+                @endforelse
+
+                @if (!$hasRequested)
+                <br> <br> <br>
+                <p class="mt-5 mb-5">Tidak ada permintaan konsultasi.</p>
+                @else
                 <a href="" class="btn btn-outline-secondary w-100">Lihat Semuanya</a>
+                @endif
+
             </div>
+
             <!-- Jadwal Konsultasi -->
             <div class="col-6">
                 <h5>Jadwal Konsultasi</h5>
@@ -134,24 +197,28 @@
                     <!-- Konsultasi Approved -->
                     <div class="detail-permintaan-wrapper">
                         <!-- Loop untuk menampilkan konsultasi yang sesuai -->
-                        @foreach($approvedKonsultasi as $konsultasi)
+                        @forelse($approvedKonsultasi as $konsultasi)
                         <div class="d-flex w-100 gap-3 detail-permintaan mb-3 align-items-center konsultasi-item" data-tanggal="{{ $konsultasi->tanggal->format('Y-m-d') }}" data-status="{{ $konsultasi->konsultasi_request_status }}">
                             <img src="{{ asset($konsultasi->user->foto) }}" class="rounded-circle" alt="" width="84px" height="84px">
                             <div class="w-100">
                                 <p class="fw-bold">{{ $konsultasi->user->name }}</p>
-                                <a href="" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalDetailKonsultasi{{ $konsultasi->id }}">Detail Permintaan</a>
+                                <a href="" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalDetailKonsultasiJadwal{{ $konsultasi->id }}">Detail Permintaan</a>
                             </div>
                         </div>
                         <!-- Modal Detail Jadwal -->
-                        <div class="modal fade" id="modalDetailKonsultasi{{ $konsultasi->id }}" tabindex="-1" aria-labelledby="modalDetailKonsultasiLabel{{ $konsultasi->id }}" aria-hidden="true">
+                        <div class="modal fade" id="modalDetailKonsultasiJadwal{{ $konsultasi->id }}" tabindex="-1" aria-labelledby="modalDetailKonsultasiJadwalLabel{{ $konsultasi->id }}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="modalDetailKonsultasiLabel{{ $konsultasi->id }}">Permintaan Konsultasi</h1>
+                                        <h1 class="modal-title fs-5" id="modalDetailKonsultasiJadwalLabel{{ $konsultasi->id }}">Permintaan Konsultasi</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         <div class="modal-body">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Nama</span>
+                                                <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->user->name }}" disabled />
+                                            </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Detail</span>
                                                 <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->detail }}" disabled />
@@ -161,7 +228,9 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <p class="mt-5 mb-5 text-center">Tidak ada jadwal konsultasi.</p>
+                        @endforelse
                     </div>
 
                 </div>
@@ -191,20 +260,24 @@
                     <td>{{ \Carbon\Carbon::parse($konsultasi->created_at)->format('d/m/Y') }}</td>
                     <td>{{ ($konsultasi->tanggal)->format('d/m/Y') }}</td>
                     <td>{{ $konsultasi->konsultasi_request_status }}</td>
-                    <td><a href="" class="text-decoration-none text-black" data-bs-toggle="modal" data-bs-target="#modalDetailKonsultasi{{ $konsultasi->id }}">Lihat Detail</a></td>
+                    <td><a href="" class="text-decoration-none text-black" data-bs-toggle="modal" data-bs-target="#modalDetailKonsultasiTabel{{ $konsultasi->id }}">Lihat Detail</a></td>
                 </tr>
                 <!-- Modal Detail Permintaan -->
-                <div class="modal fade" id="modalDetailKonsultasi{{ $konsultasi->id }}" tabindex="-1" aria-labelledby="modalDetailKonsultasiLabel{{ $konsultasi->id }}" aria-hidden="true">
+                <div class="modal fade" id="modalDetailKonsultasiTabel{{ $konsultasi->id }}" tabindex="-1" aria-labelledby="modalDetailKonsultasiTabelLabel{{ $konsultasi->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modalDetailKonsultasiLabel{{ $konsultasi->id }}">
+                                <h1 class="modal-title fs-5" id="modalDetailKonsultasiTabelLabel{{ $konsultasi->id }}">
                                     Permintaan Konsultasi
                                 </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Nama</span>
+                                        <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->user->name }}" disabled />
+                                    </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" for="detail" id="inputGroup-sizing-default">Detail</span>
                                         <input type="text" class="form-control" id="detail" name="detail" placeholder="{{ $konsultasi->detail }}" disabled />
