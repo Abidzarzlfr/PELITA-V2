@@ -19,7 +19,7 @@
             <!-- Nama Penerbit -->
             <p class="m-0">{{ $artikels->nama_penerbit }}</p>
             <!-- Tanggal -->
-            <p class="m-0">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $artikels->tanggal)->format('d/m/Y') }}</p>
+            <p class="m-0">{{ \Carbon\Carbon::parse($artikels->created_at)->format('d/m/Y') }}</p>
         </div>
         <!-- Foto Konten -->
         <img src="{{ asset($artikels->foto_konten) }}" class="w-100 rounded mb-5" style="height:550px;" alt="">
