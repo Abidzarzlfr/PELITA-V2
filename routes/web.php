@@ -143,7 +143,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Daftar Konsultasi
     Route::post('/daftarKonsultasi', [DaftarKonsultasiDokterController::class, 'daftarKonsultasi'])->name('daftarKonsultasi');
 
-    // Dokter Routes
+    // Dokter Routes --------------------------------
     Route::get('/dokter', [DokterController::class, 'index'])->name('dokter');
     Route::post('/confirmKonsultasi/{id}', [DokterController::class, 'confirmKonsultasi'])->name('confirmKonsultasi');
     Route::post('/rejectedKonsultasi/{id}', [DokterController::class, 'rejected'])->name('rejectedKonsultasi');
@@ -152,18 +152,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/dokterDeleteArtikelPendidikanKesehatan/{id}', [PortalArtikelDokterController::class, 'delete'])->name('dokterDeleteArtikelPendidikanKesehatan');
     Route::put('/dokterUpdateArtikelPendidikanKesehatan', [PortalArtikelDokterController::class, 'update'])->name('dokterUpdateArtikelPendidikanKesehatan');
 
-    // Admin Routes (Dashboard)
+    // Admin Routes (Dashboard) --------------------------------
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
     Route::delete('/adminDeleteUser/{id}', [AdminController::class, 'delete'])->name('adminDeleteUser');
     Route::put('/adminUpdateUser', [AdminController::class, 'update'])->name('adminUpdateUser');
 
-    // Admin Routes (Dokter Request)
+    // Admin Routes (Dokter Request) --------------------------------
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
     Route::post('/adminDokterRequest', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
     Route::post('/adminDokterRejected', [AdminDokterRequestController::class, 'rejectedDokter'])->name('adminDokterRejected');
 
+    // Admin Routes (Program Kebijakan) --------------------------------
     Route::get('/adminProgramKebijakan', [AdminProgramKebijakanController::class, 'index']);
     Route::post('/adminUploadProgramKebijakan', [AdminProgramKebijakanController::class, 'store'])->name('adminUploadProgramKebijakan');
+    Route::delete('/adminDeleteProgramKebijakan/{id}', [AdminProgramKebijakanController::class, 'delete'])->name('adminDeleteProgramKebijakan');
+    Route::put('/adminUpdateProgramKebijakan', [AdminProgramKebijakanController::class, 'update'])->name('adminUpdateProgramKebijakan');
 
     Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
     Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');

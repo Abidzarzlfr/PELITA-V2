@@ -209,3 +209,11 @@ body{
   background-color: var(--secondary-300) !important;
   /* updated_at : 24/05/24 00.08 */
 }
+
+.border-none {
+  border: none !important;
+}
+
+.text-white {
+  color: white !important;
+}
