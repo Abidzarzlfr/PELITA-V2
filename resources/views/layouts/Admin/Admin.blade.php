@@ -48,7 +48,7 @@
             </div>
             <div class="text-secondary-600">
                 <h3 class="m-0">{{ \App\Models\User::where('dokter_request_status', 'requested')->count() }}</h3>
-                <p class="quote-text m-0">Total Dokter</p>
+                <p class="quote-text m-0">Daftar Dokter</p>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
         <table class="table table-bordered bg-secondary-100 rounded shadow-sm table-hover">
             <thead class="text-center">
                 <th scope="col" width="50" class="bg-secondary-100">No</th>
-                <th scope="col" class="bg-secondary-100">Name</th>
+                <th scope="col" class="bg-secondary-100">Nama</th>
                 <th scope="col" class="bg-secondary-100">Email</th>
                 <th scope="col" class="bg-secondary-100">Role</th>
                 <th scope="col" class="bg-secondary-100">Aksi</th>

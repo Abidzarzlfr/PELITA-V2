@@ -7,7 +7,7 @@
             <i class="fa-solid fa-gauge-high fs-4 me-3"></i>Dashboard
         </a>
         <a href="/adminDokterRequest" class="sidebar-link w-100 ms-3 mb-2 {{ Request::is('adminDokterRequest') ? 'active' : '' }}">
-            <i class="fa-solid fa-user-doctor fs-4 me-3"></i>Dokter Request
+            <i class="fa-solid fa-user-doctor fs-4 me-3"></i>Daftar Dokter
         </a>
         <a href="/adminProgramKebijakan" class="sidebar-link w-100 ms-3 mb-2 {{ Request::is('adminProgramKebijakan') ? 'active' : '' }}">
             <i class="fa-solid fa-users-between-lines fs-4 me-2"></i>Program & Kebijakan

@@ -9,8 +9,6 @@ class AdminDokterRequestController extends Controller
 {
     public function index()
     {
-        // return view('layouts.Admin.layouts.DokterRequest');
-
         $users = User::all();
 
         if (auth()->user()->role == 'user') {
@@ -22,12 +20,23 @@ class AdminDokterRequestController extends Controller
         }
     }
 
-    public function confirmDokter(Request $request, $id)
+    public function confirmDokter(Request $request)
     {
+        $id = $request->input('id');
         $user = User::findOrFail($id);
 
         $user->update(['dokter_request_status' => 'approved']);
         $user->update(['role' => 'dokter']);
+        return redirect('/adminDokterRequest');
+    }
+
+    public function rejectedDokter(Request $request)
+    {
+        $id = $request->input('id');
+        $user = User::findOrFail($id);
+
+        $user->update(['dokter_request_status' => 'not requested']);
+        $user->update(['role' => 'user']);
         return redirect('/adminDokterRequest');
     }
 }

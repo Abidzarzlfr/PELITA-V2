@@ -204,3 +204,8 @@ body{
 .h-67px {
   height: 67px !important;
 }
+
+.bg-secondary-300 {
+  background-color: var(--secondary-300) !important;
+  /* updated_at : 24/05/24 00.08 */
+}

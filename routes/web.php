@@ -152,13 +152,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/dokterDeleteArtikelPendidikanKesehatan/{id}', [PortalArtikelDokterController::class, 'delete'])->name('dokterDeleteArtikelPendidikanKesehatan');
     Route::put('/dokterUpdateArtikelPendidikanKesehatan', [PortalArtikelDokterController::class, 'update'])->name('dokterUpdateArtikelPendidikanKesehatan');
 
-    // Admin Routes
+    // Admin Routes (Dashboard)
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
     Route::delete('/adminDeleteUser/{id}', [AdminController::class, 'delete'])->name('adminDeleteUser');
     Route::put('/adminUpdateUser', [AdminController::class, 'update'])->name('adminUpdateUser');
 
+    // Admin Routes (Dokter Request)
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
-    Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
+    Route::post('/adminDokterRequest', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');
+    Route::post('/adminDokterRejected', [AdminDokterRequestController::class, 'rejectedDokter'])->name('adminDokterRejected');
 
     Route::get('/adminProgramKebijakan', [AdminProgramKebijakanController::class, 'index']);
     Route::post('/adminUploadProgramKebijakan', [AdminProgramKebijakanController::class, 'store'])->name('adminUploadProgramKebijakan');
