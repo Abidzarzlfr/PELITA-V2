@@ -138,7 +138,13 @@
                     <td><img src="{{ $item->foto_penerbit }}" style="width: 125px; height: 50px" /></td>
                     <td><img src="{{ $item->foto_konten }}" style="width: 125px; height: 50px" /></td>
                     <td>{{ $item->isi_konten }}</td>
-                    <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}</td>
+                    <td>
+                        @if (!is_null($item->tanggal))
+                        {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}
+                        @else
+                        <span class="text-muted">Tanggal tidak tersedia</span>
+                        @endif
+                    </td>
                     <td>
                         <button type="button" class="btn btn-danger mt-1"><i class="fas fa-trash"></i></button>
                     </td>
