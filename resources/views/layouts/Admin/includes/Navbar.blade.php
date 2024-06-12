@@ -10,13 +10,5 @@
         <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#confirmationLogout">
             Logout
         </button>
-        <!-- <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-user me-2"></i>{{ Auth::user()->name }}
-        </button> -->
-        <!-- <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-        </ul> -->
     </div>
 </nav>
