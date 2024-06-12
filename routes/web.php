@@ -154,6 +154,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Admin Routes
     Route::get('/adminView', [AdminController::class, 'index'])->name('adminView');
+    Route::delete('/adminDeleteUser/{id}', [AdminController::class, 'delete'])->name('adminDeleteUser');
+    Route::put('/adminUpdateUser', [AdminController::class, 'update'])->name('adminUpdateUser');
 
     Route::get('/adminDokterRequest', [AdminDokterRequestController::class, 'index']);
     Route::post('/adminDokterRequest/{id}', [AdminDokterRequestController::class, 'confirmDokter'])->name('adminDokterRequest');

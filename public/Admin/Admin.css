@@ -178,3 +178,29 @@ body{
 .bg-navbar {
   background-color: var(--bg);
 }
+
+.bg-secondary-100 {
+  background-color: var(--secondary-100) !important;
+  /* updated_at : 24/05/24 00.08 */
+}
+
+/* Dashboard */
+.border-secondary-600{
+  border: 2px solid var(--secondary-600);
+}
+
+.text-secondary-600 {
+  color: var(--secondary-600);
+}
+
+.quote-text {
+  font-size: 18px;
+}
+
+.w-67px {
+  width: 67px !important;
+}
+
+.h-67px {
+  height: 67px !important;
+}

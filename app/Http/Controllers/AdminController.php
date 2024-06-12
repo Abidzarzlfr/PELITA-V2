@@ -19,4 +19,30 @@ class AdminController extends Controller
             return view('layouts.Admin.Admin', compact('users'));
         }
     }
+
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Artikel berhasil dihapus');
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $user = User::findOrFail($id);
+
+        // Update Name
+        if ($request->filled('name_update')) {
+            $user->name = $request->input('name_update');
+        }
+        // Update Email
+        if ($request->filled('email_update')) {
+            $user->email = $request->input('email_update');
+        }
+
+        $user->save();
+        return redirect('/adminView');
+    }
 }
