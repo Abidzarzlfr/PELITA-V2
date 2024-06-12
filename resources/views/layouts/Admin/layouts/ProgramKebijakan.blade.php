@@ -1,5 +1,7 @@
 @extends('layouts.Admin.includes.Main')
 
+@section('navbar-head', 'Tambah Program dan Kebijakan')
+
 @section('programKebijakan')
 <div class="row my-5">
     <!-- Input Program Kebijakan -->

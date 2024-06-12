@@ -1,5 +1,7 @@
 @extends('layouts.Admin.includes.Main')
 
+@section('navbar-head', 'Tambah Acara Kesehatan')
+
 @section('acaraKesehatanBalita')
 <div class="row my-5">
     <!-- Add Acara Kesehatan -->

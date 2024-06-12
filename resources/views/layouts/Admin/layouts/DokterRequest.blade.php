@@ -1,5 +1,7 @@
 @extends('layouts.Admin.includes.Main')
 
+@section('navbar-head', 'Daftar Dokter')
+
 @section('dokterRequest')
 <!-- Widget -->
 <div class="row g-3 my-2">

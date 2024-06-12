@@ -1,5 +1,7 @@
 @extends('layouts.Admin.includes.Main')
 
+@section('navbar-head', 'Tambah Artikel Pendidikan Kesehatan')
+
 @section('artikelPendidikanKesehatan')
 <div class="row my-5">
     <!-- Input Artikel Pendidikan Kesehatan -->
