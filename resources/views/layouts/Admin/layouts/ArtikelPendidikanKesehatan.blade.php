@@ -78,13 +78,10 @@
                 </div>
 
                 <!-- Isi Konten -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Isi Konten</span>
-                    <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
-                </div>
+                <textarea id="input" class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten" placeholder="Isi Konten"></textarea>
 
                 <!-- Tanggal -->
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 mt-3">
                     <span class="input-group-text" for="tanggal" id="inputGroup-sizing-default">Tanggal</span>
                     <input type="date" class="form-control" id="tanggal" name="tanggal" />
                 </div>
@@ -121,7 +118,7 @@
                     <td>{{ $item->nama_penerbit }}</td>
                     <td><img src="{{ $item->foto_penerbit }}" class="img-fluid" /></td>
                     <td><img src="{{ $item->foto_konten }}" class="img-fluid" /></td>
-                    <td>{{ Str::limit($item->isi_konten, 40, '...') }}</td>
+                    <td>{!! Str::limit($item->isi_konten, 40, '...') !!}</td>
                     <td>
                         @if (!is_null($item->tanggal))
                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}
@@ -213,13 +210,10 @@
                                     </div>
 
                                     <!-- Isi Konten -->
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Isi Konten</span>
-                                        <textarea class="form-control" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update" placeholder="{{ $item->isi_konten }}"></textarea>
-                                    </div>
+                                    <textarea id="editor" class="form-control" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update">{!! $item->isi_konten !!}</textarea>
 
                                     <!-- Tanggal -->
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3 mt-3">
                                         <span class="input-group-text" for="tanggal_update" id="inputGroup-sizing-default">Tanggal</span>
                                         <input type="date" class="form-control" id="tanggal_update" name="tanggal_update" />
                                     </div>
@@ -296,4 +290,21 @@
     });
 </script>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#input', '#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('textarea[id^="editor"]').forEach(editorElement => {
+            ClassicEditor
+                .create(editorElement)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+</script>
 @endsection
