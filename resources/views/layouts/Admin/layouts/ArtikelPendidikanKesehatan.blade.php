@@ -4,20 +4,15 @@
 
 @section('artikelPendidikanKesehatan')
 <div class="row my-5">
-    <!-- Input Artikel Pendidikan Kesehatan -->
-    <div class="card text-center">
-        <div class="card-header bg-primary-subtle fw-bold">Add Artikel Pendidikan Kesehatan</div>
-        <div class="card-body">
-            <form action="{{ route('adminUploadArtikelPendidikanKesehatan') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('post')
-                <a href="">
-                    <img src="" alt="foto_penerbit" class="foto_penerbit mt-3" style="width: 350px; height: 200px" />
-                </a>
-                <a href="">
-                    <img src="" alt="foto_konten" class="foto_konten mt-3" style="width: 350px; height: 200px" />
-                </a>
-
+    <!-- Input Artikel Pendidikan New -->
+    <form action="{{ route('adminUploadArtikelPendidikanKesehatan') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('post')
+        <div class="row">
+            <div class="col-6">
+                <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="foto_konten" class="foto_konten mt-3 img-fluid rounded-3" />
+            </div>
+            <div class="col-6">
                 <!-- Judul -->
                 <div class="input-group mb-3 mt-3">
                     <span for="judul" class="input-group-text" id="basic-addon1">Judul</span>
@@ -90,56 +85,43 @@
 
                 <!-- Tanggal -->
                 <div class="input-group mb-3">
-                    <span for="tanggal" class="input-group-text" id="basic-addon1">Tanggal</span>
-                    <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="YYYY-MM-DD" />
+                    <span class="input-group-text" for="tanggal" id="inputGroup-sizing-default">Tanggal</span>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" />
                 </div>
-
-                <!-- Sumber -->
-                <!-- <div class="input-group mb-3">
-                    <span for="sumber" class="input-group-text" id="basic-addon1">Sumber</span>
-                    <input type="text" class="form-control" id="sumber" name="sumber" placeholder="www.pelita.com" />
-                </div> -->
-
-                <button type="submit" class="btn btn-primary mt-2">Upload</button>
-            </form>
-
-            <!-- Button trigger modal -->
-            <!-- Modal -->
+            </div>
         </div>
-        <div class="card-footer text-body-secondary bg-primary-subtle">-</div>
-    </div>
-
+        <button type="submit" class="btn btn-secondary text-white w-100 mt-2 mb-5 border-none">Unggah Artikel</button>
+    </form>
     <!-- Tabel Artikel Pendidikan Kesehatan -->
-    <h3 class="fs-4 mb-3 text-primary mt-5">Tabel Artikel Pendidikan Kesehatan</h3>
     <div class="col table-responsive">
         <table class="table table-striped table-bordered bg-white rounded shadow-sm table-hover">
             <thead>
-                <tr class="table-primary">
-                    <th scope="col" width="50">No</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Kelompok Usia</th>
-                    <th scope="col">Nama Penerbit</th>
-                    <th scope="col">Foto Penerbit</th>
-                    <th scope="col">Foto Konten</th>
-                    <th scope="col">Isi Konten</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Action</th>
+                <tr class="table">
+                    <th class="bg-secondary-100" scope="col" width="50">No</th>
+                    <th class="bg-secondary-100" scope="col">Judul</th>
+                    <th class="bg-secondary-100" scope="col">Kategori</th>
+                    <th class="bg-secondary-100" scope="col">Status</th>
+                    <th class="bg-secondary-100" scope="col">Kelompok Usia</th>
+                    <th class="bg-secondary-100" scope="col">Nama Penerbit</th>
+                    <th class="bg-secondary-100" scope="col">Foto Penerbit</th>
+                    <th class="bg-secondary-100" scope="col">Foto Konten</th>
+                    <th class="bg-secondary-100" scope="col">Isi Konten</th>
+                    <th class="bg-secondary-100" scope="col">Tanggal</th>
+                    <th class="bg-secondary-100" scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($artikelPendidikanKesehatan as $key => $item)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $item->judul }}</td>
+                    <td>{{ Str::limit($item->judul, 40, '...') }}</td>
                     <td>{{ $item->kategori }}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->kelompok_usia }}</td>
                     <td>{{ $item->nama_penerbit }}</td>
-                    <td><img src="{{ $item->foto_penerbit }}" style="width: 125px; height: 50px" /></td>
-                    <td><img src="{{ $item->foto_konten }}" style="width: 125px; height: 50px" /></td>
-                    <td>{{ $item->isi_konten }}</td>
+                    <td><img src="{{ $item->foto_penerbit }}" class="img-fluid" /></td>
+                    <td><img src="{{ $item->foto_konten }}" class="img-fluid" /></td>
+                    <td>{{ Str::limit($item->isi_konten, 40, '...') }}</td>
                     <td>
                         @if (!is_null($item->tanggal))
                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}
@@ -148,9 +130,130 @@
                         @endif
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger mt-1"><i class="fas fa-trash"></i></button>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#modalUpdate{{ $item->id }}" class="text-decoration-none text-black">Ubah</a>
+                        <span class="text-muted fw-light">|</span>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                     </td>
                 </tr>
+                <!-- Modal Update -->
+                <div class="modal fade" id="modalUpdate{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalUpdateLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalUpdateLabel{{ $item->id }}">Ubah Data Artikel Pendidikan Kesehatan "{{ $item->judul }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method="POST" action="{{ route('adminUpdateArtikelPendidikanKesehatan') }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                <div class="modal-body">
+                                    <!-- Judul -->
+                                    <div class="input-group mb-3 mt-3">
+                                        <span for="judul_update" class="input-group-text" id="basic-addon1">Judul</span>
+                                        <input type="text" class="form-control" id="judul_update" name="judul_update" placeholder="{{ $item->judul }}" />
+                                    </div>
+
+                                    <!-- Kategori -->
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="kategori_update">Kategori</label>
+                                        <select class="form-select" id="kategori_update" name="kategori_update">
+                                            <option selected disabled>{{ $item->kategori }}</option>
+                                            <option value="pertumbuhan anak">Pertumbuhan Anak</option>
+                                            <option value="olahraga">Olahraga</option>
+                                            <option value="panduan orang tua">Panduan Orang Tua</option>
+                                            <option value="makanan dan nutrisi anak">Makanan dan Nutrisi Anak</option>
+                                            <option value="asi dan menyusui">ASI dan Menyusui</option>
+                                            <option value="umum">Umum</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="status_update">Status</label>
+                                        <select class="form-select" id="status_update" name="status_update">
+                                            <option selected disabled>{{ $item->status }}</option>
+                                            <option value="stunting">Stunting</option>
+                                            <option value="wasting">Wasting</option>
+                                            <option value="underweight">Underweight</option>
+                                            <option value="overweight">Overweight</option>
+                                            <option value="umum">Umum</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Kelompok Usia -->
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="kelompok_usia_update">Kelompok Usia</label>
+                                        <select class="form-select" id="kelompok_usia_update" name="kelompok_usia_update">
+                                            <option selected disabled>{{ $item->kelompok_usia }}</option>
+                                            <option value="semua usia">Semua Usia</option>
+                                            <option value="hamil">Hamil</option>
+                                            <option value="bayi">Bayi</option>
+                                            <option value="batita">Batita</option>
+                                            <option value="anak">Anak</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Nama Penerbit -->
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Nama Penerbit</span>
+                                        <input class="form-control" name="nama_penerbit_update" id="nama_penerbit_update" placeholder="{{ $item->nama_penerbit }}"></input>
+                                    </div>
+
+                                    <!-- Foto Penerbit -->
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="foto_penerbit_update">Foto Penerbit</label>
+                                        <input type="file" class="form-control" name="foto_penerbit_update" id="foto_penerbit_update" />
+                                    </div>
+
+                                    <!-- Foto Konten -->
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="foto_konten_update">Foto Konten</label>
+                                        <input type="file" class="form-control" name="foto_konten_update" id="foto_konten_update" />
+                                    </div>
+
+                                    <!-- Isi Konten -->
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Isi Konten</span>
+                                        <textarea class="form-control" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update" placeholder="{{ $item->isi_konten }}"></textarea>
+                                    </div>
+
+                                    <!-- Tanggal -->
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" for="tanggal_update" id="inputGroup-sizing-default">Tanggal</span>
+                                        <input type="date" class="form-control" id="tanggal_update" name="tanggal_update" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn-success">Ubah</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Delete -->
+                <div class="modal fade" id="modalDelete{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalDeleteLabel{{ $item->id }}">Konfirmasi Hapus</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Apakah anda yakin ingin menghapus konten ini "<b>{{ $item->judul }}</b>"?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
+                                <form method="POST" action="{{ route('adminDeleteArtikelPendidikanKesehatan', ['id' => $item->id]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Yes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
             </tbody>
         </table>

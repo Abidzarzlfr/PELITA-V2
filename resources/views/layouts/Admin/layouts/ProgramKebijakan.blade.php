@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-secondary text-white w-100 mt-2 mb-5 border-none">Unggah Artikel</button>
+        <button type="submit" class="btn btn-secondary text-white w-100 mt-2 mb-5 border-none">Unggah Program dan Kebijakan</button>
     </form>
     <!-- Program Kebijakan Table -->
     <div class="col table-responsive">

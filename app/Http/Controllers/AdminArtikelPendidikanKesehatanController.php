@@ -66,6 +66,77 @@ class AdminArtikelPendidikanKesehatanController extends Controller
             'tanggal' => $request->tanggal,
         ]);
 
-        return redirect()->back()->with('success', 'Berita berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Artikel berhasil ditambahkan!');
+    }
+
+    public function delete($id)
+    {
+        $artikel = ArtikelPendidikanKesehatan::findOrFail($id);
+        $artikel->delete();
+
+        return redirect()->back()->with('success', 'Artikel Pendidikan berhasil dihapus');
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $artikelPendidikan = ArtikelPendidikanKesehatan::findOrFail($id);
+
+        // Update judul jika disediakan
+        if ($request->filled('judul_update')) {
+            $artikelPendidikan->judul = $request->input('judul_update');
+        }
+
+        // Update kategori jika disediakan
+        if ($request->filled('kategori_update')) {
+            $artikelPendidikan->kategori = $request->input('kategori_update');
+        }
+
+        // Update status jika disediakan
+        if ($request->filled('status_update')) {
+            $artikelPendidikan->status = $request->input('status_update');
+        }
+
+        // Update kelompok_usia jika disediakan
+        if ($request->filled('kelompok_usia_update')) {
+            $artikelPendidikan->kelompok_usia = $request->input('kelompok_usia_update');
+        }
+
+        // Update nama penerbit jika disediakan
+        if ($request->filled('nama_penerbit_update')) {
+            $artikelPendidikan->nama_penerbit = $request->input('nama_penerbit_update');
+        }
+
+        // Mengelola pembaruan foto penerbit
+        if ($request->hasFile('foto_penerbit_update')) {
+            $destinationPath = 'images/artikelPendidikanKesehatan/fotoPenerbit/';
+            $image = $request->file('foto_penerbit_update');
+            $fotoPenerbit = 'images/artikelPendidikanKesehatan/fotoPenerbit/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $fotoPenerbit);
+            $artikelPendidikan->foto_penerbit = $fotoPenerbit;
+        }
+
+        // Mengelola pembaruan foto konten
+        if ($request->hasFile('foto_konten_update')) {
+            $destinationPath = 'images/artikelPendidikanKesehatan/fotoKonten/';
+            $image = $request->file('foto_konten_update');
+            $fotoKonten = 'images/artikelPendidikanKesehatan/fotoKonten/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $fotoKonten);
+            $artikelPendidikan->foto_konten = $fotoKonten;
+        }
+
+
+        // Update isi konten jika disediakan
+        if ($request->filled('isi_konten_update')) {
+            $artikelPendidikan->isi_konten = $request->input('isi_konten_update');
+        }
+
+        // Update tanggal jika disediakan
+        if ($request->filled('tanggal_update')) {
+            $artikelPendidikan->tanggal = $request->input('tanggal_update');
+        }
+
+        $artikelPendidikan->save();
+        return redirect('/adminArtikelPendidikanKesehatan');
     }
 }
