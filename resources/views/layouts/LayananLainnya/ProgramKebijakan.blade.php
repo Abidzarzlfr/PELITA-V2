@@ -175,7 +175,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->judul }}</h5>
                         <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
-                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
+                        <p>{!! Str::limit($item->isi_konten, 125, '...') !!}</p>
                     </div>
                 </a>
             </div>
@@ -187,7 +187,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->judul }}</h5>
                         <h6 class="text-muted my-3">{{ strtoupper($item->kategori) }}</h6>
-                        <p>{{ Str::limit($item->isi_konten, 125, '...') }}</p>
+                        <p>{!! Str::limit($item->isi_konten, 125, '...') !!}</p>
                     </div>
                 </a>
             </div>

@@ -274,7 +274,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $program->judul }}</h5>
               <h6 class="text-muted my-3">{{ strtoupper($program->kategori) }}</h6>
-              <p>{{ Str::limit($program->isi_konten, 125, '...') }}</p>
+              <p>{!! Str::limit($program->isi_konten, 125, '...') !!}</p>
             </div>
           </a>
       </div>
@@ -335,7 +335,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ $programKebijakan->first()->judul }}</h5>
                 <h6 class="text-muted my-3">{{ strtoupper($programKebijakan->first()->kategori) }}</h6>
-                <p>{{ Str::limit($programKebijakan->first()->isi_konten, 125, '...') }}</p>
+                <p>{!! Str::limit($programKebijakan->first()->isi_konten, 125, '...') !!}</p>
               </div>
             </a>
         </div>
@@ -352,7 +352,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ $acaraKesehatanBalita->first()->judul }}</h5>
                 <h6 class="text-muted my-3">{{ $acaraKesehatanBalita->first()->pemateri }}</h6>
-                <p class="mb-5">Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $acaraKesehatanBalita->first()->tanggal)->format('d/m/Y') }}<br>
+                <p class="mb-3">Tanggal: {{ \Carbon\Carbon::createFromFormat('Y-m-d', $acaraKesehatanBalita->first()->tanggal)->format('d/m/Y') }}<br>
                   Jam: {{ $acaraKesehatanBalita->first()->jam_mulai }} - {{ $acaraKesehatanBalita->first()->jam_selesai }} WIB</p>
                 <br>
               </div>

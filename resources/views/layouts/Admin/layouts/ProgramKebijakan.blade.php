@@ -81,13 +81,10 @@
                 </div>
 
                 <!-- Isi Konten -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Isi Konten</span>
-                    <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
-                </div>
+                <textarea class="form-control" id="input" name="isi_konten" placeholder="Isi Konten"></textarea>
 
                 <!-- Sumber -->
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 mt-3">
                     <span for="sumber" class="input-group-text" id="basic-addon1">Sumber</span>
                     <input type="text" class="form-control" id="sumber" name="sumber" placeholder="www.pelita.com" />
                 </div>
@@ -123,7 +120,7 @@
                     <td>{{ $item->nama_penerbit }}</td>
                     <td><img src="{{ $item->foto_penerbit }}" class="img-fluid" /></td>
                     <td><img src="{{ $item->foto_konten }}" class="img-fluid" /></td>
-                    <td>{{ Str::limit($item->isi_konten, 40, '...') }}</td>
+                    <td>{!! Str::limit($item->isi_konten, 40, '...') !!}</td>
                     <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}</td>
                     <td>{{ Str::limit($item->sumber, 10, '...') }}</td>
                     <td>
@@ -212,15 +209,12 @@
                                     </div>
 
                                     <!-- Isi Konten -->
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Isi Konten</span>
-                                        <textarea class="form-control" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update" placeholder="{{ $item->isi_konten }}"></textarea>
-                                    </div>
+                                    <textarea class="form-control" id="editor" name="isi_konten_update">{!! $item->isi_konten !!}</textarea>
 
                                     <!-- Sumber -->
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3 mt-3">
                                         <span for="sumber_update" class="input-group-text" id="basic-addon1">Sumber</span>
-                                        <input type="text" class="form-control" id="sumber_update" name="sumber_update" placeholder="www.pelita.com" />
+                                        <input type="text" class="form-control" id="sumber_update" name="sumber_update" placeholder="{{ $item->sumber }}" />
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -294,5 +288,24 @@
         reader.readAsDataURL(file); // Membaca file sebagai data URL
     });
 </script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#input', '#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('textarea[id^="editor"]').forEach(editorElement => {
+            ClassicEditor
+                .create(editorElement)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+</script>
+
 
 @endsection
