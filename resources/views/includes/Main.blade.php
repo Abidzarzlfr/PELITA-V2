@@ -28,27 +28,27 @@
 
 <body>
     <!-- Quotes -->
-     @guest
-     <header class="bg-pink py-3">
-         <div class="container">
-             <p class="m-0 text-center fw-light">
-                 Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
-                 kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
-             </p>
-         </div>
-     </header>
-     @else
-     @if (Auth::user()->role == 'user')
-     <header class="bg-pink py-3">
-         <div class="container">
-             <p class="m-0 text-center fw-light">
-                 Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
-                 kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
-             </p>
-         </div>
-     </header>
-     @endif
-     @endguest
+    @guest
+    <header class="bg-pink py-3">
+        <div class="container">
+            <p class="m-0 text-center fw-light">
+                Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
+                kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
+            </p>
+        </div>
+    </header>
+    @else
+    @if (Auth::user()->role == 'user')
+    <header class="bg-pink py-3">
+        <div class="container">
+            <p class="m-0 text-center fw-light">
+                Tumbuh kembang sehat balita Indonesia adalah prioritas utama kami,
+                kami mengikuti praktik terbaik untuk kebersihan dan kesejahteraan
+            </p>
+        </div>
+    </header>
+    @endif
+    @endguest
 
     <!-- Navbar -->
     @include('includes.Navbar')
@@ -57,15 +57,15 @@
     <div class="modal fade" id="confirmationLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-primary-subtle">
-                    <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Confirmation Message</h1>
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Pesan Konfirmasi</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure want to logout?
+                    Apakah anda yakin ingin keluar dari website?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
                     <a type="button" class="btn btn-danger" href="/logout">Yes</a>
                 </div>
             </div>
@@ -127,7 +127,7 @@
 
     <!-- Dokter Views (Konsultasi) -->
     @yield('dokter')
-    
+
     <!-- Portal Artikel Dokter -->
     @yield('portalArtikelDokter')
 
