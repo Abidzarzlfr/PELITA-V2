@@ -64,10 +64,7 @@
                         <input type="file" class="form-control" name="foto_konten" id="foto_konten" />
                     </div>
                     <!-- Isi Konten -->
-                    <div class="input-group">
-                        <span class="input-group-text">Isi Konten</span>
-                        <textarea class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten"></textarea>
-                    </div>
+                    <textarea id="input" class="form-control" aria-label="With textarea" name="isi_konten" id="isi_konten" placeholder="Isi Konten"></textarea>
                 </div>
             </div>
             <input type="submit" class="btn btn-secondary text-white w-100" value="Unggah Artikel" />
@@ -102,7 +99,7 @@
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->kelompok_usia }}</td>
                         <td><img src="{{ asset($item->foto_konten) }}" class="" alt="" width="168px"></td>
-                        <td>{{ $item->isi_konten }}</td>
+                        <td>{!! Str::limit($item->isi_konten, 40, '...') !!}</td>
                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                         <td>
                             <!-- Ubah -->
@@ -173,10 +170,7 @@
                                             <input type="file" class="form-control" name="foto_konten_update" id="foto_konten_update" />
                                         </div>
                                         <!-- Isi Konten -->
-                                        <div class="input-group">
-                                            <span class="input-group-text">Isi Konten</span>
-                                            <textarea class="form-control" placeholder="{{ $item->isi_konten }}" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update"></textarea>
-                                        </div>
+                                        <textarea id="editor" class="form-control" aria-label="With textarea" name="isi_konten_update" id="isi_konten_update">{!! $item->isi_konten !!}</textarea>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
@@ -276,6 +270,24 @@
             var temporaryUrl = URL.createObjectURL(file);
             // Perbarui atribut src dari elemen gambar
             $('.foto_konten').attr('src', temporaryUrl);
+        });
+    });
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#input', '#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('textarea[id^="editor"]').forEach(editorElement => {
+            ClassicEditor
+                .create(editorElement)
+                .catch(error => {
+                    console.error(error);
+                });
         });
     });
 </script>
