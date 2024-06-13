@@ -32,31 +32,8 @@
         <div class="row mb-5">
             <div class="col-8">
                 <h4>Detail Acara: {{ $acaraKesehatan->judul }}</h4>
-                <p>{{ $acaraKesehatan->isi_konten }}</p>
+                <p>{!! $acaraKesehatan->isi_konten !!}</p>
             </div>
-            <!-- <div class="col-8">
-                <h4>Detail Acara: {{ $acaraKesehatan->judul }}</h4>
-                <p>Acara ini akan mengupas tuntas mengenai berbagai aspek perkembangan motorik pada balita di era
-                    modern. Peserta akan mendapatkan wawasan mendalam tentang bagaimana stimulasi yang tepat dapat
-                    mendukung tumbuh kembang motorik anak secara optimal. Webinar ini sangat cocok bagi orang tua,
-                    pendidik, dan profesional kesehatan anak.</p>
-                <br>
-                <p class="quote-text">Materi yang akan dibahas:</p>
-                <ul>
-                    <li>Tahapan Perkembangan Motorik pada Balita</li>
-                    <li>Faktor yang Mempengaruhi Perkembangan Motorik</li>
-                    <li>Strategi Stimulasi Motorik yang Efektif</li>
-                    <li>Deteksi Dini dan Penanganan Masalah Motorik</li>
-                </ul>
-                <p class="quote-text">Pembicara:</p>
-                <p>Acara kesehatan ini akan menghadirkan ahli perkembangan anak yang berpengalaman, Dr. Rina
-                    Mulyani, Sp.A., yang memiliki latar belakang Dokter Spesialis Anak, dan telah banyak memberikan
-                    edukasi mengenai perkembangan motorik pada anak-anak.</p>
-                <p class="quote-text">Cara Pendaftaran:</p>
-                <p>Untuk mengikuti acara ini, silakan klik tombol “Daftar Acara Kesehatan”. Tempat terbatas, segera
-                    daftarkan diri Anda untuk mendapatkan informasi berharga mengenai perkembangan motorik balita!
-                </p>
-            </div> -->
             <div class="col-4">
                 <h6 class="badge bg-secondary-200 text-black fs-6 fw-medium mb-4">Detail Acara</h6>
                 <div class="d-flex flex-column">

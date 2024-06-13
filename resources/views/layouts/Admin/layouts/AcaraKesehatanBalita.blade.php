@@ -50,13 +50,10 @@
                 </div>
 
                 <!-- Isi Konten -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Isi Konten</span>
-                    <textarea class="form-control" aria-label="With textarea" id="isi_konten" name="isi_konten"></textarea>
-                </div>
+                <textarea id="input" class="form-control" aria-label="With textarea" id="isi_konten" name="isi_konten" placeholder="Isi Konten"></textarea>
 
                 <!-- Status -->
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 mt-3">
                     <label class="input-group-text" for="status">Status</label>
                     <select class="form-select" id="status" name="status">
                         <option value="" selected>Pilih Status</option>
@@ -103,7 +100,7 @@
                     <td>{{ $item->jam_mulai }}</td>
                     <td>{{ $item->jam_selesai }}</td>
                     <td>{{ Str::limit($item->link_grup, 10, '...') }}</td>
-                    <td>{{ Str::limit($item->isi_konten, 40, '...') }}</td>
+                    <td>{!! Str::limit($item->isi_konten, 40, '...') !!}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->tanggal)->format('d/m/Y') }}</td>
                     <td>
@@ -162,13 +159,10 @@
                                     </div>
 
                                     <!-- Isi Konten -->
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Isi Konten</span>
-                                        <textarea class="form-control" aria-label="With textarea" id="isi_konten_update" name="isi_konten_update" placeholder="{{ $item->isi_konten }}"></textarea>
-                                    </div>
+                                    <textarea class="form-control" aria-label="With textarea" id="editor" name="isi_konten_update">{!! $item->isi_konten !!}</textarea>
 
                                     <!-- Status -->
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3 mt-3">
                                         <label class="input-group-text" for="status_update">Status</label>
                                         <select class="form-select" id="status_update" name="status_update">
                                             <option selected disabled>{{ $item->status }}</option>
@@ -181,7 +175,7 @@
                                     <!-- Tanggal -->
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" for="tanggal_update" id="inputGroup-sizing-default">Tanggal</span>
-                                        <input type="date" class="form-control" id="tanggal_update" name="tanggal_update" placeholder="{{ $item->tanggal }}"/>
+                                        <input type="date" class="form-control" id="tanggal_update" name="tanggal_update" placeholder="{{ $item->tanggal }}" />
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -241,6 +235,24 @@
         }
 
         reader.readAsDataURL(file); // Membaca file sebagai data URL
+    });
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#input', '#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('textarea[id^="editor"]').forEach(editorElement => {
+            ClassicEditor
+                .create(editorElement)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
     });
 </script>
 @endsection
