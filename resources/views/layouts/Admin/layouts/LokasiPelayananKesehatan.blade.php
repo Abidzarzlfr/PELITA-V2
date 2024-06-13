@@ -133,11 +133,9 @@
                                         <input type="file" class="form-control" name="foto_lokasi_update" id="foto_lokasi_update" />
                                     </div>
 
-                                    <!-- Tentang Lokasi -->
-                                    <textarea id="editor" class="form-control" aria-label="With textarea" name="tentang_lokasi_update" id="tentang_lokasi_update">{!! $item->tentang_lokasi !!}</textarea>
 
                                     <!-- No Telepon Lokasi -->
-                                    <div class="input-group mb-3 mt-3">
+                                    <div class="input-group mb-3">
                                         <span for="no_tlp_lokasi_update" class="input-group-text" id="basic-addon1">No Telepon Lokasi</span>
                                         <input type="text" class="form-control" id="no_tlp_lokasi_update" name="no_tlp_lokasi_update" placeholder="{{ $item->no_tlp_lokasi }}" />
                                     </div>
@@ -148,8 +146,11 @@
                                         <input type="text" class="form-control" id="alamat_lokasi_update" name="alamat_lokasi_update" placeholder="{{ $item->alamat_lokasi }}" />
                                     </div>
 
+                                    <!-- Tentang Lokasi -->
+                                    <textarea id="editor" class="form-control" aria-label="With textarea" name="tentang_lokasi_update" id="tentang_lokasi_update">{!! $item->tentang_lokasi !!}</textarea>
+
                                     <!-- link_maps -->
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-3 mt-3">
                                         <span for="link_maps_update" class="input-group-text" id="basic-addon1">Link Maps</span>
                                         <input type="text" class="form-control" id="link_maps_update" name="link_maps_update" placeholder="{{ $item->link_maps }}" />
                                     </div>

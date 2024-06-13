@@ -158,9 +158,6 @@
                                         <input type="text" class="form-control" id="link_grup_update" name="link_grup_update" placeholder="{{ $item->link_grup }}" />
                                     </div>
 
-                                    <!-- Isi Konten -->
-                                    <textarea class="form-control" aria-label="With textarea" id="editor" name="isi_konten_update">{!! $item->isi_konten !!}</textarea>
-
                                     <!-- Status -->
                                     <div class="input-group mb-3 mt-3">
                                         <label class="input-group-text" for="status_update">Status</label>
@@ -171,6 +168,9 @@
                                             <option value="ditutup">Ditutup</option>
                                         </select>
                                     </div>
+
+                                    <!-- Isi Konten -->
+                                    <textarea class="form-control" aria-label="With textarea" id="editor" name="isi_konten_update">{!! $item->isi_konten !!}</textarea>
 
                                     <!-- Tanggal -->
                                     <div class="input-group mb-3">
