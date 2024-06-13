@@ -15,8 +15,11 @@
         <a href="/adminAcaraKesehatanBalita" class="sidebar-link w-100 ms-3 mb-3 {{ Request::is('adminAcaraKesehatanBalita') ? 'active' : '' }}">
             <i class="fa-solid fa-house-laptop fs-4 me-2"></i>Acara Kesehatan
         </a>
-        <a href="/adminArtikelPendidikanKesehatan" class="sidebar-link w-100 ms-3 {{ Request::is('adminArtikelPendidikanKesehatan') ? 'active' : '' }}">
+        <a href="/adminArtikelPendidikanKesehatan" class="sidebar-link w-100 ms-3 mb-3 {{ Request::is('adminArtikelPendidikanKesehatan') ? 'active' : '' }}">
             <i class="fa-solid fa-book-medical fs-4 me-3"></i>Artikel Pendidikan Kesehatan
+        </a>
+        <a href="/adminLokasiPelayananKesehatan" class="sidebar-link w-100 ms-3 {{ Request::is('adminLokasiPelayananKesehatan') ? 'active' : '' }}">
+            <i class="fa-solid fa-hospital fs-5 me-3"></i>Lokasi Pelayanan Kesehatan
         </a>
     </div>
 </div>

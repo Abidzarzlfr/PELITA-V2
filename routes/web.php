@@ -180,5 +180,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/adminDeleteArtikelPendidikanKesehatan/{id}', [AdminArtikelPendidikanKesehatanController::class, 'delete'])->name('adminDeleteArtikelPendidikanKesehatan');
     Route::put('/adminUpdateArtikelPendidikanKesehatan', [AdminArtikelPendidikanKesehatanController::class, 'update'])->name('adminUpdateArtikelPendidikanKesehatan');
 
+    // Admin Routes (Lokasi Pelayanan Kesehatan) --------------------------------
     Route::get('/adminLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'index']);
+    Route::post('/adminUploadLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'store'])->name('adminUploadLokasiPelayananKesehatan');
+    Route::delete('/adminDeleteLokasiPelayananKesehatan/{id}', [AdminLokasiPelayananKesehatanController::class, 'delete'])->name('adminDeleteLokasiPelayananKesehatan');
+    Route::put('/adminUpdateLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'update'])->name('adminUpdateLokasiPelayananKesehatan');
 });
