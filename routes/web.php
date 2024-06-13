@@ -168,8 +168,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/adminDeleteProgramKebijakan/{id}', [AdminProgramKebijakanController::class, 'delete'])->name('adminDeleteProgramKebijakan');
     Route::put('/adminUpdateProgramKebijakan', [AdminProgramKebijakanController::class, 'update'])->name('adminUpdateProgramKebijakan');
 
+    // Admin Routes (Acara Kesehatan Balita)
     Route::get('/adminAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'index']);
     Route::post('/adminUploadAcaraKesehatanBalita', [AdminAcaraKesehatanBalitaController::class, 'store'])->name('adminUploadAcaraKesehatan');
+    Route::delete('/adminDeleteAcaraKesehatan/{id}', [AdminAcaraKesehatanBalitaController::class, 'delete'])->name('adminDeleteAcaraKesehatan');
+    Route::put('/adminUpdateAcaraKesehatan', [AdminAcaraKesehatanBalitaController::class, 'update'])->name('adminUpdateAcaraKesehatan');
 
     Route::get('/adminArtikelPendidikanKesehatan', [AdminArtikelPendidikanKesehatanController::class, 'index']);
     Route::post('/adminUploadArtikelPendidikanKesehatan', [AdminArtikelPendidikanKesehatanController::class, 'store'])->name('adminUploadArtikelPendidikanKesehatan');
