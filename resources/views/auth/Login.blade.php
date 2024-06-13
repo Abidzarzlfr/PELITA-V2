@@ -58,7 +58,7 @@
           </div>
           <!-- Forgot Password -->
           <div class="forgot-password d-flex justify-content-end">
-            <a href=""> Lupa kata sandi? </a>
+            <a href="/forgotPassword"> Lupa kata sandi? </a>
           </div>
           <!-- Button Login -->
           <div class="button-masuk d-flex justify-content-center mt-2">

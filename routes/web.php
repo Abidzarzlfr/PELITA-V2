@@ -19,6 +19,7 @@ use App\Http\Controllers\DetailMenuSehatBalitaController;
 use App\Http\Controllers\DetailProgramKebijakanController;
 use App\Http\Controllers\DetailRekomendasiDokter;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\GrafikGiziIndonesiaController;
 use App\Http\Controllers\InformasiDokterController;
 use App\Http\Controllers\InformasiTerkiniController;
@@ -55,6 +56,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/register', [RegisterController::class, 'index']);
     Route::post('/register', [RegisterController::class, 'register']);
+    Route::get('/forgotPassword', [ForgotPasswordController::class, 'index'])->name('forgotPassword');
+    Route::post('/useForgotPassword', [ForgotPasswordController::class, 'forgotPassword'])->name('useForgotPassword');
 
     // ROUTE TERBARU BERDASARKAN DESAIN TERBARU
     Route::get('/informasiTerkini', [InformasiTerkiniController::class, 'index', 'showArtikels']);
