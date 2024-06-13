@@ -18,8 +18,11 @@
         <a href="/adminArtikelPendidikanKesehatan" class="sidebar-link w-100 ms-3 mb-3 {{ Request::is('adminArtikelPendidikanKesehatan') ? 'active' : '' }}">
             <i class="fa-solid fa-book-medical fs-4 me-3"></i>Artikel Pendidikan Kesehatan
         </a>
-        <a href="/adminLokasiPelayananKesehatan" class="sidebar-link w-100 ms-3 {{ Request::is('adminLokasiPelayananKesehatan') ? 'active' : '' }}">
+        <a href="/adminLokasiPelayananKesehatan" class="sidebar-link w-100 ms-3 mb-3 {{ Request::is('adminLokasiPelayananKesehatan') ? 'active' : '' }}">
             <i class="fa-solid fa-hospital fs-5 me-3"></i>Lokasi Pelayanan Kesehatan
+        </a>
+        <a href="/adminGrafikGiziIndonesia" class="sidebar-link w-100 ms-3 {{ Request::is('adminGrafikGiziIndonesia') ? 'active' : '' }}">
+            <i class="fa-solid fa-chart-column fs-4 me-3"></i>Grafik Gizi Indonesia
         </a>
     </div>
 </div>

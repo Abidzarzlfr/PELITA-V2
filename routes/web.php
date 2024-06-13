@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminAcaraKesehatanBalitaController;
 use App\Http\Controllers\AdminArtikelPendidikanKesehatanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDokterRequestController;
+use App\Http\Controllers\AdminGrafikGiziIndonesia;
 use App\Http\Controllers\AdminLokasiPelayananKesehatanController;
 use App\Http\Controllers\AdminProgramKebijakanController;
 use App\Http\Controllers\ArtikelPendidikanController;
@@ -31,8 +32,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramKebijakanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekomendasiDokterController;
-use App\Models\AcaraKesehatanBalita;
-use App\Models\LokasiPelayananKesehatan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -185,4 +184,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/adminUploadLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'store'])->name('adminUploadLokasiPelayananKesehatan');
     Route::delete('/adminDeleteLokasiPelayananKesehatan/{id}', [AdminLokasiPelayananKesehatanController::class, 'delete'])->name('adminDeleteLokasiPelayananKesehatan');
     Route::put('/adminUpdateLokasiPelayananKesehatan', [AdminLokasiPelayananKesehatanController::class, 'update'])->name('adminUpdateLokasiPelayananKesehatan');
+
+    // Admin Routes (Grafik Gizi Indonesia) --------------------------------
+    Route::get('/adminGrafikGiziIndonesia', [AdminGrafikGiziIndonesia::class, 'index']);
+    Route::put('/adminUpdateGrafikGiziIndonesia', [AdminGrafikGiziIndonesia::class, 'update'])->name('adminUpdateGrafikGiziIndonesia');
 });
