@@ -12,7 +12,7 @@
                 <img src="{{ $lokasiPelayananKesehatan->foto_lokasi }}" class="rounded-4 img-fluid w-100 mb-5" alt="">
                 <h2>{{ $lokasiPelayananKesehatan->nama_lokasi }}</h2>
                 <p class="fw-bold mt-4"><i class="fa-solid fa-circle-info me-2"></i>Tentang</p>
-                <p class="mt-4 text-justify">{{ $lokasiPelayananKesehatan->tentang_lokasi }}</p>
+                <p class="mt-4 text-justify">{!! $lokasiPelayananKesehatan->tentang_lokasi !!}</p>
                 <a href="" class="btn btn-outline-primary w-100">Telpon RS {{ $lokasiPelayananKesehatan->no_tlp_lokasi }}</a>
 
                 <p class="fw-bold mt-4"><i class="fa-solid fa-city me-2"></i>Lokasi</p>

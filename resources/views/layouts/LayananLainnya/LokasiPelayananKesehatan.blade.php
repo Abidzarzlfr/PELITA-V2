@@ -64,7 +64,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_lokasi }}</h5>
                         <h6 class="text-muted my-3">{{ $item->kota }}</h6>
-                        <p class="text-justify">{{ Str::limit($item->tentang_lokasi, 125, '...') }}</p>
+                        <p class="text-justify">{!! Str::limit($item->tentang_lokasi, 125, '...') !!}</p>
                     </div>
                 </a>
             </div>
@@ -78,7 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_lokasi }}</h5>
                         <h6 class="text-muted my-3">{{ $item->kota }}</h6>
-                        <p class="text-justify">{{ Str::limit($item->tentang_lokasi, 125, '...') }}</p>
+                        <p class="text-justify">{!! Str::limit($item->tentang_lokasi, 125, '...') !!}</p>
                     </div>
                 </a>
             </div>

@@ -11,24 +11,24 @@
         <div class="row">
             <!-- Lokasi Preview -->
             <div class="col-6">
-                <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="foto_lokasi" class="foto_lokasi mt-3 img-fluid rounded-3" />
+                <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="foto_lokasi" class="foto_lokasi img-fluid rounded-3" />
             </div>
             <!-- Input Field Lokasi -->
             <div class="col-6">
                 <!-- Nama Lokasi -->
-                <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3">
                     <span for="nama_lokasi" class="input-group-text" id="basic-addon1">Nama Lokasi</span>
                     <input type="text" class="form-control" id="nama_lokasi" name="nama_lokasi" placeholder="" />
                 </div>
 
                 <!-- Provinsi -->
-                <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3">
                     <span for="provinsi" class="input-group-text" id="basic-addon1">Provinsi</span>
                     <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="" />
                 </div>
 
                 <!-- Kota -->
-                <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3">
                     <span for="kota" class="input-group-text" id="basic-addon1">Kota</span>
                     <input type="text" class="form-control" id="kota" name="kota" placeholder="" />
                 </div>
@@ -40,10 +40,7 @@
                 </div>
 
                 <!-- Tentang Lokasi -->
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Tentang Lokasi</span>
-                    <textarea class="form-control" aria-label="With textarea" name="tentang_lokasi" id="tentang_lokasi"></textarea>
-                </div>
+                <textarea id="input" class="form-control" aria-label="With textarea" name="tentang_lokasi" id="tentang_lokasi" placeholder="Tentang Lokasi"></textarea>
 
                 <!-- No Telepon Lokasi -->
                 <div class="input-group mb-3 mt-3">
@@ -90,7 +87,7 @@
                     <td>{{ $item->provinsi }}</td>
                     <td>{{ $item->kota }}</td>
                     <td><img src="{{ $item->foto_lokasi }}" class="img-fluid" /></td>
-                    <td>{{ Str::limit($item->tentang_lokasi, 40, '...') }}</td>
+                    <td>{!! Str::limit($item->tentang_lokasi, 40, '...') !!}</td>
                     <td>{{ Str::limit($item->alamat_lokasi, 40, '...') }}</td>
                     <td>{{ Str::limit($item->link_maps, 10, '...') }}</td>
                     <td>
@@ -137,10 +134,7 @@
                                     </div>
 
                                     <!-- Tentang Lokasi -->
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">Tentang Lokasi</span>
-                                        <textarea class="form-control" aria-label="With textarea" name="tentang_lokasi_update" id="tentang_lokasi_update" placeholder="{{ $item->tentang_lokasi }}"></textarea>
-                                    </div>
+                                    <textarea id="editor" class="form-control" aria-label="With textarea" name="tentang_lokasi_update" id="tentang_lokasi_update">{!! $item->tentang_lokasi !!}</textarea>
 
                                     <!-- No Telepon Lokasi -->
                                     <div class="input-group mb-3 mt-3">
@@ -149,7 +143,7 @@
                                     </div>
 
                                     <!-- Alamat Lokasi -->
-                                    <div class="input-group mb-3 mt-3">
+                                    <div class="input-group mb-3">
                                         <span for="alamat_lokasi_update" class="input-group-text" id="basic-addon1">Alamat Lokasi</span>
                                         <input type="text" class="form-control" id="alamat_lokasi_update" name="alamat_lokasi_update" placeholder="{{ $item->alamat_lokasi }}" />
                                     </div>
@@ -217,6 +211,24 @@
         }
 
         reader.readAsDataURL(file); // Membaca file sebagai data URL
+    });
+</script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#input', '#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('textarea[id^="editor"]').forEach(editorElement => {
+            ClassicEditor
+                .create(editorElement)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
     });
 </script>
 @endsection
