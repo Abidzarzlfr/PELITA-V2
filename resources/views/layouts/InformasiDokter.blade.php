@@ -208,7 +208,7 @@
 @endif
 
 <!-- Informasi Lebih Lanjut -->
-<section class="info text-center pt-5">
+<section class="info-bawah text-center pt-5">
     <div class="container">
         <p>KESEHATAN BALITA UNTUK INDONESIA EMAS 2045</p>
         <h1 class="my-3">Informasi Lebih Lanjut</h1>

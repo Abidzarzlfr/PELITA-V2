@@ -132,15 +132,12 @@
     <!-- Portal Artikel Dokter -->
     @yield('portalArtikelDokter')
 
-    <div class="container">
+    <!-- Grafik Gizi Indonesia -->
+    @yield('grafikGiziIndonesia')
 
-        <!-- Grafik Gizi Indonesia -->
-        @yield('grafikGiziIndonesia')
-
-        <!-- Profile -->
-        @yield('profile')
-
-    </div>
+    <!-- Profile -->
+    @yield('profile')
+    
 </body>
 <script>
     const passwordField = document.getElementById("password");
