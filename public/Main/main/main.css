@@ -421,6 +421,13 @@ h2{
     background-repeat: no-repeat;
 }
 
+.info-bawah {
+    background-image: url('/Main/assets/main/bg-info-bawah.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .informasi-terkini {
     background-image: url('/Main/assets/main/bg-informasi-terkini.png');
     background-position: center;
