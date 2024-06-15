@@ -28,7 +28,6 @@
                         <h3 class="mb-2">{{ $detailRekomendasiDokter->name }}</h3>
                         <p class="quote-text mb-2">{{ $detailRekomendasiDokter->dokter_kualifikasi }}</p>
                         <p>{{ $detailRekomendasiDokter->lokasi->nama_lokasi }}</p>
-                        <!-- <a href="https://wa.me/{{ $detailRekomendasiDokter->dokter_hp }}" class="btn btn-secondary text-white w-100 text-center mt-5" target="_blank"><i class="fs-5 fa-brands fa-whatsapp me-2"></i>Jadwalkan Konsultasi</a> -->
                         @if($konsultasiStatus && $konsultasiStatus->konsultasi_request_status == 'requested')
                         <button type="button" class="btn btn-secondary w-full" disabled>Requested</button>
                         @elseif($konsultasiStatus && $konsultasiStatus->konsultasi_request_status == 'approved')
