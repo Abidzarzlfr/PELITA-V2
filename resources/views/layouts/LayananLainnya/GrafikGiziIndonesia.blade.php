@@ -2,19 +2,20 @@
 
 @section('grafikGiziIndonesia')
 <!-- Grafik Gizi -->
-<section class="grafik-gizi py-5">
+ @guest
+ <section class="grafik-gizi py-5">
   <div class="container">
     <div class="row mb-5">
       <div class="col-6">
         <h2>Underweight Indonesia</h2>
         <div id="underweightChart"></div>
-        <!-- <a href="" class="btn btn-danger w-100">Baca Artikel Underweight</a> -->
+        <a href="/artikelPendidikanKesehatan" class="btn btn-danger w-100">Baca Artikel Underweight</a>
         <a href="https://drive.google.com/file/d/19uYPb0LXP00qse0xVLtZd63eK7cuZqzF/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
       </div>
       <div class="col-6">
         <h2>Stunting Indonesia</h2>
         <div id="stuntingChart"></div>
-        <!-- <a href="" class="btn btn-danger w-100">Baca Artikel Stunting</a> -->
+        <a href="/artikelPendidikanKesehatan" class="btn btn-danger w-100">Baca Artikel Stunting</a>
         <a href="https://drive.google.com/file/d/1aa4kbN8H718SZHfodMvmNHy5Y61uytW_/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
       </div>
     </div>
@@ -22,18 +23,54 @@
       <div class="col-6">
         <h2>Wasting Indonesia</h2>
         <div id="wastingChart"></div>
-        <!-- <a href="" class="btn btn-danger w-100">Baca Artikel Wasting</a> -->
+        <a href="/artikelPendidikanKesehatan" class="btn btn-danger w-100">Baca Artikel Wasting</a>
         <a href="https://drive.google.com/file/d/1HwCDujS-ZRP1JFUSkCX7D_tl-yHa8bPG/view?usp=sharing" target="blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
       </div>
       <div class="col-6">
         <h2>Overweight Indonesia</h2>
         <div id="overweightChart"></div>
-        <!-- <a href="" class="btn btn-danger w-100">Baca Artikel Overweight</a> -->
+        <a href="/artikelPendidikanKesehatan" class="btn btn-danger w-100">Baca Artikel Overweight</a>
         <a href="https://drive.google.com/file/d/1h5Ba22QJMyISrQGjZ1FHHOUvspbDYHXc/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
       </div>
     </div>
   </div>
 </section>
+@else
+@if (Auth::user()->role == 'user')
+<section class="grafik-gizi py-5">
+ <div class="container">
+   <div class="row mb-5">
+     <div class="col-6">
+       <h2>Underweight Indonesia</h2>
+       <div id="underweightChart"></div>
+       <a href="/artikelPendidikanKesehatan/auth" class="btn btn-danger w-100">Baca Artikel Underweight</a>
+       <a href="https://drive.google.com/file/d/19uYPb0LXP00qse0xVLtZd63eK7cuZqzF/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
+     </div>
+     <div class="col-6">
+       <h2>Stunting Indonesia</h2>
+       <div id="stuntingChart"></div>
+       <a href="/artikelPendidikanKesehatan/auth" class="btn btn-danger w-100">Baca Artikel Stunting</a>
+       <a href="https://drive.google.com/file/d/1aa4kbN8H718SZHfodMvmNHy5Y61uytW_/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-6">
+       <h2>Wasting Indonesia</h2>
+       <div id="wastingChart"></div>
+       <a href="/artikelPendidikanKesehatan/auth" class="btn btn-danger w-100">Baca Artikel Wasting</a>
+       <a href="https://drive.google.com/file/d/1HwCDujS-ZRP1JFUSkCX7D_tl-yHa8bPG/view?usp=sharing" target="blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
+     </div>
+     <div class="col-6">
+       <h2>Overweight Indonesia</h2>
+       <div id="overweightChart"></div>
+       <a href="/artikelPendidikanKesehatan/auth" class="btn btn-danger w-100">Baca Artikel Overweight</a>
+       <a href="https://drive.google.com/file/d/1h5Ba22QJMyISrQGjZ1FHHOUvspbDYHXc/view?usp=sharing" target="_blank" class="btn btn-outline-primary w-100 mt-4">Download Hasil Survei Terkini</a>
+     </div>
+   </div>
+ </div>
+</section>
+ @endif
+ @endguest
 
 <!-- Informasi Lebih Lanjut -->
 <section class="info-bawah text-center pt-5">
