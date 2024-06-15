@@ -15,7 +15,22 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <!-- CRISP -->
-    <!-- <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="82c4ba15-4fa0-41da-bab8-a9281fe59437";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script> -->
+    @guest
+    @else
+    @if (Auth::user()->role === 'user')
+    <script type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "82c4ba15-4fa0-41da-bab8-a9281fe59437";
+        (function() {
+            d = document;
+            s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+    @endif
+    @endguest
 
     <!-- Z-Score (Kalkulator) -->
     <script src="{{ asset('Main/kalkulator/zscore.js') }}"></script>
@@ -138,7 +153,7 @@
 
     <!-- Profile -->
     @yield('profile')
-    
+
 </body>
 <script>
     const passwordField = document.getElementById("password");
