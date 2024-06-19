@@ -55,7 +55,7 @@
                   </div>
                 </div>
               </div>
-              <input type="submit" class="btn btn-primary w-100" id="btn-submit" />
+              <button type="submit" class="btn btn-primary w-100" id="btn-submit">Hitung</button>
             </form>
           </div>
         </div>
@@ -71,32 +71,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- Rekomendasi Artikel -->
-<section class="rekomendasi-artikel py-5">
-  <div class="container">
-    <!-- Rekomendasi Artikel -->
-    <div class="row mb-4">
-      @if(!empty($artikel))
-      @foreach($artikel as $item)
-      <div class="col-4">
-        <a href="/artikel/{{ $item->slug }}" class="card p-3" style="text-decoration: none;">
-          <p class="fw-bold mb-2">{{ $item->judul }}</p>
-          <p class="text-muted m-0">{{ $item->kategori }}</p>
-        </a>
-      </div>
-      @endforeach
-      @else
-      <div class="col-4">
-        <a href="/konsultasi" class="card p-3 bg-primary" style="text-decoration: none;">
-          <p class="fw-bold mb-2">Belum menemukan artikel yang sesuai?</p>
-          <p class="text-muted m-0">Jadwalkan konsultasi dengan dokter di Pelita</p>
-        </a>
-      </div>
-      @endif
-    </div>
-
   </div>
 </section>
 
