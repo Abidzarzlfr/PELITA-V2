@@ -59,7 +59,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->id_lokasi }}</td>
                     <td>{{ $user->dokter_nomor_str }}</td>
-                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" style="width: 125px; height: 50px"></td>
+                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" class="img-fluid"></td>
                     <td>{{ $user->dokter_kualifikasi }}</td>
                     <td>{{ $user->dokter_hp }}</td>
                     <td>
@@ -148,7 +148,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->id_lokasi }}</td>
                     <td>{{ $user->dokter_nomor_str }}</td>
-                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" style="width: 125px; height: 50px"></td>
+                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" class="img-fluid"></td>
                     <td>{{ $user->dokter_kualifikasi }}</td>
                     <td>{{ $user->dokter_hp }}</td>
                 </tr>
