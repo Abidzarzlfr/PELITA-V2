@@ -10,7 +10,7 @@
         @method('post')
         <div class="row">
             <div class="col-6">
-                <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="foto_konten" class="foto_konten mt-3 img-fluid rounded-3" />
+                <img src="{{ asset('Main/assets/main/input-image.png') }}" alt="foto_konten" class="foto_konten mt-3 img-fluid rounded-3" />
             </div>
             <div class="col-6">
                 <!-- Judul -->

@@ -13,7 +13,7 @@
             <div class="row my-5">
                 <!-- Foto Konten -->
                 <div class="col-6">
-                    <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" class="foto_konten img-fluid rounded-3" alt="foto_konten">
+                    <img src="{{ asset('Main/assets/main/input-image.png') }}" class="foto_konten img-fluid rounded-3" alt="foto_konten">
                 </div>
                 <div class="col-6">
                     <!-- Judul -->

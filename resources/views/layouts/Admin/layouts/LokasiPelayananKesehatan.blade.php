@@ -11,7 +11,7 @@
         <div class="row">
             <!-- Lokasi Preview -->
             <div class="col-6">
-                <img src="https://casf.com.au/wp-content/uploads/2022/01/silver_grey.png" alt="foto_lokasi" class="foto_lokasi img-fluid rounded-3" />
+                <img src="{{ asset('Main/assets/main/input-image.png') }}" alt="foto_lokasi" class="foto_lokasi img-fluid rounded-3" />
             </div>
             <!-- Input Field Lokasi -->
             <div class="col-6">
