@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('nama_penerbit');
             $table->string('foto_penerbit');
             $table->enum('artikel_request_status', ['requested', 'not requested', 'approved'])->default('not requested');
-            $table->string('foto_konten');
+            $table->longText('foto_konten');
             $table->longText('isi_konten');
             $table->date('tanggal')->nullable();
             $table->timestamps();
