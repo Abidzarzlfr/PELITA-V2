@@ -59,7 +59,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->id_lokasi }}</td>
                     <td>{{ $user->dokter_nomor_str }}</td>
-                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" class="img-fluid"></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalDokumenStr{{ $user->id }}" class="text-decoration-none text-black">Detail</a></td>
                     <td>{{ $user->dokter_kualifikasi }}</td>
                     <td>{{ $user->dokter_hp }}</td>
                     <td>
@@ -70,6 +70,20 @@
                         <a href="" data-bs-toggle="modal" data-bs-target="#rejectedDokterRequested{{ $user->id }}" class="text-decoration-none text-black">Tolak</a>
                     </td>
                 </tr>
+                <!-- Modal Dokumen STR -->
+                <div class="modal fade" id="modalDokumenStr{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDokumenStrLabel{{ $user->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalDokumenStrLabel{{ $user->id }}">Dokumen STR "{{ $user->name }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $user->dokter_dokumen_str }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Modal Confirmation Dokter Requested -->
                 <div class="modal fade" id="confirmationDokterRequested{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmationDokterRequestedLabel{{ $user->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -148,10 +162,24 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->id_lokasi }}</td>
                     <td>{{ $user->dokter_nomor_str }}</td>
-                    <td><img src="{{ $user->dokter_dokumen_str }}" alt="" class="img-fluid"></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalDokumenStr{{ $user->id }}" class="text-decoration-none text-black">Detail</a></td>
                     <td>{{ $user->dokter_kualifikasi }}</td>
                     <td>{{ $user->dokter_hp }}</td>
                 </tr>
+                <!-- Modal Dokumen STR -->
+                <div class="modal fade" id="modalDokumenStr{{ $user->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDokumenStrLabel{{ $user->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalDokumenStrLabel{{ $user->id }}">Dokumen STR "{{ $user->name }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $user->dokter_dokumen_str }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endif
                 @endforeach
             </tbody>

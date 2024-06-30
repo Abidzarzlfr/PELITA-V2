@@ -95,7 +95,8 @@
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $item->judul }}</td>
-                    <td><img src="{{ $item->foto_acara }}" class="img-fluid" /></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalFotoAcara{{ $item->id }}" class="text-decoration-none text-black">Detail</a></td>
+                    <!-- <td><img src="{{ $item->foto_acara }}" class="img-fluid" /></td> -->
                     <td>{{ $item->pemateri }}</td>
                     <td>{{ $item->jam_mulai }}</td>
                     <td>{{ $item->jam_selesai }}</td>
@@ -109,6 +110,20 @@
                         <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                     </td>
                 </tr>
+                <!-- Modal Foto Acara -->
+                <div class="modal fade" id="modalFotoAcara{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFotoAcaraLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalFotoAcaraLabel{{ $item->id }}">Foto Acara "{{ $item->judul }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $item->foto_acara }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Modal Update -->
                 <div class="modal fade" id="modalUpdate{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalUpdateLabel{{ $item->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">

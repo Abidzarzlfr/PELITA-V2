@@ -86,7 +86,7 @@
                     <td>{{ Str::limit($item->nama_lokasi, 40, '...') }}</td>
                     <td>{{ $item->provinsi }}</td>
                     <td>{{ $item->kota }}</td>
-                    <td><img src="{{ $item->foto_lokasi }}" class="img-fluid" /></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalFotoLokasi{{ $item->id }}" class="text-decoration-none text-black">Detail</a></td>
                     <td>{!! Str::limit($item->tentang_lokasi, 40, '...') !!}</td>
                     <td>{{ Str::limit($item->alamat_lokasi, 40, '...') }}</td>
                     <td>{{ Str::limit($item->link_maps, 10, '...') }}</td>
@@ -96,6 +96,20 @@
                         <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                     </td>
                 </tr>
+                <!-- Modal Foto Lokasi -->
+                <div class="modal fade" id="modalFotoLokasi{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFotoLokasiLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalFotoLokasiLabel{{ $item->id }}">Foto Lokasi "{{ $item->nama_lokasi }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $item->foto_lokasi }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Modal Update -->
                 <div class="modal fade" id="modalUpdate{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalUpdateLabel{{ $item->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">

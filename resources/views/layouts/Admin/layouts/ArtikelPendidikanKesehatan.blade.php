@@ -116,8 +116,8 @@
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->kelompok_usia }}</td>
                     <td>{{ $item->nama_penerbit }}</td>
-                    <td><img src="{{ $item->foto_penerbit }}" class="img-fluid" /></td>
-                    <td><img src="{{ $item->foto_konten }}" class="img-fluid" /></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalFotoPenerbit{{ $item->id }}" class="text-decoration-none text-black">Detail</a></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#modalFotoKonten{{ $item->id }}" class="text-decoration-none text-black">Detail</a></td>
                     <td>{!! Str::limit($item->isi_konten, 40, '...') !!}</td>
                     <td>
                         @if (!is_null($item->tanggal))
@@ -132,6 +132,34 @@
                         <a href="" data-bs-toggle="modal" data-bs-target="#modalDelete{{ $item->id }}" class="text-decoration-none text-black">Hapus</a>
                     </td>
                 </tr>
+                <!-- Modal Foto Penerbit -->
+                <div class="modal fade" id="modalFotoPenerbit{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFotoPenerbitLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalFotoPenerbitLabel{{ $item->id }}">Foto Penerbit "{{ $item->judul }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $item->foto_penerbit }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Foto Konten -->
+                <div class="modal fade" id="modalFotoKonten{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalFotoKontenLabel{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="modalFotoKontenLabel{{ $item->id }}">Foto Konten "{{ $item->judul }}"</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ $item->foto_konten }}" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Modal Update -->
                 <div class="modal fade" id="modalUpdate{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalUpdateLabel{{ $item->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
