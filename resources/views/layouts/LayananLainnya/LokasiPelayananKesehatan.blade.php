@@ -22,22 +22,38 @@
                         @endif
                         @endguest
                         <div class="d-flex gap-4">
+                            <!-- Provinsi -->
                             <div class="input-group pt-4">
+                                <select class="form-select text-center" aria-label="Provinsi" name="provinsi">
+                                    <option selected disabled>Provinsi</option>
+                                    <option value="DKI Jakarta">DKI Jakarta</option>
+                                    <option value="Jawa Barat">Jawa Barat</option>
+                                </select>
+                            </div>
+                            <!-- <div class="input-group pt-4">
                                 <select class="form-select text-center" aria-label="Provinsi" name="provinsi">
                                     <option selected disabled>Provinsi</option>
                                     @foreach ($lokasiPelayananKesehatan as $item)
                                     <option value="{{ $item->provinsi }}" @if(session('provinsi')==$item->provinsi) selected @endif>{{ $item->provinsi }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
+                            <!-- Kabupaten/Kota -->
                             <div class="input-group pt-4">
+                                <select class="form-select text-center" aria-label="Kabupaten/Kota" name="kota">
+                                    <option selected disabled>Kabupaten/Kota</option>
+                                    <option value="Bandung">Bandung</option>
+                                    <option value="Jakarta">Jakarta</option>
+                                </select>
+                            </div>
+                            <!-- <div class="input-group pt-4">
                                 <select class="form-select text-center" aria-label="Kabupaten/Kota" name="kota">
                                     <option selected disabled>Kabupaten/Kota</option>
                                     @foreach ($lokasiPelayananKesehatan as $item)
                                     <option value="{{ $item->kota }}" @if(session('kota')==$item->kota) selected @endif>{{ $item->kota }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                         <input type="submit" class="btn btn-primary w-100 mt-4" value="Temukan Lokasi Pelayanan Kesehatan">
                     </form>

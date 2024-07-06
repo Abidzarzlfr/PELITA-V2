@@ -9,7 +9,7 @@
         <div class="row">
             <!-- Detail Pelayanan Kesehatan -->
             <div class="col-6">
-                <img src="{{ $lokasiPelayananKesehatan->foto_lokasi }}" class="rounded-4 img-fluid w-100 mb-5" alt="">
+                <img src="{{ asset($lokasiPelayananKesehatan->foto_lokasi) }}" class="rounded-4 img-fluid w-100 mb-5" alt="">
                 <h2>{{ $lokasiPelayananKesehatan->nama_lokasi }}</h2>
                 <p class="fw-bold mt-4"><i class="fa-solid fa-circle-info me-2"></i>Tentang</p>
                 <p class="mt-4 text-justify">{!! $lokasiPelayananKesehatan->tentang_lokasi !!}</p>

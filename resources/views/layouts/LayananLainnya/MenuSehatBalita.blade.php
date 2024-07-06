@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row mb-5">
             @foreach ($menuSehat as $item)
-            <div class="col-md-3">
+            <div class="col-md-3 mb-4">
                 @guest
                 <a class="card" style="text-decoration: none;" href="/detailMenuSehatBalita/{{ $item->id }}">
                     @else
